@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+  <!-- TODO Add Nodes -->
+  <children>
+    <AnchorPane id="AnchorPane" layoutX="85.0" layoutY="190.0">
+      <children>
+        <Label layoutX="0.0" layoutY="0.0" text="Nombre:" textFill="#1400ff">
+          <font>
+            <Font name="AR DESTINE" size="33.0" fx:id="x1" />
+          </font>
+        </Label>
+        <Label font="$x1" layoutX="0.0" layoutY="66.0" text="PassWord:" textFill="#ff7a00" />
+        <TextField alignment="CENTER" layoutX="189.0" layoutY="0.0" prefHeight="44.0" prefWidth="246.0" promptText="" text="">
+          <effect>
+            <InnerShadow />
+          </effect>
+        </TextField>
+        <PasswordField alignment="CENTER" disable="false" focusTraversable="true" layoutX="189.0" layoutY="63.0" prefHeight="44.0" prefWidth="246.0">
+          <effect>
+            <InnerShadow />
+          </effect>
+        </PasswordField>
+      </children>
+    </AnchorPane>
+    <Button layoutX="231.0" layoutY="353.0" mnemonicParsing="false" prefHeight="69.0" prefWidth="175.0" styleClass="null" text="Entrar" textFill="BLACK">
+      <effect>
+        <Lighting specularConstant="0.8238095238095238" specularExponent="17.77777777777778" surfaceScale="4.674603174603175">
+          <bumpInput>
+            <Shadow />
+          </bumpInput>
+          <light>
+            <javafx.scene.effect.Light.Distant />
+          </light>
+        </Lighting>
+      </effect>
+      <font>
+        <Font name="Bodoni MT Black" size="25.0" />
+      </font>
+    </Button>
+    <ImageView id="UPSLP-logo.jpg" fitHeight="114.0" fitWidth="226.0" layoutX="365.0" layoutY="472.0">
+      <image>
+        <Image url="@../../../../../../../../Pictures/UPSLP-logo.jpg" preserveRatio="true" smooth="true" />
+      </image>
+    </ImageView>
+    <Label layoutX="111.0" layoutY="58.0" text="INTRANET-UPSLP" textFill="#606060">
+      <font>
+        <Font name="AR DESTINE" size="50.0" />
+      </font>
+    </Label>
+  </children>
+</AnchorPane>
