@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+<AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="ch.makery.address.MainApp">
   <!-- TODO Add Nodes -->
   <children>
     <AnchorPane id="AnchorPane" layoutX="85.0" layoutY="190.0">
@@ -31,7 +31,7 @@
         </PasswordField>
       </children>
     </AnchorPane>
-    <Button layoutX="231.0" layoutY="353.0" mnemonicParsing="false" prefHeight="69.0" prefWidth="175.0" styleClass="null" text="Entrar" textFill="BLACK">
+    <Button fx:id="myButton" layoutX="231.0" layoutY="353.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="69.0" prefWidth="175.0" styleClass="null" text="Entrar" textFill="BLACK">
       <effect>
         <Lighting specularConstant="0.8238095238095238" specularExponent="17.77777777777778" surfaceScale="4.674603174603175">
           <bumpInput>

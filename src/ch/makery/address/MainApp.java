@@ -1,7 +1,11 @@
+//UNIVERSIDAD POLITÉCNICA DE SAN LUIS POTOSÍ
 package ch.makery.address;
 
 import java.io.IOException;
+
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
@@ -42,9 +46,7 @@ public class MainApp extends Application {
         }
     }
 
-    /**
-     * Shows the person overview inside the root layout.
-     */
+   
     public void showPersonOverview() {
         try {
             // Load person overview.
@@ -59,15 +61,18 @@ public class MainApp extends Application {
         }
     }
 
-    /**
-     * Returns the main stage.
-     * @return
-     */
+    @FXML
+    private void handleButtonAction(ActionEvent event) {
+        // Button was clicked, do something...
+        System.out.println("Entre");
+    }
+    
     public Stage getPrimaryStage() {
         return primaryStage;
     }
 
     public static void main(String[] args) {
         launch(args);
+        
     }
 }
