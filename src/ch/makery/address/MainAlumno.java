@@ -7,17 +7,16 @@ import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
-public class MainApp extends Application {
+public class MainAlumno extends Application {
 
     private Stage primaryStage;
     private BorderPane rootLayout;
-    @SuppressWarnings("unused")
-	private MainAlumno alumno;
 
     @Override
     public void start(Stage primaryStage) {
@@ -32,11 +31,12 @@ public class MainApp extends Application {
     /**
      * Initializes the root layout.
      */
+   
     public void initRootLayout() {
         try {
             // Load root layout from fxml file.
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(MainApp.class.getResource("view/RootLayout.fxml"));
+            loader.setLocation(MainAlumno.class.getResource("view/RootLayout.fxml"));
             rootLayout = (BorderPane) loader.load();
 
             // Show the scene containing the root layout.
@@ -47,13 +47,13 @@ public class MainApp extends Application {
             e.printStackTrace();
         }
     }
-
+ 
    
     public void showPersonOverview() {
         try {
             // Load person overview.
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(MainApp.class.getResource("view/PersonOverview.fxml"));
+            loader.setLocation(MainAlumno.class.getResource("view/Profesor.fxml"));
             AnchorPane personOverview = (AnchorPane) loader.load();
 
             // Set person overview into the center of root layout.
@@ -63,12 +63,6 @@ public class MainApp extends Application {
         }
     }
 
-    @FXML
-    private void handleButtonAction(ActionEvent event) {
-    	alumno=new MainAlumno();
-    	
-    	
-    }
     
     public Stage getPrimaryStage() {
         return primaryStage;
