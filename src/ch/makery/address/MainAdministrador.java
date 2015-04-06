@@ -13,7 +13,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
-public class MainAlumno extends Application {
+public class MainAdministrador extends Application {
 
     private Stage primaryStage;
     private BorderPane rootLayout;
@@ -36,7 +36,7 @@ public class MainAlumno extends Application {
         try {
             // Load root layout from fxml file.
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(MainAlumno.class.getResource("view/RootLayoutBig.fxml"));
+            loader.setLocation(MainAdministrador.class.getResource("view/RootLayoutBig.fxml"));
             rootLayout = (BorderPane) loader.load();
 
             // Show the scene containing the root layout.
@@ -53,7 +53,7 @@ public class MainAlumno extends Application {
         try {
             // Load person overview.
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(MainAlumno.class.getResource("view/Alumno.fxml"));
+            loader.setLocation(MainAdministrador.class.getResource("view/Alumno.fxml"));
             AnchorPane personOverview = (AnchorPane) loader.load();
 
             // Set person overview into the center of root layout.
