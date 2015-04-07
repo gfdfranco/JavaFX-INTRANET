@@ -20,7 +20,12 @@ public class MainApp extends Application {
     @SuppressWarnings("unused")
 	private MainAlumno alumno;
     
-    private RadioButton radioAlumno, radioProfesor, radioAdministrador;
+    @FXML
+    private RadioButton radioAlumno;
+    @FXML
+    private RadioButton radioProfesor;
+    @FXML
+    private RadioButton radioAdministrador;
 
     @Override
     public void start(Stage primaryStage) {
@@ -74,14 +79,40 @@ public class MainApp extends Application {
 
     @FXML
     private void handleButtonAction(ActionEvent event) {
-    	  Application app2 = new MainProfesor(); 
-          Stage anotherStage = new Stage();
-          try {
-			app2.start(anotherStage);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+    	if(radioAlumno.isSelected())
+    	{
+    		Application app2 = new MainAlumno(); 
+            Stage anotherStage = new Stage();
+            try {
+            	app2.start(anotherStage);
+            } catch (Exception e) {
+  			// TODO Auto-generated catch block
+  			e.printStackTrace();
+            }
+    	}
+    	if(radioProfesor.isSelected())
+    	{
+    		Application app2 = new MainProfesor(); 
+            Stage anotherStage = new Stage();
+            try {
+            	app2.start(anotherStage);
+            } catch (Exception e) {
+  			// TODO Auto-generated catch block
+  			e.printStackTrace();
+            }
+    	}
+    	if(radioAdministrador.isSelected())
+    	{
+    		Application app2 = new MainAdministrador(); 
+            Stage anotherStage = new Stage();
+            try {
+            	app2.start(anotherStage);
+            } catch (Exception e) {
+  			// TODO Auto-generated catch block
+  			e.printStackTrace();
+            }
+    	}
+    	
         
     }
     

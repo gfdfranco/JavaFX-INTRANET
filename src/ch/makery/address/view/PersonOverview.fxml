@@ -56,12 +56,15 @@
         <Font name="AR DESTINE" size="50.0" />
       </font>
     </Label>
-    <RadioButton id="radioAlumno" layoutX="71.0" layoutY="328.0" mnemonicParsing="false" selected="true" text="Alumno">
+    <RadioButton fx:id="radioAlumno" layoutX="71.0" layoutY="328.0" mnemonicParsing="false" selected="true" text="Alumno">
       <font>
         <Font name="AR DESTINE" size="22.0" fx:id="x2" />
       </font>
+      <toggleGroup>
+        <ToggleGroup fx:id="vista" />
+      </toggleGroup>
     </RadioButton>
-    <RadioButton font="$x2" layoutX="225.0" layoutY="328.0" mnemonicParsing="false" selected="false" text="Profesor" />
-    <RadioButton font="$x2" layoutX="390.0" layoutY="328.0" mnemonicParsing="false" selected="false" text="Administrador" />
+    <RadioButton fx:id="radioProfesor" font="$x2" layoutX="225.0" layoutY="328.0" mnemonicParsing="false" selected="false" text="Profesor" toggleGroup="$vista" />
+    <RadioButton fx:id="radioAdministrador" font="$x2" layoutX="390.0" layoutY="328.0" mnemonicParsing="false" selected="false" text="Administrador" toggleGroup="$vista" />
   </children>
 </AnchorPane>
