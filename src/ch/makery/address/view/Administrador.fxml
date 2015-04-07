@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="700.0" prefWidth="1200.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+  <!-- TODO Add Nodes -->
+  <children>
+    <Label layoutX="14.0" layoutY="14.0" text="INTRANET-UPSLP" textFill="#606060">
+      <font>
+        <Font name="AR DESTINE" size="50.0" />
+      </font>
+    </Label>
+    <Label layoutX="22.0" layoutY="74.0" text="Bienvenido administrador" textFill="BLACK">
+      <font>
+        <Font name="AR DESTINE" size="30.0" fx:id="x6" />
+      </font>
+    </Label>
+    <TabPane layoutX="22.0" layoutY="119.0" prefHeight="414.0" prefWidth="1152.0" tabClosingPolicy="UNAVAILABLE">
+      <tabs>
+        <Tab text="Registrar profesor">
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <children>
+                <AnchorPane id="AnchorPane" layoutX="22.0" layoutY="23.0">
+                  <children>
+                    <Label layoutX="0.0" layoutY="0.0" prefHeight="48.0" prefWidth="234.9998779296875" text="Nombre de profesor:">
+                      <font>
+                        <Font name="AR CENA" size="30.0" fx:id="x1" />
+                      </font>
+                    </Label>
+                    <Label font="$x1" layoutX="129.0" layoutY="66.0" prefHeight="48.0" prefWidth="79.0" text="RFC:" />
+                    <Label font="$x1" layoutX="89.0" layoutY="129.0" prefHeight="48.0" prefWidth="129.0" text="Teléfono:" />
+                    <Label font="$x1" layoutX="89.0" layoutY="193.0" prefHeight="48.0" prefWidth="129.0" text="Dirección:" />
+                    <TextField layoutX="235.0" layoutY="0.0" prefHeight="48.0" prefWidth="459.0" />
+                    <TextField layoutX="235.0" layoutY="66.0" prefHeight="48.0" prefWidth="459.0" />
+                    <TextField layoutX="235.0" layoutY="129.0" prefHeight="48.0" prefWidth="459.0" />
+                    <TextField layoutX="235.0" layoutY="201.0" prefHeight="48.0" prefWidth="459.0" />
+                    <Label font="$x1" layoutX="45.0" layoutY="273.0" prefHeight="48.0" prefWidth="190.0" text="Año de ingreso:" />
+                    <TextField layoutX="235.0" layoutY="266.0" prefHeight="48.0" prefWidth="459.0" />
+                  </children>
+                </AnchorPane>
+                <Label font="$x1" layoutX="740.0" layoutY="23.0" prefHeight="48.0" prefWidth="119.0" text="Usuario:" />
+                <TextField layoutX="846.0" layoutY="23.0" prefHeight="48.0" prefWidth="288.0" />
+                <Label font="$x1" layoutX="740.0" layoutY="152.0" prefHeight="48.0" prefWidth="133.0" text="PassWord:" />
+                <PasswordField layoutX="864.0" layoutY="152.0" prefHeight="48.0" prefWidth="274.0" />
+                <Label font="$x1" layoutX="740.0" layoutY="224.0" prefHeight="48.0" prefWidth="133.0" text="Confirmar:" />
+                <PasswordField layoutX="864.0" layoutY="224.0" prefHeight="48.0" prefWidth="274.0" />
+                <Label font="$x1" layoutX="740.0" layoutY="89.0" prefHeight="48.0" prefWidth="119.0" text="Email:" />
+                <TextField layoutX="825.0" layoutY="89.0" prefHeight="48.0" prefWidth="313.0" />
+                <Button layoutX="837.0" layoutY="286.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="231.0" text="Registrar Profesor">
+                  <effect>
+                    <Lighting>
+                      <bumpInput>
+                        <Shadow />
+                      </bumpInput>
+                      <light>
+                        <javafx.scene.effect.Light.Distant>
+                          <color>
+                            <Color blue="0.000" green="0.478" red="1.000" fx:id="x8" />
+                          </color>
+                        </javafx.scene.effect.Light.Distant>
+                      </light>
+                    </Lighting>
+                  </effect>
+                  <font>
+                    <Font name="AR CENA" size="26.0" fx:id="x2" />
+                  </font>
+                </Button>
+              </children>
+            </AnchorPane>
+          </content>
+        </Tab>
+        <Tab text="Registrar Alumno">
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <children>
+                <AnchorPane id="AnchorPane" layoutX="44.0" layoutY="23.0">
+                  <children>
+                    <Label font="$x1" layoutX="0.0" layoutY="0.0" prefHeight="48.0" prefWidth="234.9998779296875" text="Nombre de alumno:" />
+                    <Label font="$x1" layoutX="85.0" layoutY="66.0" prefHeight="48.0" prefWidth="137.0" text="Matrícula" />
+                    <Label font="$x1" layoutX="89.0" layoutY="129.0" prefHeight="48.0" prefWidth="129.0" text="Teléfono:" />
+                    <Label font="$x1" layoutX="89.0" layoutY="193.0" prefHeight="48.0" prefWidth="129.0" text="Dirección:" />
+                    <TextField layoutX="235.0" layoutY="0.0" prefHeight="48.0" prefWidth="445.0" />
+                    <TextField layoutX="235.0" layoutY="66.0" prefHeight="48.0" prefWidth="445.0" />
+                    <TextField layoutX="235.0" layoutY="129.0" prefHeight="48.0" prefWidth="445.0" />
+                    <TextField layoutX="235.0" layoutY="201.0" prefHeight="48.0" prefWidth="445.0" />
+                    <Label font="$x1" layoutX="45.0" layoutY="273.0" prefHeight="48.0" prefWidth="190.0" text="Año de ingreso:" />
+                    <TextField layoutX="235.0" layoutY="266.0" prefHeight="48.0" prefWidth="445.0" />
+                  </children>
+                </AnchorPane>
+                <Label font="$x1" layoutX="736.0" layoutY="23.0" prefHeight="48.0" prefWidth="110.0" text="Carrera:" />
+                <TextField layoutX="829.0" layoutY="22.0" prefHeight="49.0" prefWidth="309.0" />
+                <Label font="$x1" layoutX="730.0" layoutY="152.0" prefHeight="48.0" prefWidth="133.0" text="PassWord:" />
+                <PasswordField layoutX="868.0" layoutY="152.0" prefHeight="48.0" prefWidth="274.0" />
+                <Label font="$x1" layoutX="735.0" layoutY="224.0" prefHeight="48.0" prefWidth="133.0" text="Confirmar:" />
+                <PasswordField layoutX="868.0" layoutY="224.0" prefHeight="48.0" prefWidth="274.0" />
+                <Label font="$x1" layoutX="744.0" layoutY="89.0" prefHeight="48.0" prefWidth="119.0" text="Email:" />
+                <TextField layoutX="829.0" layoutY="89.0" prefHeight="48.0" prefWidth="313.0" />
+                <Button font="$x2" layoutX="829.0" layoutY="287.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="231.0" text="Registrar Alumno">
+                  <effect>
+                    <Lighting>
+                      <bumpInput>
+                        <Shadow />
+                      </bumpInput>
+                      <light>
+                        <javafx.scene.effect.Light.Distant>
+                          <color>
+                            <Color blue="0.000" green="0.478" red="1.000" fx:id="x3" />
+                          </color>
+                        </javafx.scene.effect.Light.Distant>
+                      </light>
+                    </Lighting>
+                  </effect>
+                </Button>
+              </children>
+            </AnchorPane>
+          </content>
+        </Tab>
+        <Tab text="Registrar Materia">
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <children>
+                <AnchorPane id="AnchorPane" layoutX="14.0" layoutY="23.0">
+                  <children>
+                    <Label font="$x1" layoutX="0.0" layoutY="0.0" prefHeight="48.0" prefWidth="234.9998779296875" text="Nombre de materia:" />
+                    <Label font="$x1" layoutX="129.0" layoutY="66.0" prefHeight="48.0" prefWidth="79.0" text="Clave:" />
+                    <Label font="$x1" layoutX="98.0" layoutY="129.0" prefHeight="48.0" prefWidth="129.0" text="Profesor:" />
+                    <Label font="$x1" layoutX="135.0" layoutY="193.0" prefHeight="48.0" prefWidth="92.0" text="Aula:" />
+                    <TextField layoutX="235.0" layoutY="0.0" prefHeight="48.0" prefWidth="459.0" />
+                    <TextField layoutX="235.0" layoutY="66.0" prefHeight="48.0" prefWidth="459.0" />
+                    <TextField layoutX="235.0" layoutY="129.0" prefHeight="48.0" prefWidth="459.0" />
+                    <TextField layoutX="235.0" layoutY="201.0" prefHeight="48.0" prefWidth="459.0" />
+                    <Label font="$x1" layoutX="123.0" layoutY="258.0" prefHeight="48.0" prefWidth="79.0" text="Hora:" />
+                    <TextField layoutX="235.0" layoutY="266.0" prefHeight="48.0" prefWidth="459.0" />
+                  </children>
+                </AnchorPane>
+                <TextField layoutX="858.0" layoutY="23.0" prefHeight="48.0" prefWidth="214.0" />
+                <Label font="$x1" layoutX="748.0" layoutY="23.0" prefHeight="48.0" prefWidth="110.0" text="Carrera:" />
+                <Button font="$x2" layoutX="841.0" layoutY="275.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="231.0" text="Registrar Materia">
+                  <effect>
+                    <Lighting>
+                      <bumpInput>
+                        <Shadow />
+                      </bumpInput>
+                      <light>
+                        <javafx.scene.effect.Light.Distant color="$x3" />
+                      </light>
+                    </Lighting>
+                  </effect>
+                </Button>
+              </children>
+            </AnchorPane>
+          </content>
+        </Tab>
+        <Tab text="Registrar Administrador">
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <children>
+                <AnchorPane id="AnchorPane" layoutX="36.0" layoutY="23.0">
+                  <children>
+                    <Label font="$x1" layoutX="0.0" layoutY="0.0" prefHeight="48.0" prefWidth="303.0" text="Nombre de administrador:" />
+                    <Label font="$x1" layoutX="176.0" layoutY="66.0" prefHeight="48.0" prefWidth="101.0" text="Usuario:" />
+                    <Label font="$x1" layoutX="195.0" layoutY="129.0" prefHeight="48.0" prefWidth="80.0" text="email:" />
+                    <Label font="$x1" layoutX="166.0" layoutY="193.0" prefHeight="48.0" prefWidth="101.0" text="Teléfono:" />
+                    <TextField layoutX="288.0" layoutY="0.0" prefHeight="48.0" prefWidth="459.0" />
+                    <TextField layoutX="288.0" layoutY="66.0" prefHeight="48.0" prefWidth="459.0" />
+                    <TextField layoutX="288.0" layoutY="129.0" prefHeight="48.0" prefWidth="459.0" />
+                    <TextField layoutX="288.0" layoutY="201.0" prefHeight="48.0" prefWidth="459.0" />
+                    <Label font="$x1" layoutX="150.0" layoutY="273.0" prefHeight="48.0" prefWidth="133.0" text="PassWord:" />
+                    <PasswordField layoutX="288.0" layoutY="273.0" prefHeight="48.0" prefWidth="459.0" />
+                  </children>
+                </AnchorPane>
+                <Label font="$x1" layoutX="846.0" layoutY="38.0" prefHeight="48.0" prefWidth="244.0" text="Confirmar PassWord:" />
+                <PasswordField layoutX="825.0" layoutY="89.0" prefHeight="48.0" prefWidth="303.0" />
+                <Button font="$x2" layoutX="834.0" layoutY="278.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="268.0" text="Registrar Administrador">
+                  <effect>
+                    <Lighting>
+                      <bumpInput>
+                        <Shadow />
+                      </bumpInput>
+                      <light>
+                        <javafx.scene.effect.Light.Distant color="$x3" />
+                      </light>
+                    </Lighting>
+                  </effect>
+                </Button>
+              </children>
+            </AnchorPane>
+          </content>
+        </Tab>
+        <Tab text="Eliminar Registro">
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <children>
+                <Label font="$x1" layoutX="270.0" layoutY="31.0" prefHeight="48.0" prefWidth="228.0" text="Nombre de Usuario:" />
+                <TextField layoutX="498.0" layoutY="31.0" prefHeight="48.0" prefWidth="459.0" />
+                <Label font="$x1" layoutX="33.0" layoutY="31.0" prefHeight="48.0" prefWidth="212.0" text="Eliminar profesor" textFill="RED" />
+                <Label font="$x1" layoutX="347.0" layoutY="135.0" prefHeight="48.0" prefWidth="126.0" text="Matrícula" />
+                <TextField layoutX="498.0" layoutY="135.0" prefHeight="48.0" prefWidth="459.0" />
+                <Label font="$x1" layoutX="33.0" layoutY="135.0" prefHeight="48.0" prefWidth="212.0" text="Eliminar Alumno" textFill="RED" />
+                <Label font="$x1" layoutX="260.0" layoutY="238.0" prefHeight="48.0" prefWidth="228.0" text="Clave de la Materia:" />
+                <TextField layoutX="498.0" layoutY="238.0" prefHeight="48.0" prefWidth="459.0" />
+                <Label font="$x1" layoutX="33.0" layoutY="238.0" prefHeight="48.0" prefWidth="212.0" text="Eliminar Materia" textFill="RED" />
+                <Button layoutX="988.0" layoutY="31.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="110.0" text="Eliminar" textFill="#202020">
+                  <effect>
+                    <Lighting>
+                      <bumpInput>
+                        <Shadow />
+                      </bumpInput>
+                      <light>
+                        <javafx.scene.effect.Light.Distant>
+                          <color>
+                            <Color blue="0.200" green="0.200" red="1.000" fx:id="x4" />
+                          </color>
+                        </javafx.scene.effect.Light.Distant>
+                      </light>
+                    </Lighting>
+                  </effect>
+                  <font>
+                    <Font name="AR CENA" size="22.0" fx:id="x5" />
+                  </font>
+                </Button>
+                <Button font="$x5" layoutX="988.0" layoutY="138.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="110.0" text="Eliminar">
+                  <effect>
+                    <Lighting>
+                      <bumpInput>
+                        <Shadow />
+                      </bumpInput>
+                      <light>
+                        <javafx.scene.effect.Light.Distant color="$x4" />
+                      </light>
+                    </Lighting>
+                  </effect>
+                  <textFill>
+                    <Color blue="0.125" green="0.125" red="0.125" fx:id="x7" />
+                  </textFill>
+                </Button>
+                <Button font="$x5" layoutX="988.0" layoutY="241.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="110.0" text="Eliminar" textFill="$x7">
+                  <effect>
+                    <Lighting>
+                      <bumpInput>
+                        <Shadow />
+                      </bumpInput>
+                      <light>
+                        <javafx.scene.effect.Light.Distant color="$x4" />
+                      </light>
+                    </Lighting>
+                  </effect>
+                </Button>
+              </children>
+            </AnchorPane>
+          </content>
+        </Tab>
+        <Tab text="Consultas">
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <children>
+                <Label font="$x1" layoutX="23.0" layoutY="44.0" prefHeight="48.0" prefWidth="402.0" text="Dame clave, matrícula o usuario" />
+                <TextField layoutX="399.0" layoutY="44.0" prefHeight="48.0" prefWidth="459.0" />
+                <Button font="$x2" layoutX="909.0" layoutY="40.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="175.0" text="Buscar">
+                  <effect>
+                    <Lighting>
+                      <bumpInput>
+                        <Shadow />
+                      </bumpInput>
+                      <light>
+                        <javafx.scene.effect.Light.Distant color="$x8" />
+                      </light>
+                    </Lighting>
+                  </effect>
+                </Button>
+              </children>
+            </AnchorPane>
+          </content>
+        </Tab>
+      </tabs>
+    </TabPane>
+    <ImageView id="UPSLP-logo.jpg" fitHeight="121.0" fitWidth="288.0" layoutX="886.0" layoutY="551.0">
+      <image>
+        <Image url="@../../../../../images/UPSLP-logo.jpg" preserveRatio="true" smooth="true" />
+      </image>
+    </ImageView>
+    <Button font="$x6" layoutX="36.0" layoutY="612.0" mnemonicParsing="false" prefHeight="47.999900000002526" prefWidth="151.0" text="Salir" textFill="BLACK">
+      <effect>
+        <Lighting diffuseConstant="2.0" specularConstant="0.5063492063492063" surfaceScale="6.738095238095239">
+          <bumpInput>
+            <Shadow />
+          </bumpInput>
+          <light>
+            <javafx.scene.effect.Light.Distant color="$x4" />
+          </light>
+        </Lighting>
+      </effect>
+    </Button>
+  </children>
+</AnchorPane>

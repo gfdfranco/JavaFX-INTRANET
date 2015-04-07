@@ -8,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.RadioButton;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -18,6 +19,8 @@ public class MainApp extends Application {
     private BorderPane rootLayout;
     @SuppressWarnings("unused")
 	private MainAlumno alumno;
+    
+    private RadioButton radioAlumno, radioProfesor, radioAdministrador;
 
     @Override
     public void start(Stage primaryStage) {

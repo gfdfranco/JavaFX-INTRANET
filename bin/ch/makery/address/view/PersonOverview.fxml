@@ -31,7 +31,7 @@
         </PasswordField>
       </children>
     </AnchorPane>
-    <Button fx:id="myButton" layoutX="231.0" layoutY="353.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="69.0" prefWidth="175.0" styleClass="null" text="Entrar" textFill="BLACK">
+    <Button fx:id="myButton" layoutX="215.0" layoutY="389.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="69.0" prefWidth="175.0" styleClass="null" text="Entrar" textFill="BLACK">
       <effect>
         <Lighting specularConstant="0.8238095238095238" specularExponent="17.77777777777778" surfaceScale="4.674603174603175">
           <bumpInput>
@@ -56,5 +56,12 @@
         <Font name="AR DESTINE" size="50.0" />
       </font>
     </Label>
+    <RadioButton id="radioAlumno" layoutX="71.0" layoutY="328.0" mnemonicParsing="false" selected="true" text="Alumno">
+      <font>
+        <Font name="AR DESTINE" size="22.0" fx:id="x2" />
+      </font>
+    </RadioButton>
+    <RadioButton font="$x2" layoutX="225.0" layoutY="328.0" mnemonicParsing="false" selected="false" text="Profesor" />
+    <RadioButton font="$x2" layoutX="390.0" layoutY="328.0" mnemonicParsing="false" selected="false" text="Administrador" />
   </children>
 </AnchorPane>
