@@ -72,8 +72,6 @@ public class MainAdministrador extends Application {
 	@FXML TextField banioP;
 	@FXML TextField bclaveP;
 	@FXML TextField bemailP;
-	@FXML TextField bpassP;
-	@FXML TextField bpass2P;
 	
 	/* Datos Alumno */
 	@FXML TextField bnomA;
@@ -83,8 +81,6 @@ public class MainAdministrador extends Application {
 	@FXML TextField banioA;
 	@FXML TextField bcarreraA;
 	@FXML TextField bmailA;
-	@FXML TextField bpassA;
-	@FXML TextField bpass2A;
 	
 	/* Datos Materia */
 	@FXML TextField bnomM;
