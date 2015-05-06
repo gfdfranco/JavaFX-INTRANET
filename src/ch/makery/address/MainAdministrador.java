@@ -1,6 +1,7 @@
 package ch.makery.address;
 
 import java.io.IOException;
+import java.util.HashMap;
 
 import javax.swing.JOptionPane;
 
@@ -61,6 +62,37 @@ public class MainAdministrador extends Application {
 	@FXML TextField delUserP;
 	@FXML TextField delMatA;
 	@FXML TextField delClaveA;
+	
+	/* Datos Profesor */
+	
+	@FXML TextField bnomP;
+	@FXML TextField brfcP;
+	@FXML TextField btelP;
+	@FXML TextField bdirP;
+	@FXML TextField banioP;
+	@FXML TextField bclaveP;
+	@FXML TextField bemailP;
+	@FXML TextField bpassP;
+	@FXML TextField bpass2P;
+	
+	/* Datos Alumno */
+	@FXML TextField bnomA;
+	@FXML TextField bmatA;
+	@FXML TextField btelA;
+	@FXML TextField bdirA;
+	@FXML TextField banioA;
+	@FXML TextField bcarreraA;
+	@FXML TextField bmailA;
+	@FXML TextField bpassA;
+	@FXML TextField bpass2A;
+	
+	/* Datos Materia */
+	@FXML TextField bnomM;
+	@FXML TextField bclaveM;
+	@FXML TextField bprofM;
+	@FXML TextField baulaM;
+	@FXML TextField bhoraM;
+	@FXML TextField bcarreraM;
 	
 
     private Stage primaryStage;
@@ -130,17 +162,17 @@ public class MainAdministrador extends Application {
 	    	if(passP.getText().equals(pass2P.getText())){
 	    		data[7] = passP.getText();
 	    	}else{
-	    		JOptionPane.showMessageDialog(null, "Las contraseñas no concuerdan");
+	    		error("Las contraseñas no concuerdan");
 	    		return;
 	    	}
 	    	
 	    	if(db.insert("PROFESOR", data))
-	    		JOptionPane.showMessageDialog(null, "Profesor agregado con Exito!");
+	    		error("Profesor agregado con Exito!");
 	    	else
-	    		JOptionPane.showMessageDialog(null, "Error al ingresar al profesor ");
+	    		error("Error al ingresar al Profesor");
     	
     	}catch(NullPointerException e){
-    		JOptionPane.showMessageDialog(null, "Llena todos los campos");
+    		error("Llena todos los campos");
     	}
     	
     }
@@ -159,17 +191,17 @@ public class MainAdministrador extends Application {
 	    	if(passA.getText().equals(pass2A.getText())){
 	    		data[7] = passA.getText();
 	    	}else{
-	    		JOptionPane.showMessageDialog(null, "Las contraseñas no concuerdan");
+	    		error("Las contraseñas no concuerdan");
 	    		return;
 	    	}
 	    	
 	    	if(db.insert("ALUMNO", data))
-	    		JOptionPane.showMessageDialog(null, "Alumno agregado con Exito!");
+	    		error("Alumno agregada con Exito!");
 	    	else
-	    		JOptionPane.showMessageDialog(null, "Error al ingresar al Alumno ");
+	    		error("Error al ingresar al Alumno");
     	
     	}catch(NullPointerException e){
-    		JOptionPane.showMessageDialog(null, "Llena todos los campos");
+    		error("Llena todos los campos");
     	}
     	
     }
@@ -185,12 +217,12 @@ public class MainAdministrador extends Application {
 	    	data[5] = carreraM.getText();
 	    	
 	    	if(db.insert("MATERIA", data))
-	    		JOptionPane.showMessageDialog(null, "Materia agregada con Exito!");
+	    		error("Materia agregada con Exito!");
 	    	else
-	    		JOptionPane.showMessageDialog(null, "Error al ingresar la materia ");
+	    		error("Error al ingresar la materia");
 	    	
     	}catch(NullPointerException e){
-    		JOptionPane.showMessageDialog(null, "Llena todos los campos");
+    		error("Llena todos los campos");
     	}
     	
     }
@@ -206,43 +238,112 @@ public class MainAdministrador extends Application {
 	    	if(passAdm.getText().equals(pass2Adm.getText())){
 	    		data[4] = passAdm.getText();
 	    	}else{
-	    		JOptionPane.showMessageDialog(null, "Las contraseñas no concuerdan");
+	    		error("Las contraseñas no concuerdan");
 	    		return;
 	    	}
 	    	
 	    	if(db.insert("ADMINISTRADOR", data))
-	    		JOptionPane.showMessageDialog(null, "Admin agregado con Exito!");
-	    	else
-	    		JOptionPane.showMessageDialog(null, "Error al ingresar el Admin ");
+	    		error("Admin eliminado con exito");
+    		else
+    			error("Error al eliminar el Admin");
 	    	
     	}catch(NullPointerException e){
-    		JOptionPane.showMessageDialog(null, "Llena todos los campos");
+    		error("Llena todos los campos");
     	}
     	
     }
     
     public void deleteProfe(){
     	try{
-    		db.free("DELETE FROM PROFESOR WHERE USUARIO = " + delUserP.getText());
+    		if(db.free("DELETE FROM PROFESOR WHERE USUARIO = " + delUserP.getText()))
+    			error("Usuario eliminado con exito");
+    		else
+    			error("Error al eliminar el usuario");
     	}catch(NullPointerException e){
-    		JOptionPane.showMessageDialog(null, "Llena todos los campos");
+    		error("Llena todos los campos");
     	}
     }
     
     public void deleteAlum(){
     	try{
-    		db.free("DELETE FROM ALUMNO WHERE MATRICULA = " + delMatA.getText());
+    		if(db.free("DELETE FROM ALUMNO WHERE MATRICULA = " + delMatA.getText()))
+    			error("Usuario eliminado con exito");
+    		else
+    			error("Error al eliminar el usuario");
     	}catch(NullPointerException e){
-    		JOptionPane.showMessageDialog(null, "Llena todos los campos");
+    		error("Llena todos los campos");
     	}
     }
     
     public void deleteMat(){
     	try{
-    		db.free("DELETE FROM MATERIA WHERE CLAVE = " + delClaveA.getText());
+    		if(db.free("DELETE FROM MATERIA WHERE CLAVE = " + delClaveA.getText()))
+    			error("Materia eliminado con exito");
+    		else
+    			error("Error al eliminar la materia");
     	}catch(NullPointerException e){
-    		JOptionPane.showMessageDialog(null, "Llena todos los campos");
+    		error("Llena todos los campos");
     	}
+    }
+    
+    public void searchProf(){
+    	try{
+    		HashMap<String, String> data;
+    		data = db.fetchArray("PROFESOR", "CLAVE", bclaveP.getText());
+    		if(data == null){
+    			error("El profesor no existe");
+    			return;
+    		}
+    		bnomP.setText(data.get("NOMBRE"));
+    		brfcP.setText(data.get("RFC"));
+    		bdirP.setText(data.get("DIRECCION"));
+    		btelP.setText(data.get("TELEFONO"));
+    		banioP.setText(data.get("AO_INGRESO"));
+    		bemailP.setText(data.get("EMAIL"));    		
+    	}catch(NullPointerException e){
+    		error("Llena todos los campos");
+    	}
+    }
+    
+    public void searchAlum(){
+    	try{
+    		HashMap<String, String> data;
+    		data = db.fetchArray("ALUMNO", "MATRICULA", bmatA.getText());
+    		if(data == null){
+    			error("El alumno no existe");
+    			return;
+    		}
+    		bnomA.setText(data.get("NOMBRE"));
+    		btelA.setText(data.get("TELEFONO"));
+    		bdirA.setText(data.get("DIRECCION"));
+    		banioP.setText(data.get("AO_INGRESO"));
+    		bemailP.setText(data.get("EMAIL"));
+    		bcarreraA.setText(data.get("CARRERA"));
+    	}catch(NullPointerException e){
+    		error("Llena todos los campos");
+    	}
+    }
+    
+    public void searchMat(){
+    	try{
+    		HashMap<String, String> data;
+    		data = db.fetchArray("MATERIA", "CLAVE", bclaveM.getText());
+    		if(data == null){
+    			error("La materia no existe");
+    			return;
+    		}
+    		bnomM.setText(data.get("NOMBRE"));
+    		bprofM.setText(data.get("ID_PROFESOR"));
+    		baulaM.setText(data.get("AULA"));
+    		bhoraM.setText(data.get("HORA"));
+    		bcarreraM.setText(data.get("CARRERA"));
+    	}catch(NullPointerException e){
+    		error("Llena todos los campos");
+    	}
+    }
+    
+    public void error(String txt){
+    	JOptionPane.showMessageDialog(null, txt);
     }
     
     public Stage getPrimaryStage() {

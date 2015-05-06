@@ -43,15 +43,17 @@ public class DataBaseSQL implements Connection {
         //DataBaseSQL db = new DataBaseSQL();
     }
 
-    public void free(String q){
+    public boolean free(String q){
         try {
             Statement query = (Statement) connection.createStatement();
             System.out.println("free: " + q);
             query.executeUpdate(q);
             System.out.println("Exito");
             query.close();
+            return true;
         } catch (SQLException e) {
             System.out.println("FAIL");
+            return false;
         }
     }
     
@@ -68,7 +70,7 @@ public class DataBaseSQL implements Connection {
                     return false;
             }
             
-            q1 = "insert into " + tabla + " values( null, ";
+            q1 = "insert into " + tabla + " values(";
             
             for(String txt : values){
                 if(txt.equals("NULL"))
@@ -108,12 +110,12 @@ public class DataBaseSQL implements Connection {
         return numberRow;
     }
     
-    public HashMap<String, String>fetchArray(String table, int index){
+    public HashMap<String, String>fetchArray(String table, String delimiter, String index){
         HashMap<String, String> mapa = new HashMap<String, String>();
         
         try{
             Statement query = (Statement) connection.createStatement();
-            String comando = "SELECT * FROM " + table + " WHERE ID = " + index;
+            String comando = "SELECT * FROM " + table + " WHERE ´" + delimiter + "´ = " + index;
             System.out.println("fetchArray: " + comando);
             ResultSet rs = query.executeQuery(comando);
             
