@@ -20,80 +20,47 @@ public class MainAdministrador extends Application {
 	//CONTROLADOR DE FXML.................................................
 
 	/* Datos Profesor */
-	@FXML
-	TextField nomP;
-	@FXML
-	TextField rfcP;
-	@FXML
-	TextField telP;
-	@FXML
-	TextField dirP;
-	@FXML
-	TextField anioP;
-	@FXML
-	TextField usuarioP;
-	@FXML
-	TextField emailP;
-	@FXML
-	TextField passP;
-	@FXML
-	TextField pass2P;
+	@FXML TextField nomP;
+	@FXML TextField rfcP;
+	@FXML TextField telP;
+	@FXML TextField dirP;
+	@FXML TextField anioP;
+	@FXML TextField usuarioP;
+	@FXML TextField emailP;
+	@FXML TextField passP;
+	@FXML TextField pass2P;
 	
 	/* Datos Alumno */
-	@FXML
-	TextField nomA;
-	@FXML
-	TextField matA;
-	@FXML
-	TextField telA;
-	@FXML
-	TextField dirA;
-	@FXML
-	TextField anioA;
-	@FXML
-	TextField carreraA;
-	@FXML
-	TextField mailA;
-	@FXML
-	TextField passA;
-	@FXML
-	TextField pass2A;
+	@FXML TextField nomA;
+	@FXML TextField matA;
+	@FXML TextField telA;
+	@FXML TextField dirA;
+	@FXML TextField anioA;
+	@FXML TextField carreraA;
+	@FXML TextField mailA;
+	@FXML TextField passA;
+	@FXML TextField pass2A;
 	
 	/* Datos Materia */
-	@FXML
-	TextField nomM;
-	@FXML
-	TextField claveM;
-	@FXML
-	TextField profM;
-	@FXML
-	TextField aulaM;
-	@FXML
-	TextField horaM;
-	@FXML
-	TextField carreraM;
+	@FXML TextField nomM;
+	@FXML TextField claveM;
+	@FXML TextField profM;
+	@FXML TextField aulaM;
+	@FXML TextField horaM;
+	@FXML TextField carreraM;
 	
 	/* Datos Admin */
-	@FXML
-	TextField nomAdm;
-	@FXML
-	TextField userAdm;
-	@FXML
-	TextField mailAdm;
-	@FXML
-	TextField telAdm;
-	@FXML
-	TextField passAdm;
-	@FXML
-	TextField pass2Adm;
+	@FXML TextField nomAdm;
+	@FXML TextField userAdm;
+	@FXML TextField mailAdm;
+	@FXML TextField telAdm;
+	@FXML TextField passAdm;
+	@FXML TextField pass2Adm;
 	
 	/* Datos Eliminar */
-	@FXML
-	TextField delUserP;
-	@FXML
-	TextField delMatA;
-	@FXML
-	TextField delClaveA;
+	@FXML TextField delUserP;
+	@FXML TextField delMatA;
+	@FXML TextField delClaveA;
 	
 
     private Stage primaryStage;
