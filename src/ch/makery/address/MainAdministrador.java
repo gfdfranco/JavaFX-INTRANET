@@ -9,12 +9,33 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 public class MainAdministrador extends Application {
-
+    
+	//CONTROLADOR DE FXML.................................................
+	@FXML
+	TextField nomProfesor;
+	@FXML
+	TextField rfcProfesor;
+	@FXML
+	TextField telProfesor;
+	@FXML
+	TextField dirProfesor;
+	@FXML
+	TextField anoProfesor;
+	@FXML
+	TextField usuarioProfesor;
+	@FXML
+	TextField emailProfesor;
+	@FXML
+	TextField passProfesor;
+	@FXML
+	TextField pass2Profesor;
+	//.................................................................
     private Stage primaryStage;
     private BorderPane rootLayout;
 
