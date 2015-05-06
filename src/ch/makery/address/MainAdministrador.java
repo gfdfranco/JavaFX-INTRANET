@@ -17,24 +17,76 @@ import javafx.stage.Stage;
 public class MainAdministrador extends Application {
     
 	//CONTROLADOR DE FXML.................................................
-	@FXML
-	TextField nomProfesor;
-	@FXML
-	TextField rfcProfesor;
-	@FXML
-	TextField telProfesor;
-	@FXML
-	TextField dirProfesor;
-	@FXML
-	TextField anoProfesor;
-	@FXML
-	TextField usuarioProfesor;
-	@FXML
-	TextField emailProfesor;
-	@FXML
-	TextField passProfesor;
-	@FXML
-	TextField pass2Profesor;
+	
+		//PARA REGISTRAR PROFESOR............................
+			@FXML
+			TextField nomProfesor;
+			@FXML
+			TextField rfcProfesor;
+			@FXML
+			TextField telProfesor;
+			@FXML
+			TextField dirProfesor;
+			@FXML
+			TextField anoProfesor;
+			@FXML
+			TextField usuarioProfesor;
+			@FXML
+			TextField emailProfesor;
+			@FXML
+			TextField passProfesor;
+			@FXML
+			TextField pass2Profesor;
+		//................................................
+		
+		//PARA REGISTRAR ALUMNO..................
+			@FXML
+			TextField nomAlumno;
+			@FXML
+			TextField matricula;
+			@FXML
+			TextField telAlumno;
+			@FXML
+			TextField dirAlumno;
+			@FXML
+			TextField anoAlumno;
+			@FXML
+			TextField carrera;
+			@FXML
+			TextField emailAlumno;
+			@FXML
+			TextField passAlumno;
+			@FXML
+			TextField pass2Alumno;
+		//.......................................
+		
+		//PARA REGISTRAR MATERIAS......................................
+			@FXML
+			TextField nomMateria;
+			@FXML
+			TextField claveMateria;
+			@FXML
+			TextField aula;
+			@FXML
+			TextField hora;
+			@FXML
+			TextField carreraMateria;
+		//............................................................	
+		
+		//PARA REGISTRAR ADMINISTRADOR......................................
+			@FXML
+			TextField nomAdministrador;
+			@FXML
+			TextField usuarioAdministrador;
+			@FXML
+			TextField emailAdministrador;
+			@FXML
+			TextField telAdministrador;
+			@FXML
+			TextField passAdministrador;
+			@FXML
+			TextField pass2Administrador;
+		//............................................................	
 	//.................................................................
     private Stage primaryStage;
     private BorderPane rootLayout;
