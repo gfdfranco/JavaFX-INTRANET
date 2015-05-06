@@ -255,7 +255,7 @@
             </AnchorPane>
           </content>
         </Tab>
-        <Tab text="Consultas">
+        <Tab text="Alumnos">
           <content>
             <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
               <children>
@@ -269,6 +269,50 @@
                       </bumpInput>
                       <light>
                         <javafx.scene.effect.Light.Distant color="$x8" />
+                      </light>
+                    </Lighting>
+                  </effect>
+                </Button>
+              </children>
+            </AnchorPane>
+          </content>
+        </Tab>
+        <Tab text="Profesores">
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <children>
+                <Label font="$x1" layoutX="23.0" layoutY="44.0" prefHeight="48.0" prefWidth="402.0" text="Dame clave, matrícula o usuario" />
+                <TextField layoutX="399.0" layoutY="44.0" prefHeight="48.0" prefWidth="459.0" />
+                <Button font="$x2" layoutX="909.0" layoutY="40.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="175.0" text="Buscar">
+                  <effect>
+                    <Lighting>
+                      <bumpInput>
+                        <Shadow />
+                      </bumpInput>
+                      <light>
+                        <javafx.scene.effect.Light.Distant color="$x8" />
+                      </light>
+                    </Lighting>
+                  </effect>
+                </Button>
+              </children>
+            </AnchorPane>
+          </content>
+        </Tab>
+        <Tab text="Materia">
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <children>
+                <Label font="$x1" layoutX="23.0" layoutY="44.0" prefHeight="48.0" prefWidth="402.0" text="Dame clave, matrícula o usuario" />
+                <TextField layoutX="399.0" layoutY="44.0" prefHeight="48.0" prefWidth="459.0" />
+                <Button font="$x2" layoutX="909.0" layoutY="40.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="175.0" text="Buscar">
+                  <effect>
+                    <Lighting>
+                      <bumpInput>
+                        <Shadow />
+                      </bumpInput>
+                      <light>
+                        <javafx.scene.effect.Light.Distant color="#ff7a00" />
                       </light>
                     </Lighting>
                   </effect>
