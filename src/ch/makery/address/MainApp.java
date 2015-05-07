@@ -20,12 +20,9 @@ public class MainApp extends Application {
     @SuppressWarnings("unused")
 	private MainAlumno alumno;
     
-    @FXML
-    private RadioButton radioAlumno;
-    @FXML
-    private RadioButton radioProfesor;
-    @FXML
-    private RadioButton radioAdministrador;
+    @FXML private RadioButton radioAlumno;
+    @FXML private RadioButton radioProfesor;
+    @FXML private RadioButton radioAdministrador;
 
     @Override
     public void start(Stage primaryStage) {
