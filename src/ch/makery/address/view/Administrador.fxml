@@ -10,7 +10,7 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="ch.makery.address.MainAdministrador">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.makery.address.MainAdministrador">
   <!-- TODO Add Nodes -->
   <children>
     <Label layoutX="14.0" layoutY="14.0" text="INTRANET-UPSLP" textFill="#606060">
@@ -111,7 +111,7 @@
                     </Lighting>
                   </effect>
                 </Button>
-                <MenuButton layoutX="835.0" layoutY="29.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="304.0" text="ITI">
+                <MenuButton fx:id="carreraA" layoutX="835.0" layoutY="29.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="304.0" text="ITI">
                   <items>
                     <MenuItem mnemonicParsing="false" text="ITEM" />
                     <MenuItem mnemonicParsing="false" text="ITMA" />
@@ -387,7 +387,7 @@
     </TabPane>
     <ImageView id="UPSLP-logo.jpg" fitHeight="121.0" fitWidth="288.0" layoutX="886.0" layoutY="551.0">
       <image>
-        <Image url="@../../../../../images/UPSLP-logo.jpg" preserveRatio="true" smooth="true" />
+        <Image preserveRatio="true" smooth="true" url="@../../../../../images/UPSLP-logo.jpg" />
       </image>
     </ImageView>
     <Button font="$x6" layoutX="36.0" layoutY="612.0" mnemonicParsing="false" prefHeight="47.999900000002526" prefWidth="151.0" text="Salir" textFill="BLACK">
