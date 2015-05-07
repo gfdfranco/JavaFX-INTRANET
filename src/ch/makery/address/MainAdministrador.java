@@ -12,13 +12,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
-public class MainAdministrador extends Application {
+public class MainAdministrador extends Application implements Bordes {
     
 	//CONTROLADOR DE FXML.................................................
 
@@ -32,12 +33,13 @@ public class MainAdministrador extends Application {
 	@FXML TextField passP;
 	@FXML TextField pass2P;
 	
+	
 	/* Datos Alumno */
 	@FXML TextField nomA;
 	@FXML TextField matA;
 	@FXML TextField telA;
 	@FXML TextField dirA;
-	@FXML MenuButton carreraA;
+	@FXML ComboBox carreraA;
 	@FXML TextField mailA;
 	@FXML TextField passA;
 	@FXML TextField pass2A;
@@ -91,11 +93,12 @@ public class MainAdministrador extends Application {
 
     private Stage primaryStage;
     private BorderPane rootLayout;
-    
+    private String carrera;
     private DataBaseSQL db;
     
 
-    @Override
+    @SuppressWarnings("unchecked")
+	@Override
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle("Intranet UPSLP");
@@ -103,7 +106,7 @@ public class MainAdministrador extends Application {
         initRootLayout();
 
         showPersonOverview();
-        
+        carreraA.getItems().addAll("ITISDA","ITEM","ITMA","ISTI","LAG","LMKT");
         db = new DataBaseSQL();
     }
 
@@ -115,7 +118,7 @@ public class MainAdministrador extends Application {
         try {
             // Load root layout from fxml file.
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(MainAdministrador.class.getResource("view/RootLayoutBig.fxml"));
+            loader.setLocation(MainAdministrador.class.getResource("view/AdministradorBorde.fxml"));
             rootLayout = (BorderPane) loader.load();
 
             // Show the scene containing the root layout.
@@ -142,7 +145,10 @@ public class MainAdministrador extends Application {
         }
     }
     
-    
+    public void cambiarCarrera()
+    {
+    	
+    }
     public void sendPrfsr(){
     	String[] data = new String[7];
     	try{
@@ -332,13 +338,7 @@ public class MainAdministrador extends Application {
     		error("Llena todos los campos");
     	}
     }
-    
-    public void help()
-    {
-    	  
-    	System.out.println("YEII");
-    }
-    
+       
     public void error(String txt){
     	JOptionPane.showMessageDialog(null, txt);
     }
@@ -351,4 +351,31 @@ public class MainAdministrador extends Application {
         launch(args);
         
     }
+   
+    //METODOS DE INTERFACE BORDES...............
+    
+	@Override
+	public void help() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void credits() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void userGuide() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void developerGuide() {
+		// TODO Auto-generated method stub
+		
+	}
+	//.................................................
 }
