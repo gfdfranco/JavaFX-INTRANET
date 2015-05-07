@@ -43,8 +43,6 @@
                     <TextField id="rfcProfesor" fx:id="rfcP" layoutX="235.0" layoutY="66.0" prefHeight="48.0" prefWidth="459.0" />
                     <TextField id="telProfesor" fx:id="telP" layoutX="235.0" layoutY="129.0" prefHeight="47.999900000002526" prefWidth="459.0" />
                     <TextField id="emailProfesor" fx:id="dirP" layoutX="235.0" layoutY="201.0" prefHeight="48.0" prefWidth="459.0" />
-                    <Label font="$x1" layoutX="45.0" layoutY="273.0" prefHeight="48.0" prefWidth="190.0" text="Año de ingreso:" />
-                    <TextField id="anoProfesor" fx:id="anioP" layoutX="235.0" layoutY="266.0" prefHeight="48.0" prefWidth="459.0" />
                   </children>
                 </AnchorPane>
                 <Label font="$x1" layoutX="740.0" layoutY="23.0" prefHeight="48.0" prefWidth="119.0" text="Clave:" />
@@ -55,7 +53,7 @@
                 <PasswordField id="pass2Profesor" fx:id="pass2P" layoutX="850.0" layoutY="224.0" prefHeight="48.0" prefWidth="288.0" />
                 <Label font="$x1" layoutX="740.0" layoutY="89.0" prefHeight="48.0" prefWidth="119.0" text="Email:" />
                 <TextField id="emailProfesor" fx:id="emailP" layoutX="845.0" layoutY="89.0" prefHeight="48.0" prefWidth="293.0" />
-                <Button layoutX="837.0" layoutY="286.0" mnemonicParsing="false" onAction="#sendPrfsr" prefHeight="66.0" prefWidth="231.0" text="Registrar Profesor">
+                <Button layoutX="875.0" layoutY="286.0" mnemonicParsing="false" onAction="#sendPrfsr" prefHeight="66.0" prefWidth="231.0" text="Registrar Profesor">
                   <effect>
                     <Lighting>
                       <bumpInput>
@@ -82,7 +80,7 @@
           <content>
             <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
               <children>
-                <AnchorPane id="AnchorPane" layoutX="44.0" layoutY="23.0">
+                <AnchorPane id="AnchorPane" layoutX="44.0" layoutY="22.0">
                   <children>
                     <Label font="$x1" layoutX="0.0" layoutY="0.0" prefHeight="48.0" prefWidth="234.9998779296875" text="Nombre de alumno:" />
                     <Label font="$x1" layoutX="85.0" layoutY="66.0" prefHeight="48.0" prefWidth="137.0" text="Matrícula" />
@@ -92,12 +90,9 @@
                     <TextField id="matricula" fx:id="matA" layoutX="235.0" layoutY="66.0" prefHeight="48.0" prefWidth="445.0" />
                     <TextField id="telAlumno" fx:id="telA" layoutX="235.0" layoutY="129.0" prefHeight="48.0" prefWidth="445.0" />
                     <TextField id="dirAlumno" fx:id="dirA" layoutX="235.0" layoutY="201.0" prefHeight="48.0" prefWidth="445.0" />
-                    <Label font="$x1" layoutX="45.0" layoutY="273.0" prefHeight="48.0" prefWidth="190.0" text="Año de ingreso:" />
-                    <TextField id="anoAlumno" fx:id="anioA" layoutX="235.0" layoutY="266.0" prefHeight="48.0" prefWidth="445.0" />
                   </children>
                 </AnchorPane>
-                <Label font="$x1" layoutX="736.0" layoutY="23.0" prefHeight="48.0" prefWidth="110.0" text="Carrera:" />
-                <TextField id="carrera" fx:id="carreraA" layoutX="829.0" layoutY="22.0" prefHeight="49.0" prefWidth="309.0" />
+                <Label font="$x1" layoutX="736.0" layoutY="22.0" prefHeight="48.0" prefWidth="110.0" text="Carrera:" />
                 <Label font="$x1" layoutX="730.0" layoutY="152.0" prefHeight="48.0" prefWidth="133.0" text="PassWord:" />
                 <PasswordField id="passAlumno" fx:id="passA" layoutX="868.0" layoutY="152.0" prefHeight="48.0" prefWidth="274.0" />
                 <Label font="$x1" layoutX="735.0" layoutY="224.0" prefHeight="48.0" prefWidth="133.0" text="Confirmar:" />
@@ -116,6 +111,15 @@
                     </Lighting>
                   </effect>
                 </Button>
+                <MenuButton layoutX="835.0" layoutY="29.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="304.0" text="ITI">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="ITEM" />
+                    <MenuItem mnemonicParsing="false" text="ITMA" />
+                    <MenuItem mnemonicParsing="false" text="ISTI" />
+                    <MenuItem mnemonicParsing="false" text="LAG" />
+                    <MenuItem mnemonicParsing="false" text="LMKT" />
+                  </items>
+                </MenuButton>
               </children>
             </AnchorPane>
           </content>
@@ -135,10 +139,9 @@
                     <TextField fx:id="profM" layoutX="235.0" layoutY="129.0" prefHeight="48.0" prefWidth="459.0" />
                     <TextField id="aula" fx:id="aulaM" layoutX="235.0" layoutY="201.0" prefHeight="48.0" prefWidth="459.0" />
                     <Label font="$x1" layoutX="123.0" layoutY="258.0" prefHeight="48.0" prefWidth="79.0" text="Hora:" />
-                    <TextField id="hora" fx:id="horaM" layoutX="235.0" layoutY="266.0" prefHeight="48.0" prefWidth="459.0" />
+                    <TextField id="hora" fx:id="horaM" layoutX="235.0" layoutY="266.0" prefHeight="48.0" prefWidth="459.0" promptText="Ej: 13:00-14:00" />
                   </children>
                 </AnchorPane>
-                <TextField id="carreraMateria" fx:id="carreraM" layoutX="858.0" layoutY="23.0" prefHeight="48.0" prefWidth="214.0" />
                 <Label font="$x1" layoutX="748.0" layoutY="23.0" prefHeight="48.0" prefWidth="110.0" text="Carrera:" />
                 <Button font="$x2" layoutX="841.0" layoutY="275.0" mnemonicParsing="false" onAction="#sendMate" prefHeight="66.0" prefWidth="231.0" text="Registrar Materia">
                   <effect>
@@ -152,6 +155,15 @@
                     </Lighting>
                   </effect>
                 </Button>
+                <MenuButton layoutX="847.0" layoutY="30.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="110.0" text="ITI">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="ITEM" />
+                    <MenuItem mnemonicParsing="false" text="ITMA" />
+                    <MenuItem mnemonicParsing="false" text="ISTI" />
+                    <MenuItem mnemonicParsing="false" text="LAG" />
+                    <MenuItem mnemonicParsing="false" text="LMKT" />
+                  </items>
+                </MenuButton>
               </children>
             </AnchorPane>
           </content>
@@ -262,13 +274,12 @@
                 <AnchorPane id="AnchorPane" layoutX="18.0" layoutY="0.0" prefHeight="366.0" prefWidth="1116.0">
                   <children>
                     <Label font="$x1" layoutX="12.0" layoutY="84.0" prefHeight="48.0" prefWidth="234.9998779296875" text="Nombre de alumno:" />
-                    <Label font="$x1" layoutX="533.0" layoutY="272.0" prefHeight="48.0" prefWidth="116.0" text="Carrera:" />
+                    <Label font="$x1" layoutX="133.0" layoutY="272.0" prefHeight="48.0" prefWidth="77.0" text="Email:" />
                     <Label font="$x1" layoutX="119.0" layoutY="150.0" prefHeight="48.0" prefWidth="116.0" text="Teléfono:" />
-                    <Label font="$x1" layoutX="89.0" layoutY="214.0" prefHeight="48.0" prefWidth="129.0" text="Dirección:" />
-                    <TextField id="rfcProfesor" fx:id="bcarreraA" disable="true" layoutX="632.0" layoutY="272.0" prefHeight="48.0" prefWidth="430.0" />
+                    <Label font="$x1" layoutX="106.0" layoutY="211.0" prefHeight="48.0" prefWidth="116.0" text="Dirección:" />
+                    <TextField id="rfcProfesor" fx:id="bmailA" disable="true" layoutX="235.0" layoutY="272.0" prefHeight="48.0" prefWidth="826.0" />
                     <TextField id="telProfesor" fx:id="btelA" disable="true" layoutX="235.0" layoutY="150.0" prefHeight="48.0" prefWidth="293.0" />
                     <TextField id="emailProfesor" fx:id="bdirA" disable="true" layoutX="236.0" layoutY="211.0" prefHeight="48.0" prefWidth="826.0" />
-                    <TextField id="anoProfesor" fx:id="banioA" disable="true" layoutX="235.0" layoutY="269.0" prefHeight="48.0" prefWidth="288.0" />
                     <TextField id="nomProfesor" fx:id="bnomA" disable="true" layoutX="235.0" layoutY="84.0" prefHeight="48.0" prefWidth="827.0" />
                     <TextField id="usuarioProfesor" fx:id="bmatA" layoutX="272.0" layoutY="16.0" prefHeight="48.0" prefWidth="360.0" />
                     <Label font="$x1" layoutX="24.0" layoutY="13.0" prefHeight="48.0" prefWidth="244.0" text="Matrícula del Alumno:" />
@@ -284,9 +295,8 @@
                         </Lighting>
                       </effect>
                     </Button>
-                    <Label font="$x1" layoutX="46.0" layoutY="272.0" prefHeight="48.0" prefWidth="173.0" text="Año de ingreso:" />
-                    <Label font="$x1" layoutX="544.0" layoutY="150.0" prefHeight="48.0" prefWidth="79.0" text="Email:" />
-                    <TextField id="emailProfesor" fx:id="bmailA" disable="true" layoutX="623.0" layoutY="150.0" prefHeight="48.0" prefWidth="439.0" />
+                    <Label font="$x1" layoutX="544.0" layoutY="150.0" prefHeight="48.0" prefWidth="95.0" text="Carrera:" />
+                    <TextField id="emailProfesor" fx:id="bcarreraA" disable="true" layoutX="657.0" layoutY="150.0" prefHeight="48.0" prefWidth="405.0" />
                   </children>
                 </AnchorPane>
               </children>
@@ -302,13 +312,12 @@
                     <AnchorPane id="AnchorPane" layoutX="22.0" layoutY="0.0" prefHeight="366.0" prefWidth="1116.0">
                       <children>
                         <Label font="$x1" layoutX="12.0" layoutY="84.0" prefHeight="48.0" prefWidth="234.9998779296875" text="Nombre de profesor:" />
-                        <Label font="$x1" layoutX="550.0" layoutY="272.0" prefHeight="48.0" prefWidth="79.0" text="RFC:" />
+                        <Label font="$x1" layoutX="161.0" layoutY="272.0" prefHeight="48.0" prefWidth="60.0" text="RFC:" />
                         <Label font="$x1" layoutX="119.0" layoutY="150.0" prefHeight="48.0" prefWidth="116.0" text="Teléfono:" />
-                        <Label font="$x1" layoutX="89.0" layoutY="214.0" prefHeight="48.0" prefWidth="129.0" text="Dirección:" />
-                        <TextField id="rfcProfesor" fx:id="brfcP" disable="true" layoutX="623.0" layoutY="269.0" prefHeight="48.0" prefWidth="439.0" />
+                        <Label font="$x1" layoutX="113.0" layoutY="214.0" prefHeight="48.0" prefWidth="108.0" text="Dirección:" />
+                        <TextField id="rfcProfesor" fx:id="brfcP" disable="false" layoutX="236.0" layoutY="272.0" prefHeight="48.0" prefWidth="826.0" />
                         <TextField id="telProfesor" fx:id="btelP" disable="true" layoutX="235.0" layoutY="150.0" prefHeight="48.0" prefWidth="293.0" />
                         <TextField id="emailProfesor" fx:id="bdirP" disable="true" layoutX="236.0" layoutY="211.0" prefHeight="48.0" prefWidth="826.0" />
-                        <TextField id="anoProfesor" fx:id="banioP" disable="true" layoutX="235.0" layoutY="269.0" prefHeight="48.0" prefWidth="288.0" />
                         <TextField id="nomProfesor" fx:id="bnomP" disable="true" layoutX="235.0" layoutY="84.0" prefHeight="48.0" prefWidth="827.0" />
                         <TextField id="usuarioProfesor" fx:id="bclaveP" layoutX="235.0" layoutY="13.0" prefHeight="48.0" prefWidth="288.0" />
                         <Label font="$x1" layoutX="23.0" layoutY="13.0" prefHeight="48.0" prefWidth="212.0" text="Clave del profesor" />
@@ -324,7 +333,6 @@
                             </Lighting>
                           </effect>
                         </Button>
-                        <Label font="$x1" layoutX="46.0" layoutY="272.0" prefHeight="48.0" prefWidth="173.0" text="Año de ingreso:" />
                         <Label font="$x1" layoutX="544.0" layoutY="150.0" prefHeight="48.0" prefWidth="79.0" text="Email:" />
                         <TextField id="emailProfesor" fx:id="bemailP" disable="true" layoutX="623.0" layoutY="150.0" prefHeight="48.0" prefWidth="439.0" />
                       </children>

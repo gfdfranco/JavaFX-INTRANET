@@ -1,5 +1,6 @@
 package ch.makery.address;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 
@@ -25,7 +26,6 @@ public class MainAdministrador extends Application {
 	@FXML TextField rfcP;
 	@FXML TextField telP;
 	@FXML TextField dirP;
-	@FXML TextField anioP;
 	@FXML TextField usuarioP;
 	@FXML TextField emailP;
 	@FXML TextField passP;
@@ -36,7 +36,6 @@ public class MainAdministrador extends Application {
 	@FXML TextField matA;
 	@FXML TextField telA;
 	@FXML TextField dirA;
-	@FXML TextField anioA;
 	@FXML TextField carreraA;
 	@FXML TextField mailA;
 	@FXML TextField passA;
@@ -69,7 +68,6 @@ public class MainAdministrador extends Application {
 	@FXML TextField brfcP;
 	@FXML TextField btelP;
 	@FXML TextField bdirP;
-	@FXML TextField banioP;
 	@FXML TextField bclaveP;
 	@FXML TextField bemailP;
 	
@@ -78,7 +76,6 @@ public class MainAdministrador extends Application {
 	@FXML TextField bmatA;
 	@FXML TextField btelA;
 	@FXML TextField bdirA;
-	@FXML TextField banioA;
 	@FXML TextField bcarreraA;
 	@FXML TextField bmailA;
 	
@@ -95,6 +92,7 @@ public class MainAdministrador extends Application {
     private BorderPane rootLayout;
     
     private DataBaseSQL db;
+    
 
     @Override
     public void start(Stage primaryStage) {
@@ -336,6 +334,12 @@ public class MainAdministrador extends Application {
     	}catch(NullPointerException e){
     		error("Llena todos los campos");
     	}
+    }
+    
+    public void help()
+    {
+    	  
+    	System.out.println("YEII");
     }
     
     public void error(String txt){
