@@ -4,6 +4,7 @@ package ch.makery.address;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -11,6 +12,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -22,6 +25,14 @@ public class MainAlumno extends Application {
     
     private String matricula;
     private DataBaseSQL db;
+    
+    /* Datos Alumno */
+	@FXML TextField nomA;
+	@FXML TextField matA;
+	@FXML TextField telA;
+	@FXML TextField dirA;
+	@FXML ComboBox<String> carreraA;
+	@FXML TextField mailA;
 
     @Override
     public void start(Stage primaryStage) {
@@ -39,10 +50,33 @@ public class MainAlumno extends Application {
      * Initializes the root layout.
      */
    
+
     public void showData(){
-    	HashMap<String, String> data;
-    	data = db.fetchArray("ALUMNO", "matricula", matricula);
-    	
+		HashMap<String, String> data;
+		data = db.fetchArray("ALUMNO", "MATRICULA", matricula);
+		nomA.setText(data.get("NOMBRE"));
+		telA.setText(data.get("TELEFONO"));
+		dirA.setText(data.get("DIRECCION"));
+		mailA.setText(data.get("EMAIL"));
+		//carreraA.setText(data.get("CARRERA"));
+    }
+    
+    public void fillTable(){
+    	List<HashMap<String, String>> data1;
+		data1 = db.GetAll("GRUPO", "MATRICULA_ALUM", matricula);
+		for(int i = 0; i < data1.size(); i++){
+			HashMap<String, String> data2;
+			data2 = db.fetchArray("CALIFICACIONES", "ID_GPO", data1.get(i).get("ID_GPO"));
+			String[] a = {
+				data2.get("CLAVE_MATERIA"),
+				data2.get("CAL1"),
+				data2.get("CAL2"),
+				data2.get("CAL3"),
+				data2.get("FINAL"),
+				data2.get("EXTRA"),
+				data2.get("INSASISTENCIAS")
+			};
+		}
     }
     
     public void initRootLayout() {
@@ -60,7 +94,6 @@ public class MainAlumno extends Application {
             e.printStackTrace();
         }
     }
- 
    
     public void showPersonOverview() {
         try {
