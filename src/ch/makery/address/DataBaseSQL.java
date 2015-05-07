@@ -5,15 +5,11 @@ import java.sql.*;
 import com.mysql.jdbc.Statement;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.Executor;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
-
 import javax.swing.JOptionPane;
 
 public class DataBaseSQL implements Connection {

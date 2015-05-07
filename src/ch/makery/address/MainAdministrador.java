@@ -308,7 +308,7 @@ public class MainAdministrador extends Application {
     		bnomA.setText(data.get("NOMBRE"));
     		btelA.setText(data.get("TELEFONO"));
     		bdirA.setText(data.get("DIRECCION"));
-    		bemailP.setText(data.get("EMAIL"));
+    		bmailA.setText(data.get("EMAIL"));
     		bcarreraA.setText(data.get("CARRERA"));
     	}catch(NullPointerException e){
     		error("Llena todos los campos");

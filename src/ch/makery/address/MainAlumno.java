@@ -3,6 +3,7 @@
 package ch.makery.address;
 
 import java.io.IOException;
+import java.util.HashMap;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -18,6 +19,9 @@ public class MainAlumno extends Application {
 
     private Stage primaryStage;
     private BorderPane rootLayout;
+    
+    private String matricula;
+    private DataBaseSQL db;
 
     @Override
     public void start(Stage primaryStage) {
@@ -27,12 +31,20 @@ public class MainAlumno extends Application {
         initRootLayout();
 
         showPersonOverview();
+        
+        db = new DataBaseSQL();
     }
 
     /**
      * Initializes the root layout.
      */
    
+    public void showData(){
+    	HashMap<String, String> data;
+    	data = db.fetchArray("ALUMNO", "matricula", matricula);
+    	
+    }
+    
     public void initRootLayout() {
         try {
             // Load root layout from fxml file.
