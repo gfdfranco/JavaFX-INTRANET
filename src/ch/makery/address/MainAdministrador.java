@@ -114,7 +114,7 @@ public class MainAdministrador extends Application {
         try {
             // Load root layout from fxml file.
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(MainAdministrador.class.getResource("view/RootLayoutBig.fxml"));
+            loader.setLocation(MainAdministrador.class.getResource("view/AdministradorBorde.fxml"));
             rootLayout = (BorderPane) loader.load();
 
             // Show the scene containing the root layout.
