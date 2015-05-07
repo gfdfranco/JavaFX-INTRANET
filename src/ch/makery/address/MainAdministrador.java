@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.MenuButton;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -36,7 +37,7 @@ public class MainAdministrador extends Application {
 	@FXML TextField matA;
 	@FXML TextField telA;
 	@FXML TextField dirA;
-	@FXML TextField carreraA;
+	@FXML MenuButton carreraA;
 	@FXML TextField mailA;
 	@FXML TextField passA;
 	@FXML TextField pass2A;
@@ -114,7 +115,7 @@ public class MainAdministrador extends Application {
         try {
             // Load root layout from fxml file.
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(MainAdministrador.class.getResource("view/AdministradorBorde.fxml"));
+            loader.setLocation(MainAdministrador.class.getResource("view/RootLayoutBig.fxml"));
             rootLayout = (BorderPane) loader.load();
 
             // Show the scene containing the root layout.
@@ -143,18 +144,17 @@ public class MainAdministrador extends Application {
     
     
     public void sendPrfsr(){
-    	String[] data = new String[8];
+    	String[] data = new String[7];
     	try{
 	    	data[0] = nomP.getText();
 	    	data[1] = rfcP.getText();
 	    	data[2] = telP.getText();
 	    	data[3] = dirP.getText();
-	    	data[4] = anioP.getText();
-	    	data[5] = usuarioP.getText();
-	    	data[6] = emailP.getText();
+	    	data[4] = usuarioP.getText();
+	    	data[5] = emailP.getText();
 	    	
 	    	if(passP.getText().equals(pass2P.getText())){
-	    		data[7] = passP.getText();
+	    		data[6] = passP.getText();
 	    	}else{
 	    		error("Las contraseñas no concuerdan");
 	    		return;
@@ -172,30 +172,29 @@ public class MainAdministrador extends Application {
     }
     
     public void sendAlum(){
-    	String[] data = new String[8];
+    	String[] data = new String[7];
     	try{
 	    	data[0] = nomA.getText();
 	    	data[1] = matA.getText();
 	    	data[2] = telA.getText();
 	    	data[3] = dirA.getText();
-	    	data[4] = anioA.getText();
-	    	data[5] = carreraA.getText();
-	    	data[6] = emailP.getText();
+	    	data[4] = carreraA.getText();
+	    	data[5] = mailA.getText();
 	    	
 	    	if(passA.getText().equals(pass2A.getText())){
-	    		data[7] = passA.getText();
+	    		data[6] = passA.getText();
 	    	}else{
 	    		error("Las contraseñas no concuerdan");
 	    		return;
 	    	}
-	    	
-	    	if(db.insert("ALUMNO", data))
+	    	System.out.println("hola");
+	    	if(db.insert("ALUMNO", data)){
 	    		error("Alumno agregada con Exito!");
-	    	else
+	    	}else
 	    		error("Error al ingresar al Alumno");
     	
     	}catch(NullPointerException e){
-    		error("Llena todos los campos");
+    		error("Llena todos los campos \n" + e);
     	}
     	
     }
@@ -292,7 +291,6 @@ public class MainAdministrador extends Application {
     		brfcP.setText(data.get("RFC"));
     		bdirP.setText(data.get("DIRECCION"));
     		btelP.setText(data.get("TELEFONO"));
-    		banioP.setText(data.get("AO_INGRESO"));
     		bemailP.setText(data.get("EMAIL"));    		
     	}catch(NullPointerException e){
     		error("Llena todos los campos");
@@ -310,7 +308,6 @@ public class MainAdministrador extends Application {
     		bnomA.setText(data.get("NOMBRE"));
     		btelA.setText(data.get("TELEFONO"));
     		bdirA.setText(data.get("DIRECCION"));
-    		banioP.setText(data.get("AO_INGRESO"));
     		bemailP.setText(data.get("EMAIL"));
     		bcarreraA.setText(data.get("CARRERA"));
     	}catch(NullPointerException e){
