@@ -10,18 +10,13 @@
   <top>
     <MenuBar>
       <menus>
-        <Menu mnemonicParsing="false" text="Archivo">
-          <items>
-            <MenuItem mnemonicParsing="false" text="Cerrar" />
-          </items>
-        </Menu>
         <Menu mnemonicParsing="false" text="Ayuda">
           <items>
-            <MenuItem mnemonicParsing="false" onAction="#help" text="Manual de Usuario" />
-            <MenuItem mnemonicParsing="false" onAction="#help" text="Manual de Programador" />
+            <MenuItem mnemonicParsing="false" onAction="#userGuide" text="Manual de Usuario" />
+            <MenuItem mnemonicParsing="false" onAction="#developerGuide" text="Manual de Programador" />
           </items>
         </Menu>
-        <Menu mnemonicParsing="false" text="Créditos" />
+        <Menu mnemonicParsing="false" onAction="#credits" text="Créditos" />
       </menus>
     </MenuBar>
   </top>
