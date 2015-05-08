@@ -7,13 +7,20 @@ import java.util.HashMap;
 import java.util.List;
 
 import javafx.application.Application;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableColumn.CellDataFeatures;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -33,6 +40,21 @@ public class MainAlumno extends Application {
 	@FXML TextField dirA;
 	@FXML ComboBox<String> carreraA;
 	@FXML TextField mailA;
+	
+	/* Tabla */
+	@FXML private TableView<DataAlumn> tableMaterias;
+    @FXML private TableColumn claveM;
+    @FXML private TableColumn p1;
+    @FXML private TableColumn p2;
+    @FXML private TableColumn p3;
+    @FXML private TableColumn tP;
+    @FXML private TableColumn fin;
+    @FXML private TableColumn tFin;
+    @FXML private TableColumn calFin;
+    @FXML private TableColumn extra;
+    @FXML private TableColumn inas;
+    ObservableList<DataAlumn> materias;
+    
 
     @Override
     public void start(Stage primaryStage) {
@@ -44,6 +66,7 @@ public class MainAlumno extends Application {
         showPersonOverview();
         
         db = new DataBaseSQL();
+       
     }
 
     /**
@@ -61,8 +84,27 @@ public class MainAlumno extends Application {
 		//carreraA.setText(data.get("CARRERA"));
     }
     
+    public void initTable(){
+	    claveM.setCellValueFactory(new PropertyValueFactory<DataAlumn, String>("clave"));
+	    p1.setCellValueFactory(new PropertyValueFactory<DataAlumn, String>("p1"));
+	    p2.setCellValueFactory(new PropertyValueFactory<DataAlumn, String>("p2"));
+	    p3.setCellValueFactory(new PropertyValueFactory<DataAlumn, String>("p3"));
+	    tP.setCellValueFactory(new PropertyValueFactory<DataAlumn, String>("tP"));
+	    fin.setCellValueFactory(new PropertyValueFactory<DataAlumn, String>("fin"));
+	    tFin.setCellValueFactory(new PropertyValueFactory<DataAlumn, String>("tFin"));
+	    calFin.setCellValueFactory(new PropertyValueFactory<DataAlumn, String>("calFin"));
+	    extra.setCellValueFactory(new PropertyValueFactory<DataAlumn, String>("extra"));
+	    inas.setCellValueFactory(new PropertyValueFactory<DataAlumn, String>("inas"));
+	    
+	    materias = FXCollections.observableArrayList();
+	    tableMaterias.setItems(materias);
+	    
+	    fillTable();
+    }
+    
+    @FXML
     public void fillTable(){
-    	List<HashMap<String, String>> data1;
+    	/*List<HashMap<String, String>> data1;
 		data1 = db.GetAll("GRUPO", "MATRICULA_ALUM", matricula);
 		for(int i = 0; i < data1.size(); i++){
 			HashMap<String, String> data2;
@@ -75,8 +117,19 @@ public class MainAlumno extends Application {
 				data2.get("FINAL"),
 				data2.get("EXTRA"),
 				data2.get("INSASISTENCIAS")
+					
 			};
-		}
+			materias.add(new DataAlumn(a));
+		}*/
+		
+    	
+    	for(int i = 0; i < 3; i++){
+    		String[] data = new String[7];
+    		for(int j = 0; j < 7; j++){
+    			data[j] = "100";
+    		}
+    		materias.add(new DataAlumn(data));
+    	}
     }
     
     public void initRootLayout() {
@@ -90,6 +143,7 @@ public class MainAlumno extends Application {
             Scene scene = new Scene(rootLayout);
             primaryStage.setScene(scene);
             primaryStage.show();
+           
         } catch (IOException e) {
             e.printStackTrace();
         }

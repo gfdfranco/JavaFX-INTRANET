@@ -1,11 +1,8 @@
 package ch.makery.address;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
-
 import javax.swing.JOptionPane;
-
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,15 +11,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.MenuButton;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-
 public class MainAdministrador extends Application implements Bordes {
     
 	//CONTROLADOR DE FXML.................................................
-
 	/* Datos Profesor */
 	@FXML TextField nomP;
 	@FXML TextField rfcP;
@@ -39,7 +35,12 @@ public class MainAdministrador extends Application implements Bordes {
 	@FXML TextField matA;
 	@FXML TextField telA;
 	@FXML TextField dirA;
-	@FXML ComboBox carreraA;
+    @FXML RadioButton rITI_A;
+    @FXML RadioButton rITEM_A;
+    @FXML RadioButton rISTI_A;
+    @FXML RadioButton rLAG_A;
+    @FXML RadioButton rLMKT_A;
+    @FXML RadioButton rITMA_A;
 	@FXML TextField mailA;
 	@FXML TextField passA;
 	@FXML TextField pass2A;
@@ -50,7 +51,12 @@ public class MainAdministrador extends Application implements Bordes {
 	@FXML TextField profM;
 	@FXML TextField aulaM;
 	@FXML TextField horaM;
-	@FXML TextField carreraM;
+	@FXML RadioButton rITI_M;
+	@FXML RadioButton rITEM_M;
+	@FXML RadioButton rISTI_M;
+	@FXML RadioButton rLAG_M;
+	@FXML RadioButton rLMKT_M;
+	@FXML RadioButton rITMA_M;
 	
 	/* Datos Admin */
 	@FXML TextField nomAdm;
@@ -90,26 +96,21 @@ public class MainAdministrador extends Application implements Bordes {
 	@FXML TextField bhoraM;
 	@FXML TextField bcarreraM;
 	
-
     private Stage primaryStage;
     private BorderPane rootLayout;
     private String carrera;
     private DataBaseSQL db;
     
-
     @SuppressWarnings("unchecked")
 	@Override
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle("Intranet UPSLP");
-
         initRootLayout();
-
         showPersonOverview();
-        carreraA.getItems().addAll("ITISDA","ITEM","ITMA","ISTI","LAG","LMKT");
+       
         db = new DataBaseSQL();
     }
-
     /**
      * Initializes the root layout.
      */
@@ -120,7 +121,6 @@ public class MainAdministrador extends Application implements Bordes {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(MainAdministrador.class.getResource("view/AdministradorBorde.fxml"));
             rootLayout = (BorderPane) loader.load();
-
             // Show the scene containing the root layout.
             Scene scene = new Scene(rootLayout);
             primaryStage.setScene(scene);
@@ -137,7 +137,6 @@ public class MainAdministrador extends Application implements Bordes {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(MainAdministrador.class.getResource("view/Administrador.fxml"));
             AnchorPane personOverview = (AnchorPane) loader.load();
-
             // Set person overview into the center of root layout.
             rootLayout.setCenter(personOverview);
         } catch (IOException e) {
@@ -184,7 +183,18 @@ public class MainAdministrador extends Application implements Bordes {
 	    	data[1] = matA.getText();
 	    	data[2] = telA.getText();
 	    	data[3] = dirA.getText();
-	    	data[4] = carreraA.getText();
+	    	if(rITI_A.isSelected())
+	    		data[4] = "0";
+	    	if(rITEM_A.isSelected())
+	    		data[4] = "1";
+	    	if(rITMA_A.isSelected())
+	    		data[4] = "2";
+	    	if(rISTI_A.isSelected())
+	    		data[4] = "3";
+	    	if(rLAG_A.isSelected())
+	    		data[4] = "4";
+	    	if(rLMKT_A.isSelected())
+	    		data[4] = "5";
 	    	data[5] = mailA.getText();
 	    	
 	    	if(passA.getText().equals(pass2A.getText())){
@@ -213,7 +223,18 @@ public class MainAdministrador extends Application implements Bordes {
 	    	data[2] = profM.getText();
 	    	data[3] = aulaM.getText();
 	    	data[4] = horaM.getText();
-	    	data[5] = carreraM.getText();
+	    	if(rITI_M.isSelected())
+	    		data[5] = "0";
+	    	if(rITEM_M.isSelected())
+	    		data[5] = "1";
+	    	if(rITMA_M.isSelected())
+	    		data[5] = "2";
+	    	if(rISTI_M.isSelected())
+	    		data[5] = "3";
+	    	if(rLAG_M.isSelected())
+	    		data[5] = "4";
+	    	if(rLMKT_M.isSelected())
+	    		data[5] = "5";
 	    	
 	    	if(db.insert("MATERIA", data))
 	    		error("Materia agregada con Exito!");
@@ -346,12 +367,11 @@ public class MainAdministrador extends Application implements Bordes {
     public Stage getPrimaryStage() {
         return primaryStage;
     }
-
     public static void main(String[] args) {
         launch(args);
         
     }
-   
+  
     //METODOS DE INTERFACE BORDES...............
     
 	@Override
@@ -359,19 +379,16 @@ public class MainAdministrador extends Application implements Bordes {
 		// TODO Auto-generated method stub
 		
 	}
-
 	@Override
 	public void credits() {
 		// TODO Auto-generated method stub
 		
 	}
-
 	@Override
 	public void userGuide() {
 		// TODO Auto-generated method stub
 		
 	}
-
 	@Override
 	public void developerGuide() {
 		// TODO Auto-generated method stub
