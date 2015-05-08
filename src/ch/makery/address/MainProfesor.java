@@ -17,7 +17,8 @@ public class MainProfesor extends Application {
 
     private Stage primaryStage;
     private BorderPane rootLayout;
-
+    private String claveProfesor;
+    
     @Override
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
@@ -25,7 +26,8 @@ public class MainProfesor extends Application {
 
         initRootLayout();
 
-        showPersonOverview();
+       showPersonOverview();
+       System.out.println(claveProfesor);
     }
 
     /**
@@ -36,7 +38,7 @@ public class MainProfesor extends Application {
         try {
             // Load root layout from fxml file.
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(MainProfesor.class.getResource("view/RootLayout.fxml"));
+            loader.setLocation(MainProfesor.class.getResource("view/ProfesorBorde.fxml"));
             rootLayout = (BorderPane) loader.load();
 
             // Show the scene containing the root layout.
@@ -53,7 +55,7 @@ public class MainProfesor extends Application {
         try {
             // Load person overview.
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(MainProfesor.class.getResource("view/Profesor.fxml"));
+            loader.setLocation(MainProfesor.class.getResource("view/Docente.fxml"));
             AnchorPane personOverview = (AnchorPane) loader.load();
 
             // Set person overview into the center of root layout.
@@ -66,6 +68,15 @@ public class MainProfesor extends Application {
     
     public Stage getPrimaryStage() {
         return primaryStage;
+    }
+    
+    public String getClaveProfesor()
+    {
+    	return claveProfesor;
+    }
+    public void setClaveProfesor(String aux)
+    {
+    	aux=claveProfesor;
     }
 
     public static void main(String[] args) {

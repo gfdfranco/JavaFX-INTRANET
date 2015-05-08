@@ -14,6 +14,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.MenuButton;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -39,7 +40,12 @@ public class MainAdministrador extends Application implements Bordes {
 	@FXML TextField matA;
 	@FXML TextField telA;
 	@FXML TextField dirA;
-	@FXML ComboBox carreraA;
+    @FXML RadioButton rITI_A;
+    @FXML RadioButton rITEM_A;
+    @FXML RadioButton rISTI_A;
+    @FXML RadioButton rLAG_A;
+    @FXML RadioButton rLMKT_A;
+    @FXML RadioButton rITMA_A;
 	@FXML TextField mailA;
 	@FXML TextField passA;
 	@FXML TextField pass2A;
@@ -50,7 +56,12 @@ public class MainAdministrador extends Application implements Bordes {
 	@FXML TextField profM;
 	@FXML TextField aulaM;
 	@FXML TextField horaM;
-	@FXML TextField carreraM;
+	@FXML RadioButton rITI_M;
+	@FXML RadioButton rITEM_M;
+	@FXML RadioButton rISTI_M;
+	@FXML RadioButton rLAG_M;
+	@FXML RadioButton rLMKT_M;
+	@FXML RadioButton rITMA_M;
 	
 	/* Datos Admin */
 	@FXML TextField nomAdm;
@@ -106,7 +117,7 @@ public class MainAdministrador extends Application implements Bordes {
         initRootLayout();
 
         showPersonOverview();
-        carreraA.getItems().addAll("ITISDA","ITEM","ITMA","ISTI","LAG","LMKT");
+       
         db = new DataBaseSQL();
     }
 
@@ -184,7 +195,18 @@ public class MainAdministrador extends Application implements Bordes {
 	    	data[1] = matA.getText();
 	    	data[2] = telA.getText();
 	    	data[3] = dirA.getText();
-	    	data[4] = carreraA.getText();
+	    	if(rITI_A.isSelected())
+	    		data[4] = "0";
+	    	if(rITEM_A.isSelected())
+	    		data[4] = "1";
+	    	if(rITMA_A.isSelected())
+	    		data[4] = "2";
+	    	if(rISTI_A.isSelected())
+	    		data[4] = "3";
+	    	if(rLAG_A.isSelected())
+	    		data[4] = "4";
+	    	if(rLMKT_A.isSelected())
+	    		data[4] = "5";
 	    	data[5] = mailA.getText();
 	    	
 	    	if(passA.getText().equals(pass2A.getText())){
@@ -213,7 +235,18 @@ public class MainAdministrador extends Application implements Bordes {
 	    	data[2] = profM.getText();
 	    	data[3] = aulaM.getText();
 	    	data[4] = horaM.getText();
-	    	data[5] = carreraM.getText();
+	    	if(rITI_M.isSelected())
+	    		data[5] = "0";
+	    	if(rITEM_M.isSelected())
+	    		data[5] = "1";
+	    	if(rITMA_M.isSelected())
+	    		data[5] = "2";
+	    	if(rISTI_M.isSelected())
+	    		data[5] = "3";
+	    	if(rLAG_M.isSelected())
+	    		data[5] = "4";
+	    	if(rLMKT_M.isSelected())
+	    		data[5] = "5";
 	    	
 	    	if(db.insert("MATERIA", data))
 	    		error("Materia agregada con Exito!");
@@ -351,7 +384,7 @@ public class MainAdministrador extends Application implements Bordes {
         launch(args);
         
     }
-   
+  
     //METODOS DE INTERFACE BORDES...............
     
 	@Override
