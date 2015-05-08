@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -20,6 +21,8 @@ public class MainApp extends Application {
     @SuppressWarnings("unused")
 	private MainAlumno alumno;
     
+    @FXML private TextField clave;
+    @FXML private TextField pass;
     @FXML private RadioButton radioAlumno;
     @FXML private RadioButton radioProfesor;
     @FXML private RadioButton radioAdministrador;
@@ -41,7 +44,7 @@ public class MainApp extends Application {
         try {
             // Load root layout from fxml file.
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(MainApp.class.getResource("view/RootLayout.fxml"));
+            loader.setLocation(MainApp.class.getResource("view/InicioBorde.fxml"));
             rootLayout = (BorderPane) loader.load();
 
             // Show the scene containing the root layout.
@@ -89,7 +92,9 @@ public class MainApp extends Application {
     	}
     	if(radioProfesor.isSelected())
     	{
+    		String var=clave.getText();
     		Application app2 = new MainProfesor(); 
+    		((MainProfesor) app2).setClaveProfesor(var);
             Stage anotherStage = new Stage();
             try {
             	app2.start(anotherStage);

@@ -11,7 +11,7 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="ch.makery.address.MainAdministrador">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="850.0" prefWidth="1200.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="ch.makery.address.MainProfesor">
   <!-- TODO Add Nodes -->
   <children>
     <Label layoutX="14.0" layoutY="14.0" text="INTRANET-UPSLP" textFill="#606060">
@@ -24,11 +24,11 @@
         <Font name="AR DESTINE" size="30.0" fx:id="x6" />
       </font>
     </Label>
-    <TabPane layoutX="22.0" layoutY="119.0" prefHeight="414.0" prefWidth="1152.0" tabClosingPolicy="UNAVAILABLE">
+    <TabPane layoutX="22.0" layoutY="119.0" prefHeight="593.0" prefWidth="1115.0" tabClosingPolicy="UNAVAILABLE">
       <tabs>
         <Tab text="Inicio">
           <content>
-            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="545.0" prefWidth="1106.0">
               <children>
                 <AnchorPane id="Content" layoutX="0.0" layoutY="0.0" minHeight="0.0" minWidth="0.0" prefHeight="366.0" prefWidth="1152.0">
                   <children>
@@ -42,14 +42,14 @@
                         <Label font="$x1" layoutX="161.0" layoutY="272.0" prefHeight="48.0" prefWidth="60.0" text="RFC:" />
                         <Label font="$x1" layoutX="119.0" layoutY="150.0" prefHeight="48.0" prefWidth="116.0" text="Teléfono:" />
                         <Label font="$x1" layoutX="113.0" layoutY="214.0" prefHeight="48.0" prefWidth="108.0" text="Dirección:" />
-                        <TextField id="rfcProfesor" fx:id="brfcP" disable="false" layoutX="236.0" layoutY="272.0" prefHeight="48.0" prefWidth="826.0" />
-                        <TextField id="telProfesor" fx:id="btelP" disable="true" layoutX="235.0" layoutY="150.0" prefHeight="48.0" prefWidth="293.0" />
-                        <TextField id="emailProfesor" fx:id="bdirP" disable="true" layoutX="236.0" layoutY="211.0" prefHeight="48.0" prefWidth="826.0" />
-                        <TextField id="nomProfesor" fx:id="bnomP" disable="true" layoutX="235.0" layoutY="84.0" prefHeight="48.0" prefWidth="827.0" />
-                        <TextField id="usuarioProfesor" fx:id="bclaveP" disable="true" layoutX="235.0" layoutY="13.0" prefHeight="48.0" prefWidth="288.0" />
-                        <Label font="$x1" layoutX="23.0" layoutY="13.0" prefHeight="48.0" prefWidth="212.0" text="Clave del profesor" />
+                        <TextField id="rfcProfesor" disable="true" layoutX="236.0" layoutY="272.0" prefHeight="48.0" prefWidth="826.0" />
+                        <TextField id="telProfesor" disable="true" layoutX="235.0" layoutY="150.0" prefHeight="48.0" prefWidth="293.0" />
+                        <TextField id="emailProfesor" disable="true" layoutX="236.0" layoutY="211.0" prefHeight="48.0" prefWidth="826.0" />
+                        <TextField id="nomProfesor" disable="true" layoutX="235.0" layoutY="84.0" prefHeight="48.0" prefWidth="827.0" />
+                        <TextField id="usuarioProfesor" disable="true" layoutX="235.0" layoutY="13.0" prefHeight="48.0" prefWidth="288.0" />
+                        <Label font="$x1" layoutX="23.0" layoutY="13.0" prefHeight="48.0" prefWidth="212.0" text="Clave del profesor:" />
                         <Label font="$x1" layoutX="544.0" layoutY="150.0" prefHeight="48.0" prefWidth="79.0" text="Email:" />
-                        <TextField id="emailProfesor" fx:id="bemailP" disable="true" layoutX="623.0" layoutY="150.0" prefHeight="48.0" prefWidth="439.0" />
+                        <TextField id="emailProfesor" disable="true" layoutX="623.0" layoutY="150.0" prefHeight="48.0" prefWidth="439.0" />
                       </children>
                     </AnchorPane>
                   </children>
@@ -58,58 +58,81 @@
             </AnchorPane>
           </content>
         </Tab>
-        <Tab text="Ingresar Calificaciones">
+        <Tab text="Calificaciones">
           <content>
-            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="545.0" prefWidth="1039.0">
               <children>
-                <AnchorPane id="Content" layoutX="0.0" layoutY="0.0" minHeight="0.0" minWidth="0.0" prefHeight="366.0" prefWidth="1152.0">
-                  <children>
-                    <Label font="$x1" layoutX="30.0" layoutY="31.0" prefHeight="48.0" prefWidth="160.0" text="Clave Materia:" />
-                    <Label font="$x1" layoutX="30.0" layoutY="103.0" prefWidth="205.0" text="Matrícula Alumno:" />
-                    <Label font="$x1" layoutX="343.0" layoutY="161.0" prefHeight="27.0" prefWidth="143.0" text="N° de parcial" />
-                    <Label font="$x1" layoutX="343.0" layoutY="209.0" prefHeight="41.0" prefWidth="129.0" text="N° de Faltas" />
-                    <Button layoutX="369.0" layoutY="268.0" mnemonicParsing="false" prefHeight="47.9998779296875" prefWidth="205.0" text="Registrar Faltas">
-                      <effect>
-                        <Lighting diffuseConstant="1.9047619047619047" specularConstant="0.28412698412698423" specularExponent="16.825396825396826" surfaceScale="6.023809523809524">
-                          <bumpInput>
-                            <Shadow />
-                          </bumpInput>
-                          <light>
-                            <javafx.scene.effect.Light.Distant color="#ff7a00" />
-                          </light>
-                        </Lighting>
-                      </effect>
-                      <textFill>
-                        <Color blue="1.000" green="0.160" red="0.000" fx:id="x2" />
-                      </textFill>
-                    </Button>
-                    <TextField layoutX="234.0" layoutY="38.0" prefHeight="41.0" prefWidth="270.0" />
-                    <TextField layoutX="235.0" layoutY="103.0" prefHeight="41.0" prefWidth="270.0" />
-                    <TextField layoutX="558.0" layoutY="209.0" prefHeight="41.0" prefWidth="251.0" />
-                    <SplitMenuButton layoutX="559.0" layoutY="161.0" mnemonicParsing="false" prefWidth="221.0" text="Primer Parcial">
-                      <effect>
-                        <InnerShadow color="$x2" />
-                      </effect>
-                      <items>
-                        <MenuItem mnemonicParsing="false" text="Segundo Parcial" />
-                        <MenuItem mnemonicParsing="false" text="Tercer Parcial" />
-                        <MenuItem mnemonicParsing="false" text="Parcial Final" />
-                      </items>
-                    </SplitMenuButton>
-                  </children>
-                </AnchorPane>
+                <SplitPane dividerPositions="0.5930397727272727" focusTraversable="true" layoutX="0.0" layoutY="56.0" prefHeight="499.0" prefWidth="1410.0">
+                  <items>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="497.0" prefWidth="769.0">
+                      <children>
+                        <TableView id="tablaPersonas" fx:id="tablaCalificaciones" layoutX="0.0" layoutY="0.0" prefHeight="498.0" prefWidth="832.0">
+                          <columns>
+                            <TableColumn editable="false" maxWidth="5000.0" minWidth="10.0" prefWidth="146.0" text="alumno" fx:id="alumno" />
+                            <TableColumn editable="false" maxWidth="5000.0" minWidth="10.0" prefWidth="107.0" text="matricula" fx:id="matricula" />
+                            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="108.0" text="parcial1" fx:id="parcial1" />
+                            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="116.0" text="parcial2" fx:id="parcial2" />
+                            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="98.0" text="parcial3" fx:id="parcial3" />
+                            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="81.0" text="final" fx:id="parcialFinal" />
+                            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="87.0" text="faltas" fx:id="faltas" />
+                            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="87.0" text="extra" fx:id="extra" />
+                          </columns>
+                        </TableView>
+                      </children>
+                    </AnchorPane>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="497.0" prefWidth="438.0">
+                      <children>
+                        <Label layoutX="14.0" layoutY="6.0" text="Parcial 1:">
+                          <font>
+                            <Font name="System Bold Italic" size="15.0" fx:id="x2" />
+                          </font>
+                        </Label>
+                        <Label font="$x2" layoutX="13.0" layoutY="263.0" text="Extra:" />
+                        <Label font="$x2" layoutX="13.0" layoutY="139.0" text="Parcial 3:" />
+                        <Label font="$x2" layoutX="14.0" layoutY="74.0" text="Parcial 2:" />
+                        <TextField id="nombreTF" fx:id="txtparcial1" layoutX="14.0" layoutY="30.0" prefHeight="26.0" prefWidth="239.0" />
+                        <TextField id="apellidoTF" fx:id="txtparcial2" layoutX="13.0" layoutY="98.0" prefHeight="26.0" prefWidth="239.0" />
+                        <TextField id="edadTF" fx:id="txtparcial3" layoutX="13.0" layoutY="162.0" prefHeight="26.0" prefWidth="239.0" />
+                        <TextField id="telefonoTF" fx:id="txtextra" layoutX="13.0" layoutY="292.0" prefHeight="26.0" prefWidth="239.0" />
+                        <Button id="modificarBT" font="$x2" layoutX="15.0" layoutY="427.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="238.9998779296875" text="Modificar" />
+                        <Label font="$x2" layoutX="15.0" layoutY="201.0" text="Final:" />
+                        <TextField id="edadTF" fx:id="txtparcialFinal" layoutX="15.0" layoutY="224.0" prefHeight="26.0" prefWidth="239.0" />
+                        <Label font="$x2" layoutX="15.0" layoutY="331.0" text="Faltas:" />
+                        <TextField id="telefonoTF" fx:id="txtfaltas" layoutX="15.0" layoutY="360.0" prefHeight="26.0" prefWidth="239.0" />
+                      </children>
+                    </AnchorPane>
+                  </items>
+                </SplitPane>
+                <Label font="$x1" layoutX="173.0" layoutY="8.0" minHeight="34.0" prefHeight="34.0" prefWidth="142.0" text="Clave Grupo:" />
+                <TextField layoutX="331.0" layoutY="8.0" prefHeight="41.0" prefWidth="270.0" />
+                <Button layoutX="645.0" layoutY="6.0" mnemonicParsing="false" onAction="#agregarDatos" prefHeight="41.0" prefWidth="253.0" text="Generar Alumnos del grupo" textFill="#0029ff">
+                  <effect>
+                    <Lighting diffuseConstant="1.9047619047619047" specularConstant="0.28412698412698423" specularExponent="16.825396825396826" surfaceScale="6.023809523809524">
+                      <bumpInput>
+                        <Shadow />
+                      </bumpInput>
+                      <light>
+                        <javafx.scene.effect.Light.Distant>
+                          <color>
+                            <Color blue="0.000" green="0.478" red="1.000" fx:id="x3" />
+                          </color>
+                        </javafx.scene.effect.Light.Distant>
+                      </light>
+                    </Lighting>
+                  </effect>
+                </Button>
               </children>
             </AnchorPane>
           </content>
         </Tab>
       </tabs>
     </TabPane>
-    <ImageView id="UPSLP-logo.jpg" fitHeight="121.0" fitWidth="288.0" layoutX="886.0" layoutY="551.0">
+    <ImageView id="UPSLP-logo.jpg" fitHeight="94.0" fitWidth="239.0" layoutX="804.0" layoutY="734.0">
       <image>
         <Image url="@../../../../../images/UPSLP-logo.jpg" preserveRatio="true" smooth="true" />
       </image>
     </ImageView>
-    <Button font="$x6" layoutX="36.0" layoutY="612.0" mnemonicParsing="false" prefHeight="47.999900000002526" prefWidth="151.0" text="Salir" textFill="BLACK">
+    <Button font="$x6" layoutX="67.0" layoutY="773.0" mnemonicParsing="false" prefHeight="47.999900000002526" prefWidth="151.0" text="Salir" textFill="BLACK">
       <effect>
         <Lighting diffuseConstant="2.0" specularConstant="0.5063492063492063" surfaceScale="6.738095238095239">
           <bumpInput>

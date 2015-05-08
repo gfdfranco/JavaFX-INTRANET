@@ -93,13 +93,13 @@
                     <TextField id="dirAlumno" fx:id="dirA" layoutX="235.0" layoutY="201.0" prefHeight="48.0" prefWidth="445.0" />
                   </children>
                 </AnchorPane>
-                <Label font="$x1" layoutX="736.0" layoutY="22.0" prefHeight="48.0" prefWidth="110.0" text="Carrera:" />
-                <Label font="$x1" layoutX="730.0" layoutY="152.0" prefHeight="48.0" prefWidth="133.0" text="PassWord:" />
-                <PasswordField id="passAlumno" fx:id="passA" layoutX="868.0" layoutY="152.0" prefHeight="48.0" prefWidth="274.0" />
-                <Label font="$x1" layoutX="735.0" layoutY="224.0" prefHeight="48.0" prefWidth="133.0" text="Confirmar:" />
-                <PasswordField id="pass2Alumno" fx:id="pass2A" layoutX="868.0" layoutY="224.0" prefHeight="48.0" prefWidth="274.0" />
-                <Label font="$x1" layoutX="744.0" layoutY="89.0" prefHeight="48.0" prefWidth="119.0" text="Email:" />
-                <TextField id="emailAlumno" fx:id="mailA" layoutX="829.0" layoutY="89.0" prefHeight="48.0" prefWidth="313.0" />
+                <Label font="$x1" layoutX="133.0" layoutY="293.0" prefHeight="48.0" prefWidth="94.0" text="Carrera:" />
+                <Label font="$x1" layoutX="731.0" layoutY="85.0" prefHeight="48.0" prefWidth="133.0" text="PassWord:" />
+                <PasswordField id="passAlumno" fx:id="passA" layoutX="868.0" layoutY="86.0" prefHeight="48.0" prefWidth="274.0" />
+                <Label font="$x1" layoutX="736.0" layoutY="157.0" prefHeight="48.0" prefWidth="133.0" text="Confirmar:" />
+                <PasswordField id="pass2Alumno" fx:id="pass2A" layoutX="868.0" layoutY="158.0" prefHeight="48.0" prefWidth="274.0" />
+                <Label font="$x1" layoutX="737.0" layoutY="21.0" prefHeight="48.0" prefWidth="119.0" text="Email:" />
+                <TextField id="emailAlumno" fx:id="mailA" layoutX="830.0" layoutY="21.0" prefHeight="48.0" prefWidth="313.0" />
                 <Button font="$x2" layoutX="829.0" layoutY="287.0" mnemonicParsing="false" onAction="#sendAlum" prefHeight="66.0" prefWidth="231.0" text="Registrar Alumno">
                   <effect>
                     <Lighting>
@@ -112,15 +112,16 @@
                     </Lighting>
                   </effect>
                 </Button>
-                <ComboBox fx:id="carreraA" layoutX="840.0" layoutY="29.0" onAction="#cambiarCarrera" prefHeight="34.0" prefWidth="276.0">
-                  <items>
-                    <FXCollections fx:factory="observableArrayList">
-                      <String fx:value="Item 1" />
-                      <String fx:value="Item 2" />
-                      <String fx:value="Item 3" />
-                    </FXCollections>
-                  </items>
-                </ComboBox>
+                <RadioButton fx:id="rITI_A" layoutX="266.0" layoutY="287.0" mnemonicParsing="false" prefWidth="61.0" selected="true" text="ITI">
+                  <toggleGroup>
+                    <ToggleGroup fx:id="carreras" />
+                  </toggleGroup>
+                </RadioButton>
+                <RadioButton fx:id="rITEM_A" layoutX="361.0" layoutY="288.0" mnemonicParsing="false" prefWidth="94.0" text="ITEM" toggleGroup="$carreras" />
+                <RadioButton fx:id="rITMA_A" layoutX="470.0" layoutY="288.0" mnemonicParsing="false" prefWidth="79.0" text="ITMA" toggleGroup="$carreras" />
+                <RadioButton fx:id="rLMKT_A" layoutX="470.0" layoutY="323.0" mnemonicParsing="false" prefWidth="79.0" text="LMKT" toggleGroup="$carreras" />
+                <RadioButton fx:id="rLAG_A" layoutX="361.0" layoutY="322.0" mnemonicParsing="false" prefWidth="94.0" text="LAG" toggleGroup="$carreras" />
+                <RadioButton fx:id="rISTI_A" layoutX="266.0" layoutY="322.0" mnemonicParsing="false" prefWidth="61.0" text="ISTI" toggleGroup="$carreras" />
               </children>
             </AnchorPane>
           </content>
@@ -156,15 +157,16 @@
                     </Lighting>
                   </effect>
                 </Button>
-                <MenuButton layoutX="847.0" layoutY="30.0" mnemonicParsing="false" onAction="#cambiarCarrera" prefHeight="34.0" prefWidth="110.0" text="ITI">
-                  <items>
-                    <MenuItem mnemonicParsing="false" text="ITEM" />
-                    <MenuItem mnemonicParsing="false" text="ITMA" />
-                    <MenuItem mnemonicParsing="false" text="ISTI" />
-                    <MenuItem mnemonicParsing="false" text="LAG" />
-                    <MenuItem mnemonicParsing="false" text="LMKT" />
-                  </items>
-                </MenuButton>
+                <RadioButton fx:id="rITI_M" layoutX="850.0" layoutY="18.0" mnemonicParsing="false" prefWidth="61.0" selected="true" text="ITI">
+                  <toggleGroup>
+                    <ToggleGroup fx:id="x3" />
+                  </toggleGroup>
+                </RadioButton>
+                <RadioButton fx:id="rITEM_M" layoutX="938.0" layoutY="19.0" mnemonicParsing="false" prefWidth="92.0" text="ITEM" toggleGroup="$x3" />
+                <RadioButton fx:id="rITMA_M" layoutX="1050.0" layoutY="18.0" mnemonicParsing="false" prefWidth="79.0" text="ITMA" toggleGroup="$x3" />
+                <RadioButton fx:id="rLMKT_M" layoutX="1050.0" layoutY="53.0" mnemonicParsing="false" prefWidth="79.0" text="LMKT" toggleGroup="$x3" />
+                <RadioButton fx:id="rLAG_M" layoutX="938.0" layoutY="53.0" mnemonicParsing="false" prefWidth="79.0" text="LAG" toggleGroup="$x3" />
+                <RadioButton fx:id="rISTI_M" layoutX="850.0" layoutY="53.0" mnemonicParsing="false" prefWidth="61.0" text="ISTI" toggleGroup="$x3" />
               </children>
             </AnchorPane>
           </content>
@@ -177,7 +179,7 @@
                   <children>
                     <Label font="$x1" layoutX="0.0" layoutY="0.0" prefHeight="48.0" prefWidth="303.0" text="Nombre de administrador:" />
                     <Label font="$x1" layoutX="59.0" layoutY="66.0" prefHeight="48.0" prefWidth="218.0" text="Clave administrador:" />
-                    <Label font="$x1" layoutX="195.0" layoutY="129.0" prefHeight="48.0" prefWidth="80.0" text="email:" />
+                    <Label font="$x1" layoutX="195.0" layoutY="129.0" prefHeight="48.0" prefWidth="80.0" text="Email:" />
                     <Label font="$x1" layoutX="166.0" layoutY="193.0" prefHeight="48.0" prefWidth="101.0" text="Teléfono:" />
                     <TextField id="nomAdministrador" fx:id="nomAdm" layoutX="288.0" layoutY="0.0" prefHeight="48.0" prefWidth="459.0" />
                     <TextField id="usuarioAdministrador" fx:id="userAdm" layoutX="288.0" layoutY="66.0" prefHeight="48.0" prefWidth="459.0" />

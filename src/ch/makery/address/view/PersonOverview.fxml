@@ -11,20 +11,20 @@
 <AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="ch.makery.address.MainApp">
   <!-- TODO Add Nodes -->
   <children>
-    <AnchorPane id="AnchorPane" layoutX="85.0" layoutY="190.0">
+    <AnchorPane id="AnchorPane" layoutX="29.0" layoutY="190.0" prefWidth="537.0">
       <children>
-        <Label layoutX="0.0" layoutY="0.0" text="Nombre:" textFill="#1400ff">
+        <Label layoutX="0.0" layoutY="0.0" text="Clave/Matrícula:" textFill="#1400ff">
           <font>
             <Font name="AR DESTINE" size="33.0" fx:id="x1" />
           </font>
         </Label>
-        <Label font="$x1" layoutX="0.0" layoutY="66.0" text="PassWord:" textFill="#ff7a00" />
-        <TextField alignment="CENTER" layoutX="189.0" layoutY="0.0" prefHeight="44.0" prefWidth="246.0" promptText="" text="">
+        <Label font="$x1" layoutX="85.0" layoutY="66.0" text="PassWord:" textFill="#ff7a00" />
+        <TextField fx:id="clave" alignment="CENTER" layoutX="261.0" layoutY="0.0" prefHeight="44.0" prefWidth="276.0" promptText="" text="">
           <effect>
             <InnerShadow />
           </effect>
         </TextField>
-        <PasswordField alignment="CENTER" disable="false" focusTraversable="true" layoutX="189.0" layoutY="63.0" prefHeight="44.0" prefWidth="246.0">
+        <PasswordField fx:id="pass" alignment="CENTER" disable="false" focusTraversable="true" layoutX="261.0" layoutY="63.0" prefHeight="44.0" prefWidth="276.0">
           <effect>
             <InnerShadow />
           </effect>
@@ -66,5 +66,10 @@
     </RadioButton>
     <RadioButton fx:id="radioProfesor" font="$x2" layoutX="225.0" layoutY="328.0" mnemonicParsing="false" selected="false" text="Profesor" toggleGroup="$vista" />
     <RadioButton fx:id="radioAdministrador" font="$x2" layoutX="390.0" layoutY="328.0" mnemonicParsing="false" selected="false" text="Administrador" toggleGroup="$vista" />
+    <ImageView id="UPSLP-logo.jpg" layoutX="381.0" layoutY="484.0">
+      <image>
+        <Image url="@../../../../../images/UPSLP-logo.jpg" preserveRatio="true" smooth="true" />
+      </image>
+    </ImageView>
   </children>
 </AnchorPane>
