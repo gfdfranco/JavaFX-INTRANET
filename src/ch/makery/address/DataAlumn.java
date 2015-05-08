@@ -22,4 +22,8 @@ public class DataAlumn{
 		extra.set(a[5]);
 		inas.set(a[6]);
 	}
+	
+	public String getClave(){
+		return clave.get();
+	}
 }
