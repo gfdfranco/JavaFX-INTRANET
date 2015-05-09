@@ -30,8 +30,7 @@ public class MainAlumno extends Application {
     private Stage primaryStage;
     private BorderPane rootLayout;
     
-    private String matricula;
-    private DataBaseSQL db;
+    private String matricula = "2";
     
     /* Datos Alumno */
 	@FXML TextField nomA;
@@ -54,7 +53,6 @@ public class MainAlumno extends Application {
     @FXML private TableColumn extra;
     @FXML private TableColumn inas;
     ObservableList<DataAlumn> materias;
-    
 
     @Override
     public void start(Stage primaryStage) {
@@ -62,21 +60,20 @@ public class MainAlumno extends Application {
         this.primaryStage.setTitle("Intranet UPSLP");
 
         initRootLayout();
-
         showPersonOverview();
         
-        db = new DataBaseSQL();
-       
     }
 
     /**
      * Initializes the root layout.
      */
    
-
     public void showData(){
 		HashMap<String, String> data;
+		DataBaseSQL db = new DataBaseSQL();
+		
 		data = db.fetchArray("ALUMNO", "MATRICULA", matricula);
+		
 		nomA.setText(data.get("NOMBRE"));
 		telA.setText(data.get("TELEFONO"));
 		dirA.setText(data.get("DIRECCION"));
@@ -104,32 +101,35 @@ public class MainAlumno extends Application {
     
     @FXML
     public void fillTable(){
-    	/*List<HashMap<String, String>> data1;
+    	DataBaseSQL db = new DataBaseSQL();
+    	List<HashMap<String, String>> data1;
 		data1 = db.GetAll("GRUPO", "MATRICULA_ALUM", matricula);
 		for(int i = 0; i < data1.size(); i++){
 			HashMap<String, String> data2;
-			data2 = db.fetchArray("CALIFICACIONES", "ID_GPO", data1.get(i).get("ID_GPO"));
-			String[] a = {
-				data2.get("CLAVE_MATERIA"),
-				data2.get("CAL1"),
-				data2.get("CAL2"),
-				data2.get("CAL3"),
-				data2.get("FINAL"),
-				data2.get("EXTRA"),
-				data2.get("INSASISTENCIAS")
-					
-			};
-			materias.add(new DataAlumn(a));
-		}*/
-		
-    	
-    	for(int i = 0; i < 3; i++){
-    		String[] data = new String[7];
-    		for(int j = 0; j < 7; j++){
-    			data[j] = "100";
-    		}
-    		materias.add(new DataAlumn(data));
-    	}
+			DataAlumn dtA = new DataAlumn();
+			
+			data2 = db.fetchArray("CALIFICACIONES", "ID_GPO", data1.get(i).get("ID"));
+			
+			dtA.clave.set(data1.get(i).get("CLAVE_MATERIA"));
+			dtA.p1.set(data2.get("CAL1"));
+			dtA.p2.set(data2.get("CAL2"));
+			dtA.p3.set(data2.get("CAL3"));
+			
+			float aux1 = (Float.parseFloat(data2.get("CAL1")) + Float.parseFloat(data2.get("CAL2")) + Float.parseFloat(data2.get("CAL3")));
+			aux1 = aux1 / 3 * 0.6F;
+			
+			dtA.tP.set(String.valueOf(aux1));
+			dtA.fin.set(data2.get("FINAL"));
+			
+			float aux2 = Float.parseFloat(data2.get("FINAL")) * 0.4F;
+			
+			dtA.tFin.set(String.valueOf(aux2));
+			dtA.total.set(String.valueOf(aux1 + aux2));
+			dtA.extra.set(data2.get("EXTRA"));
+			dtA.inas.set(data2.get("INASISTENCIAS"));
+			
+			materias.add(dtA);
+		}
     }
     
     public void initRootLayout() {

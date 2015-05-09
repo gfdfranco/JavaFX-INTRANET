@@ -56,7 +56,6 @@ public class DataBaseSQL implements Connection {
     }
     
     public boolean insert(String tabla, String[] values){
-        System.out.println("hola");
         try {
             Statement query = (Statement) connection.createStatement();
             String q1;
@@ -140,7 +139,7 @@ public class DataBaseSQL implements Connection {
         try{
             Statement query = (Statement) connection.createStatement();
             String comando = "SELECT * FROM " + table + " WHERE "+ delimiter + " = " + index;
-            System.out.println("fetchArray: " + comando);
+            System.out.println("GetAll: " + comando);
             ResultSet rs = query.executeQuery(comando);
             
             if( !rs.next() ){
@@ -153,22 +152,22 @@ public class DataBaseSQL implements Connection {
             String valor, key;
  
             int cant = rsmd.getColumnCount();
-            while(rs.next()){
+            do{
 	            mapa = new HashMap<String, String>();
             	for(int i = 1; i <= cant; i++){
 	                key = rsmd.getColumnName(i);
 	                valor = rs.getString(key);
-	                //System.out.println(key + "-->" + valor);
+	                System.out.println(key + "-->" + valor);
 	                mapa.put(key, valor);
 	            }
             	Lista.add(mapa);
-            }
-            
+            }while(rs.next());
+            return Lista;
         }catch(Exception e){
             System.out.print("Error " + e);
             return null;
         }
-        return Lista;
+        
     }
     
     public int getIndexOf(String table, String column, String value){

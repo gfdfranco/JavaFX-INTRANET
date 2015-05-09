@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-05-2015 a las 02:54:13
+-- Tiempo de generación: 09-05-2015 a las 07:02:56
 -- Versión del servidor: 5.6.16
 -- Versión de PHP: 5.5.9
 
@@ -27,13 +27,20 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `administrador` (
-  `CLAVE` varchar(25) NOT NULL,
   `NOMBRE` varchar(25) NOT NULL,
+  `CLAVE` varchar(25) NOT NULL,
   `EMAIL` varchar(25) NOT NULL,
   `TEL` varchar(25) NOT NULL,
   `PASSWORD` varchar(25) NOT NULL,
   PRIMARY KEY (`CLAVE`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `administrador`
+--
+
+INSERT INTO `administrador` (`NOMBRE`, `CLAVE`, `EMAIL`, `TEL`, `PASSWORD`) VALUES
+('2', '1', '3', '4', '5');
 
 -- --------------------------------------------------------
 
@@ -42,15 +49,22 @@ CREATE TABLE IF NOT EXISTS `administrador` (
 --
 
 CREATE TABLE IF NOT EXISTS `alumno` (
-  `MATRICULA` varchar(25) NOT NULL,
   `NOMBRE` varchar(25) NOT NULL,
+  `MATRICULA` varchar(25) NOT NULL,
   `TEL` varchar(25) NOT NULL,
   `DIRECCION` varchar(25) NOT NULL,
-  `AO_INGRESO` varchar(25) NOT NULL,
   `CARRERA` enum('ITI','ITEM','ITMA','ISTI','LAG','LMKT') NOT NULL,
+  `EMAIL` varchar(30) NOT NULL,
   `PASSWORD` varchar(25) NOT NULL,
   PRIMARY KEY (`MATRICULA`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `alumno`
+--
+
+INSERT INTO `alumno` (`NOMBRE`, `MATRICULA`, `TEL`, `DIRECCION`, `CARRERA`, `EMAIL`, `PASSWORD`) VALUES
+('1', '2', '3', '4', 'ITI', '5', '6');
 
 -- --------------------------------------------------------
 
@@ -88,14 +102,21 @@ CREATE TABLE IF NOT EXISTS `grupo` (
 --
 
 CREATE TABLE IF NOT EXISTS `materia` (
-  `CLAVE` varchar(25) NOT NULL,
   `NOMBRE` varchar(25) NOT NULL,
+  `CLAVE` varchar(25) NOT NULL,
   `CLAVE_PROFESOR` varchar(25) NOT NULL,
   `AULA` varchar(25) NOT NULL,
   `HORA` varchar(25) NOT NULL,
   `CARRERA` enum('ITI','ITEM','ITMA','ISTI','LAG','LMKT') NOT NULL,
   PRIMARY KEY (`CLAVE`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `materia`
+--
+
+INSERT INTO `materia` (`NOMBRE`, `CLAVE`, `CLAVE_PROFESOR`, `AULA`, `HORA`, `CARRERA`) VALUES
+('1', '2', '3', '4', '5', 'ITI');
 
 -- --------------------------------------------------------
 
@@ -104,15 +125,22 @@ CREATE TABLE IF NOT EXISTS `materia` (
 --
 
 CREATE TABLE IF NOT EXISTS `profesor` (
-  `CLAVE` varchar(25) NOT NULL,
   `NOMBRE` varchar(25) NOT NULL,
   `RFC` varchar(25) NOT NULL,
   `TEL` varchar(25) NOT NULL,
   `DIRECCION` varchar(25) NOT NULL,
+  `CLAVE` varchar(25) NOT NULL,
   `EMAIL` varchar(25) NOT NULL,
   `PASSWORD` varchar(25) NOT NULL,
   PRIMARY KEY (`CLAVE`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `profesor`
+--
+
+INSERT INTO `profesor` (`NOMBRE`, `RFC`, `TEL`, `DIRECCION`, `CLAVE`, `EMAIL`, `PASSWORD`) VALUES
+('2', '3', '4', '5', '1', '6', '7');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
