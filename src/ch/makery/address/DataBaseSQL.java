@@ -36,7 +36,9 @@ public class DataBaseSQL implements Connection {
     }
 
     public static void main(String[] args){
-        //DataBaseSQL db = new DataBaseSQL();
+        DataBaseSQL db = new DataBaseSQL();
+        String[] a = {"a", "b"};
+        db.insert("sadasd", a);
     }
 
     public boolean free(String q){
@@ -54,26 +56,16 @@ public class DataBaseSQL implements Connection {
     }
     
     public boolean insert(String tabla, String[] values){
-        
+        System.out.println("hola");
         try {
             Statement query = (Statement) connection.createStatement();
             String q1;
             
-            if( tabla.equals("producto") ){
-                q1 = "select * from producto where NOMBRE = '"+ values[1].toUpperCase() +"'";
-                ResultSet rs = query.executeQuery(q1);
-                if( rs.next() )  
-                    return false;
-            }
-            
             q1 = "insert into " + tabla + " values(";
             
-            for(String txt : values){
-                if(txt.equals("NULL"))
-                    q1 += txt + ", ";
-                else
-                    q1 += "'" + txt.toUpperCase() + "', ";
-            }
+            for(String txt : values)
+                q1 += "'" + txt.toUpperCase() + "', ";
+            
             q1 = q1.substring(0, q1.length()-2);
             q1 += ")";
             System.out.println("insert: " + q1);
@@ -82,6 +74,7 @@ public class DataBaseSQL implements Connection {
             query.close();
         } catch (SQLException e) {
             System.out.println("FAIL \n error: " + e.getMessage());
+            return false;
         }
         return true;
     }
@@ -111,7 +104,7 @@ public class DataBaseSQL implements Connection {
         
         try{
             Statement query = (Statement) connection.createStatement();
-            String comando = "SELECT * FROM " + table + " WHERE ´" + delimiter + "´ = " + index;
+            String comando = "SELECT * FROM " + table + " WHERE " + delimiter + " = " + index;
             System.out.println("fetchArray: " + comando);
             ResultSet rs = query.executeQuery(comando);
             
@@ -146,7 +139,7 @@ public class DataBaseSQL implements Connection {
         
         try{
             Statement query = (Statement) connection.createStatement();
-            String comando = "SELECT * FROM " + table + " WHERE "+ "´" + delimiter + "´" + " = " + index;
+            String comando = "SELECT * FROM " + table + " WHERE "+ delimiter + " = " + index;
             System.out.println("fetchArray: " + comando);
             ResultSet rs = query.executeQuery(comando);
             

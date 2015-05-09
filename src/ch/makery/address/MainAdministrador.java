@@ -99,17 +99,14 @@ public class MainAdministrador extends Application implements Bordes {
     private Stage primaryStage;
     private BorderPane rootLayout;
     private String carrera;
-    private DataBaseSQL db;
-    private int error=0;
-    @SuppressWarnings("unchecked")
-	@Override
+    
+    @Override
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle("Intranet UPSLP");
         initRootLayout();
         showPersonOverview();
-       
-        db = new DataBaseSQL();
+        
     }
     /**
      * Initializes the root layout.
@@ -149,225 +146,221 @@ public class MainAdministrador extends Application implements Bordes {
     	
     }
     public void sendPrfsr(){
+    	
+    	DataBaseSQL	db = new DataBaseSQL();
     	String[] data = new String[7];
+		data[0] = nomP.getText();
+		data[1] = rfcP.getText();
+    	data[2] = telP.getText();
+    	data[3] = dirP.getText();
+    	data[4] = usuarioP.getText();
+    	data[5] = emailP.getText();
     	
-    	    		
-    		data[0] = nomP.getText();
-    		data[1] = rfcP.getText();
-	    	data[2] = telP.getText();
-	    	data[3] = dirP.getText();
-	    	data[4] = usuarioP.getText();
-	    	data[5] = emailP.getText();
-	    	data[6] = passP.getText();
-
-    		if(db.insert("profesor", data)){
-	    		error("Profesor agregado con Exito!");
-    		}else{
-	    		error("Error al ingresar al Profesor");}
-	    	/*for(int i=0;i<7;i++)
-	    	{
-	    		if(data[i]==null)
-	    		{
-	    			error=1;
-	    		}
-	    	}
-	    	
-	    	
-	    	/*if(passP.getText().equals(pass2P.getText())){
-	    		else{
-	    		error("Las contraseñas no concuerdan");
-	    		return;
-	    	}
-	    	if(error==0)
-	    	{
-	    		
-	    	  }
-	    	}*/
     	
+    	if(passP.getText().equals(pass2P.getText()))
+    		data[6] = passP.getText();
+    	else{
+    		error("Las contraseñas no concuerdan");
+    		return;
+    	}
+    	
+    	for(String a : data)
+    		if(a.equals("")){
+    			error("Ingresa todos los datos");
+    			return;
+    		}
+    	
+		if(db.insert("profesor", data))
+    		error("Profesor agregado con Exito!");
+		else
+    		error("Error al ingresar al Profesor");
     }
     
     public void sendAlum(){
     	String[] data = new String[7];
-    	try{
-	    	data[0] = nomA.getText();
-	    	data[1] = matA.getText();
-	    	data[2] = telA.getText();
-	    	data[3] = dirA.getText();
-	    	if(rITI_A.isSelected())
-	    		data[4] = "0";
-	    	if(rITEM_A.isSelected())
-	    		data[4] = "1";
-	    	if(rITMA_A.isSelected())
-	    		data[4] = "2";
-	    	if(rISTI_A.isSelected())
-	    		data[4] = "3";
-	    	if(rLAG_A.isSelected())
-	    		data[4] = "4";
-	    	if(rLMKT_A.isSelected())
-	    		data[4] = "5";
-	    	data[5] = mailA.getText();
-	    	
-	    	if(passA.getText().equals(pass2A.getText())){
-	    		data[6] = passA.getText();
-	    	}else{
-	    		error("Las contraseñas no concuerdan");
-	    		return;
-	    	}
-	    	System.out.println("hola");
-	    	if(db.insert("ALUMNO", data)){
-	    		error("Alumno agregada con Exito!");
-	    	}else
-	    		error("Error al ingresar al Alumno");
+    	DataBaseSQL	db = new DataBaseSQL();
     	
-    	}catch(NullPointerException e){
-    		error("Llena todos los campos \n" + e);
+    	data[0] = nomA.getText();
+    	data[1] = matA.getText();
+    	data[2] = telA.getText();
+    	data[3] = dirA.getText();
+    	
+    	if(rITI_A.isSelected())
+    		data[4] = "1";
+    	if(rITEM_A.isSelected())
+    		data[4] = "2";
+    	if(rITMA_A.isSelected())
+    		data[4] = "3";
+    	if(rISTI_A.isSelected())
+    		data[4] = "4";
+    	if(rLAG_A.isSelected())
+    		data[4] = "5";
+    	if(rLMKT_A.isSelected())
+    		data[4] = "6";
+    	data[5] = mailA.getText();
+    	
+    	if(passA.getText().equals(pass2A.getText())){
+    		data[6] = passA.getText();
+    	}else{
+    		error("Las contraseñas no concuerdan");
+    		return;
     	}
     	
+    	for(String a : data)
+    		if(a.equals("")){
+    			error("Ingresa todos los datos");
+    			return;
+    		}
+    	
+    	if(db.insert("ALUMNO", data)){
+    		error("Alumno agregada con Exito!");
+    	}else
+    		error("Error al ingresar al Alumno");
     }
     
     public void sendMate(){
     	String[] data = new String[6];
-    	try{
-	    	data[0] = nomM.getText();
-	    	data[1] = claveM.getText();
-	    	data[2] = profM.getText();
-	    	data[3] = aulaM.getText();
-	    	data[4] = horaM.getText();
-	    	if(rITI_M.isSelected())
-	    		data[5] = "0";
-	    	if(rITEM_M.isSelected())
-	    		data[5] = "1";
-	    	if(rITMA_M.isSelected())
-	    		data[5] = "2";
-	    	if(rISTI_M.isSelected())
-	    		data[5] = "3";
-	    	if(rLAG_M.isSelected())
-	    		data[5] = "4";
-	    	if(rLMKT_M.isSelected())
-	    		data[5] = "5";
-	    	
-	    	if(db.insert("MATERIA", data))
-	    		error("Materia agregada con Exito!");
-	    	else
-	    		error("Error al ingresar la materia");
-	    	
-    	}catch(NullPointerException e){
-    		error("Llena todos los campos");
-    	}
+    	DataBaseSQL	db = new DataBaseSQL();
     	
+    	data[0] = nomM.getText();
+    	data[1] = claveM.getText();
+    	data[2] = profM.getText();
+    	data[3] = aulaM.getText();
+    	data[4] = horaM.getText();
+    	
+    	if(rITI_M.isSelected())
+    		data[5] = "1";
+    	if(rITEM_M.isSelected())
+    		data[5] = "2";
+    	if(rITMA_M.isSelected())
+    		data[5] = "3";
+    	if(rISTI_M.isSelected())
+    		data[5] = "4";
+    	if(rLAG_M.isSelected())
+    		data[5] = "5";
+    	if(rLMKT_M.isSelected())
+    		data[5] = "6";
+    	
+    	for(String a : data)
+    		if(a.equals("")){
+    			error("Ingresa todos los datos");
+    			return;
+    		}
+    	
+    	if(db.insert("MATERIA", data))
+    		error("Materia agregada con Exito!");
+    	else
+    		error("Error al ingresar la materia");
     }
     
     public void sendAdm(){
     	String[] data = new String[5];
-    	try{
-	    	data[0] = nomAdm.getText();
-	    	data[1] = userAdm.getText();
-	    	data[2] = mailAdm.getText();
-	    	data[3] = telAdm.getText();
-	    	
-	    	if(passAdm.getText().equals(pass2Adm.getText())){
-	    		data[4] = passAdm.getText();
-	    	}else{
-	    		error("Las contraseñas no concuerdan");
-	    		return;
-	    	}
-	    	
-	    	if(db.insert("ADMINISTRADOR", data))
-	    		error("Admin eliminado con exito");
-    		else
-    			error("Error al eliminar el Admin");
-	    	
-    	}catch(NullPointerException e){
-    		error("Llena todos los campos");
+    	DataBaseSQL	db = new DataBaseSQL();
+    	
+    	data[0] = nomAdm.getText();
+    	data[1] = userAdm.getText();
+    	data[2] = mailAdm.getText();
+    	data[3] = telAdm.getText();
+    	
+    	if(passAdm.getText().equals(pass2Adm.getText())){
+    		data[4] = passAdm.getText();
+    	}else{
+    		error("Las contraseñas no concuerdan");
+    		return;
     	}
     	
+    	for(String a : data)
+    		if(a.equals("")){
+    			error("Ingresa todos los datos");
+    			return;
+    		}
+    	
+    	if(db.insert("ADMINISTRADOR", data))
+    		error("Admin eliminado con exito");
+		else
+			error("Error al eliminar el Admin");
     }
     
     public void deleteProfe(){
-    	try{
-    		if(db.free("DELETE FROM PROFESOR WHERE USUARIO = " + delUserP.getText()))
-    			error("Usuario eliminado con exito");
-    		else
-    			error("Error al eliminar el usuario");
-    	}catch(NullPointerException e){
-    		error("Llena todos los campos");
-    	}
+    	DataBaseSQL	db = new DataBaseSQL();
+		
+    	if(db.free("DELETE FROM PROFESOR WHERE CLAVE = " + delUserP.getText()))
+			error("Usuario eliminado con exito");
+		else
+			error("Error al eliminar el usuario");
     }
     
     public void deleteAlum(){
-    	try{
-    		if(db.free("DELETE FROM ALUMNO WHERE MATRICULA = " + delMatA.getText()))
-    			error("Usuario eliminado con exito");
-    		else
-    			error("Error al eliminar el usuario");
-    	}catch(NullPointerException e){
-    		error("Llena todos los campos");
-    	}
+    	DataBaseSQL	db = new DataBaseSQL();
+    	
+		if(db.free("DELETE FROM ALUMNO WHERE MATRICULA = " + delMatA.getText()))
+			error("Usuario eliminado con exito");
+		else
+			error("Error al eliminar el usuario");
+    	
     }
     
     public void deleteMat(){
-    	try{
-    		if(db.free("DELETE FROM MATERIA WHERE CLAVE = " + delClaveA.getText()))
-    			error("Materia eliminado con exito");
-    		else
-    			error("Error al eliminar la materia");
-    	}catch(NullPointerException e){
-    		error("Llena todos los campos");
-    	}
+    	DataBaseSQL	db = new DataBaseSQL();
+    	
+		if(db.free("DELETE FROM MATERIA WHERE CLAVE = " + delClaveA.getText()))
+			error("Materia eliminado con exito");
+		else
+			error("Error al eliminar la materia");
     }
     
     public void searchProf(){
-    	try{
-    		HashMap<String, String> data;
-    		data = db.fetchArray("PROFESOR", "CLAVE", bclaveP.getText());
-    		if(data == null){
-    			error("El profesor no existe");
-    			return;
-    		}
-    		bnomP.setText(data.get("NOMBRE"));
-    		brfcP.setText(data.get("RFC"));
-    		bdirP.setText(data.get("DIRECCION"));
-    		btelP.setText(data.get("TELEFONO"));
-    		bemailP.setText(data.get("EMAIL"));    		
-    	}catch(NullPointerException e){
-    		error("Llena todos los campos");
-    	}
+    	DataBaseSQL	db = new DataBaseSQL();
+		HashMap<String, String> data;
+		
+		data = db.fetchArray("PROFESOR", "CLAVE", bclaveP.getText());
+		
+		if(data == null){
+			error("El profesor no existe");
+			return;
+		}
+		
+		bnomP.setText(data.get("NOMBRE"));
+		brfcP.setText(data.get("RFC"));
+		bdirP.setText(data.get("DIRECCION"));
+		btelP.setText(data.get("TEL"));
+		bemailP.setText(data.get("EMAIL"));    		
     }
     
     public void searchAlum(){
-    	try{
-    		HashMap<String, String> data;
-    		data = db.fetchArray("ALUMNO", "MATRICULA", bmatA.getText());
-    		if(data == null){
-    			error("El alumno no existe");
-    			return;
-    		}
-    		bnomA.setText(data.get("NOMBRE"));
-    		btelA.setText(data.get("TELEFONO"));
-    		bdirA.setText(data.get("DIRECCION"));
-    		bmailA.setText(data.get("EMAIL"));
-    		bcarreraA.setText(data.get("CARRERA"));
-    	}catch(NullPointerException e){
-    		error("Llena todos los campos");
-    	}
+    	DataBaseSQL	db = new DataBaseSQL();
+		HashMap<String, String> data;
+		
+		data = db.fetchArray("ALUMNO", "MATRICULA", bmatA.getText());
+		
+		if(data == null){
+			error("El alumno no existe");
+			return;
+		}
+		
+		bnomA.setText(data.get("NOMBRE"));
+		btelA.setText(data.get("TEL"));
+		bdirA.setText(data.get("DIRECCION"));
+		bmailA.setText(data.get("EMAIL"));
+		bcarreraA.setText(data.get("CARRERA"));
     }
     
     public void searchMat(){
-    	try{
-    		HashMap<String, String> data;
-    		data = db.fetchArray("MATERIA", "CLAVE", bclaveM.getText());
-    		if(data == null){
-    			error("La materia no existe");
-    			return;
-    		}
-    		bnomM.setText(data.get("NOMBRE"));
-    		bprofM.setText(data.get("ID_PROFESOR"));
-    		baulaM.setText(data.get("AULA"));
-    		bhoraM.setText(data.get("HORA"));
-    		bcarreraM.setText(data.get("CARRERA"));
-    	}catch(NullPointerException e){
-    		error("Llena todos los campos");
-    	}
+    	DataBaseSQL	db = new DataBaseSQL();
+    	HashMap<String, String> data;
+    	
+    	data = db.fetchArray("MATERIA", "CLAVE", bclaveM.getText());
+		
+    	if(data == null){
+			error("La materia no existe");
+			return;
+		}
+		
+    	bnomM.setText(data.get("NOMBRE"));
+		bprofM.setText(data.get("CLAVE_PROFESOR"));
+		baulaM.setText(data.get("AULA"));
+		bhoraM.setText(data.get("HORA"));
+		bcarreraM.setText(data.get("CARRERA"));
     }
        
     public void error(String txt){
