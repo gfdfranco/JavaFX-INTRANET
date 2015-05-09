@@ -24,7 +24,7 @@ public class DataBaseSQL implements Connection {
         this.driver = "com.mysql.jdbc.Driver";
         this.pass = "";
         this.user = "root";
-        this.server = "jdbc:mysql://localhost/IntranetUPSLP";
+        this.server = "jdbc:mysql://localhost/intranet";
             try{
                 Class.forName(driver);
                 connection = DriverManager.getConnection(server,user,pass);

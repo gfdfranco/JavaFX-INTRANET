@@ -100,7 +100,7 @@ public class MainAdministrador extends Application implements Bordes {
     private BorderPane rootLayout;
     private String carrera;
     private DataBaseSQL db;
-    
+    private int error=0;
     @SuppressWarnings("unchecked")
 	@Override
     public void start(Stage primaryStage) {
@@ -150,29 +150,39 @@ public class MainAdministrador extends Application implements Bordes {
     }
     public void sendPrfsr(){
     	String[] data = new String[7];
-    	try{
-	    	data[0] = nomP.getText();
-	    	data[1] = rfcP.getText();
+    	
+    	    		
+    		data[0] = nomP.getText();
+    		data[1] = rfcP.getText();
 	    	data[2] = telP.getText();
 	    	data[3] = dirP.getText();
 	    	data[4] = usuarioP.getText();
 	    	data[5] = emailP.getText();
+	    	data[6] = passP.getText();
+
+    		if(db.insert("profesor", data)){
+	    		error("Profesor agregado con Exito!");
+    		}else{
+	    		error("Error al ingresar al Profesor");}
+	    	/*for(int i=0;i<7;i++)
+	    	{
+	    		if(data[i]==null)
+	    		{
+	    			error=1;
+	    		}
+	    	}
 	    	
-	    	if(passP.getText().equals(pass2P.getText())){
-	    		data[6] = passP.getText();
-	    	}else{
+	    	
+	    	/*if(passP.getText().equals(pass2P.getText())){
+	    		else{
 	    		error("Las contraseñas no concuerdan");
 	    		return;
 	    	}
-	    	
-	    	if(db.insert("PROFESOR", data))
-	    		error("Profesor agregado con Exito!");
-	    	else
-	    		error("Error al ingresar al Profesor");
-    	
-    	}catch(NullPointerException e){
-    		error("Llena todos los campos");
-    	}
+	    	if(error==0)
+	    	{
+	    		
+	    	  }
+	    	}*/
     	
     }
     

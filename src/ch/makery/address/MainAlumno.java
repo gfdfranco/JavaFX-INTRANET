@@ -50,7 +50,7 @@ public class MainAlumno extends Application {
     @FXML private TableColumn tP;
     @FXML private TableColumn fin;
     @FXML private TableColumn tFin;
-    @FXML private TableColumn calFin;
+    @FXML private TableColumn calificacionFinal;
     @FXML private TableColumn extra;
     @FXML private TableColumn inas;
     ObservableList<DataAlumn> materias;
@@ -92,7 +92,7 @@ public class MainAlumno extends Application {
 	    tP.setCellValueFactory(new PropertyValueFactory<DataAlumn, String>("tP"));
 	    fin.setCellValueFactory(new PropertyValueFactory<DataAlumn, String>("fin"));
 	    tFin.setCellValueFactory(new PropertyValueFactory<DataAlumn, String>("tFin"));
-	    calFin.setCellValueFactory(new PropertyValueFactory<DataAlumn, String>("calFin"));
+	    calificacionFinal.setCellValueFactory(new PropertyValueFactory<DataAlumn, String>("total"));
 	    extra.setCellValueFactory(new PropertyValueFactory<DataAlumn, String>("extra"));
 	    inas.setCellValueFactory(new PropertyValueFactory<DataAlumn, String>("inas"));
 	    

@@ -29,7 +29,7 @@ public class MainProfesor extends Application implements Initializable {
     private Stage primaryStage;
     private BorderPane rootLayout;
     private String claveProfesor;
-    
+    private String nombreAlumno;
     // Declaramos la tabla y las columnas
     
     @FXML private TextField txtparcial1;
@@ -38,6 +38,8 @@ public class MainProfesor extends Application implements Initializable {
     @FXML private TextField txtparcialFinal;
     @FXML private TextField txtextra;
     @FXML private TextField txtfaltas;
+    @FXML private TextField txtmatricula;
+    @FXML private TextField txtnombreAlumno;
     
     @FXML private TableView<Calificaciones> tablaCalificaciones;
     @FXML private TableColumn alumno;
@@ -123,6 +125,8 @@ public class MainProfesor extends Application implements Initializable {
             if (cal != null) {
 
                 // Pongo los textFields con los datos correspondientes
+            	txtnombreAlumno.setText(cal.getAlumno());
+            	txtmatricula.setText(cal.getMatricula());
                 txtparcial1.setText(cal.getParcial1());
                 txtparcial2.setText(cal.getParcial2());
                 txtparcial3.setText(cal.getParcial3());
@@ -133,8 +137,22 @@ public class MainProfesor extends Application implements Initializable {
 
             }
         }
-          public void agregarDatos() {
-        	  System.out.println("asdasd");
+        @FXML private void modificar(ActionEvent event) {
+        	 
+            Calificaciones calificacion = new Calificaciones();
+            calificacion.alumno.set(txtnombreAlumno.getText());
+            calificacion.matricula.set(txtmatricula.getText());
+            calificacion.parcial1.set(txtparcial1.getText());
+            calificacion.parcial2.set(txtparcial2.getText());
+            calificacion.parcial3.set(txtparcial3.getText());
+            calificacion.parcialFinal.set(txtparcialFinal.getText());
+            calificacion.extra.set(txtextra.getText());
+            calificacion.faltas.set(txtfaltas.getText());
+            calificaciones.set(posicionCalificacionEnTabla, calificacion);
+            
+        }
+       public void agregarDatos() {
+        	
         // Inicializamos la tabla
         this.inicializarTablaCalificaciones();
 
@@ -152,7 +170,7 @@ public class MainProfesor extends Application implements Initializable {
             p1.parcial3.set("10");
             p1.parcialFinal.set("9");
             p1.faltas.set("8");
-           
+            
             calificaciones.add(p1);
         }
     }

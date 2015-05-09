@@ -26,4 +26,31 @@ public class DataAlumn{
 	public String getClave(){
 		return clave.get();
 	}
+	public String getP1(){
+		return p1.get();
+	}
+	public String getP2(){
+		return p2.get();
+	}
+	public String getP3(){
+		return p3.get();
+	}
+	public String getTP(){
+		return tP.get();
+	}
+	public String getFin(){
+		return fin.get();
+	}
+	public String getTFin(){
+		return tFin.get();
+	}
+	public String getTotal(){
+		return total.get();
+	}
+	public String getExtra(){
+		return extra.get();
+	}
+	public String getInas(){
+		return inas.get();
+	}
 }
