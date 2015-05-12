@@ -9,17 +9,19 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="850.0" prefWidth="1200.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="ch.makery.address.MainProfesor">
   <!-- TODO Add Nodes -->
   <children>
-    <Label layoutX="14.0" layoutY="14.0" text="INTRANET-UPSLP" textFill="#606060">
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="BLACK" height="850.0" layoutX="0.0" layoutY="0.0" stroke="BLACK" strokeType="INSIDE" width="1200.0" />
+    <Label layoutX="14.0" layoutY="14.0" text="INTRANET-UPSLP" textFill="#9f9f9f">
       <font>
         <Font name="AR DESTINE" size="50.0" />
       </font>
     </Label>
-    <Label layoutX="22.0" layoutY="74.0" text="Bienvenido profesor" textFill="BLACK">
+    <Label layoutX="22.0" layoutY="74.0" text="Bienvenido profesor" textFill="WHITE">
       <font>
         <Font name="AR DESTINE" size="30.0" fx:id="x6" />
       </font>
@@ -34,22 +36,23 @@
                   <children>
                     <AnchorPane id="AnchorPane" layoutX="22.0" layoutY="0.0" prefHeight="366.0" prefWidth="1116.0">
                       <children>
-                        <Label layoutX="12.0" layoutY="84.0" prefHeight="48.0" prefWidth="234.9998779296875" text="Nombre de profesor:">
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="BLACK" height="558.0001220703125" layoutX="-23.0" layoutY="-2.0" stroke="BLACK" strokeType="INSIDE" width="1172.0" />
+                        <Label layoutX="12.0" layoutY="84.0" prefHeight="48.0" prefWidth="234.9998779296875" text="Nombre de profesor:" textFill="WHITE">
                           <font>
                             <Font name="AR CENA" size="30.0" fx:id="x1" />
                           </font>
                         </Label>
-                        <Label font="$x1" layoutX="161.0" layoutY="272.0" prefHeight="48.0" prefWidth="60.0" text="RFC:" />
-                        <Label font="$x1" layoutX="119.0" layoutY="150.0" prefHeight="48.0" prefWidth="116.0" text="Teléfono:" />
-                        <Label font="$x1" layoutX="113.0" layoutY="214.0" prefHeight="48.0" prefWidth="108.0" text="Dirección:" />
-                        <TextField id="rfcProfesor" disable="true" layoutX="236.0" layoutY="272.0" prefHeight="48.0" prefWidth="826.0" />
-                        <TextField id="telProfesor" disable="true" layoutX="235.0" layoutY="150.0" prefHeight="48.0" prefWidth="293.0" />
-                        <TextField id="emailProfesor" disable="true" layoutX="236.0" layoutY="211.0" prefHeight="48.0" prefWidth="826.0" />
-                        <TextField id="nomProfesor" disable="true" layoutX="235.0" layoutY="84.0" prefHeight="48.0" prefWidth="827.0" />
-                        <TextField id="usuarioProfesor" disable="true" layoutX="235.0" layoutY="13.0" prefHeight="48.0" prefWidth="288.0" />
-                        <Label font="$x1" layoutX="23.0" layoutY="13.0" prefHeight="48.0" prefWidth="212.0" text="Clave del profesor:" />
-                        <Label font="$x1" layoutX="544.0" layoutY="150.0" prefHeight="48.0" prefWidth="79.0" text="Email:" />
-                        <TextField id="emailProfesor" disable="true" layoutX="623.0" layoutY="150.0" prefHeight="48.0" prefWidth="439.0" />
+                        <Label font="$x1" layoutX="161.0" layoutY="272.0" prefHeight="48.0" prefWidth="60.0" text="RFC:" textFill="WHITE" />
+                        <Label font="$x1" layoutX="119.0" layoutY="150.0" prefHeight="48.0" prefWidth="116.0" text="Teléfono:" textFill="WHITE" />
+                        <Label font="$x1" layoutX="113.0" layoutY="214.0" prefHeight="48.0" prefWidth="108.0" text="Dirección:" textFill="WHITE" />
+                        <TextField id="rfcProfesor" disable="true" layoutX="236.0" layoutY="272.0" opacity="1.0" prefHeight="48.0" prefWidth="826.0" />
+                        <TextField id="telProfesor" disable="true" layoutX="235.0" layoutY="150.0" opacity="1.0" prefHeight="48.0" prefWidth="293.0" />
+                        <TextField id="emailProfesor" disable="true" layoutX="236.0" layoutY="211.0" opacity="1.0" prefHeight="48.0" prefWidth="826.0" />
+                        <TextField id="nomProfesor" disable="true" layoutX="235.0" layoutY="84.0" opacity="1.0" prefHeight="48.0" prefWidth="827.0" />
+                        <TextField id="usuarioProfesor" disable="true" layoutX="235.0" layoutY="13.0" opacity="1.0" prefHeight="48.0" prefWidth="288.0" />
+                        <Label font="$x1" layoutX="23.0" layoutY="13.0" prefHeight="48.0" prefWidth="212.0" text="Clave del profesor:" textFill="WHITE" />
+                        <Label font="$x1" layoutX="544.0" layoutY="150.0" prefHeight="48.0" prefWidth="79.0" text="Email:" textFill="WHITE" />
+                        <TextField id="emailProfesor" disable="true" layoutX="623.0" layoutY="150.0" opacity="1.0" prefHeight="48.0" prefWidth="439.0" />
                       </children>
                     </AnchorPane>
                   </children>
@@ -62,7 +65,7 @@
           <content>
             <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="545.0" prefWidth="1147.0">
               <children>
-                <SplitPane dividerPositions="0.5930397727272727" focusTraversable="true" layoutX="0.0" layoutY="56.0" prefHeight="499.0" prefWidth="1410.0">
+                <SplitPane dividerPositions="0.5809659090909091" focusTraversable="true" layoutX="0.0" layoutY="56.0" prefHeight="499.0" prefWidth="1410.0">
                   <items>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="497.0" prefWidth="769.0">
                       <children>
@@ -108,7 +111,7 @@
                 </SplitPane>
                 <Label font="$x1" layoutX="173.0" layoutY="8.0" minHeight="34.0" prefHeight="34.0" prefWidth="142.0" text="Clave Grupo:" />
                 <TextField layoutX="331.0" layoutY="8.0" prefHeight="41.0" prefWidth="270.0" />
-                <Button layoutX="645.0" layoutY="6.0" mnemonicParsing="false" onAction="#agregarDatos" prefHeight="41.0" prefWidth="253.0" text="Generar Alumnos del grupo" textFill="#0029ff">
+                <Button layoutX="645.0" layoutY="6.0" mnemonicParsing="false" onAction="#agregarDatos" prefHeight="41.0" prefWidth="253.0" text="Generar Alumnos del grupo" textFill="BLACK">
                   <effect>
                     <Lighting diffuseConstant="1.9047619047619047" specularConstant="0.28412698412698423" specularExponent="16.825396825396826" surfaceScale="6.023809523809524">
                       <bumpInput>
