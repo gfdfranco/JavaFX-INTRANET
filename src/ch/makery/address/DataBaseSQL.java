@@ -131,7 +131,7 @@ public class DataBaseSQL implements Connection {
         return mapa;
     }
     
-    public List<HashMap<String, String>> GetAll(String table, String  delimiter, String index){
+    public List<HashMap<String, String>> getAll(String table, String  delimiter, String index){
         List<HashMap<String,String>> Lista = new ArrayList<HashMap<String, String>>();
         
     	HashMap<String, String> mapa = new HashMap<String, String>();

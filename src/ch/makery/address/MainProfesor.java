@@ -3,6 +3,7 @@ package ch.makery.address;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.HashMap;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -28,7 +29,7 @@ public class MainProfesor extends Application implements Initializable {
 
     private Stage primaryStage;
     private BorderPane rootLayout;
-    private String claveProfesor;
+    private String claveProfesor = "3";
     private String nombreAlumno;
     // Declaramos la tabla y las columnas
     
@@ -151,28 +152,32 @@ public class MainProfesor extends Application implements Initializable {
             calificaciones.set(posicionCalificacionEnTabla, calificacion);
             
         }
-       public void agregarDatos() {
-        	
-        // Inicializamos la tabla
-        this.inicializarTablaCalificaciones();
-
-        // Seleccionar las tuplas de la tabla de las personas
-        final ObservableList<Calificaciones> tablaClientesSel = tablaCalificaciones.getSelectionModel().getSelectedItems();
-        tablaClientesSel.addListener(selectorTablaCalificaciones);
-
-        // Inicializamos la tabla con algunos datos aleatorios
-        for (int i = 0; i < 20; i++) {
-            Calificaciones p1 = new Calificaciones();
-            p1.alumno.set("Gerardo");
-            p1.matricula.set("130220" );
-            p1.parcial1.set("10");
-            p1.parcial2.set("10");
-            p1.parcial3.set("10");
-            p1.parcialFinal.set("9");
-            p1.faltas.set("8");
-            
-            calificaciones.add(p1);
-        }
+   public void agregarDatos() {
+	   DataBaseSQL db = new DataBaseSQL();
+	    // Inicializamos la tabla
+	    this.inicializarTablaCalificaciones();
+	
+	    // Seleccionar las tuplas de la tabla de las personas
+	    final ObservableList<Calificaciones> tablaClientesSel = tablaCalificaciones.getSelectionModel().getSelectedItems();
+	    tablaClientesSel.addListener(selectorTablaCalificaciones);
+	    
+	    List<HashMap<String, String>> data;
+    	data = db.getAll("CALIFICACIONES", "CLAVE_MATERIA","2");
+    	
+    	for(int i = 0; i < data.size(); i++){
+	    	Calificaciones p1 = new Calificaciones();
+		    
+		    p1.alumno.set("Nombre Alumno");
+	        p1.matricula.set(data.get(i).get("MATRICULA_ALUM") );
+	        p1.parcial1.set(data.get(i).get("CAL1"));
+	        p1.parcial2.set(data.get(i).get("CAL2"));
+	        p1.parcial3.set(data.get(i).get("CAL3"));
+	        p1.parcialFinal.set(data.get(i).get("FINAL"));
+	        p1.extra.set(data.get(i).get("EXTRA"));
+	        p1.faltas.set(data.get(i).get("INASISTENCIAS"));
+	        
+	        calificaciones.add(p1);
+    	}
     }
     
     private void inicializarTablaCalificaciones() {

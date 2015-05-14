@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-05-2015 a las 07:02:56
+-- Tiempo de generación: 14-05-2015 a las 03:40:44
 -- Versión del servidor: 5.6.16
 -- Versión de PHP: 5.5.9
 
@@ -73,27 +73,24 @@ INSERT INTO `alumno` (`NOMBRE`, `MATRICULA`, `TEL`, `DIRECCION`, `CARRERA`, `EMA
 --
 
 CREATE TABLE IF NOT EXISTS `calificaciones` (
-  `ID_GPO` varchar(25) NOT NULL,
+  `CLAVE_MATERIA` varchar(25) NOT NULL,
+  `MATRICULA_ALUM` varchar(25) NOT NULL,
   `CAL1` varchar(25) NOT NULL,
   `CAL2` varchar(25) NOT NULL,
   `CAL3` varchar(25) NOT NULL,
   `FINAL` varchar(25) NOT NULL,
   `EXTRA` varchar(25) NOT NULL,
-  `INASISTENCIAS` varchar(25) NOT NULL
+  `INASISTENCIAS` varchar(25) NOT NULL,
+  UNIQUE KEY `calKey` (`CLAVE_MATERIA`,`MATRICULA_ALUM`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
-
 --
--- Estructura de tabla para la tabla `grupo`
+-- Volcado de datos para la tabla `calificaciones`
 --
 
-CREATE TABLE IF NOT EXISTS `grupo` (
-  `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `MATRICULA_ALUM` varchar(25) NOT NULL,
-  `CLAVE_MATERIA` varchar(25) NOT NULL,
-  PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+INSERT INTO `calificaciones` (`CLAVE_MATERIA`, `MATRICULA_ALUM`, `CAL1`, `CAL2`, `CAL3`, `FINAL`, `EXTRA`, `INASISTENCIAS`) VALUES
+('2', '2', '10', '9', '8', '7', '6', '5'),
+('2', '5', '10', '10', '10', '10', '10', '10');
 
 -- --------------------------------------------------------
 
@@ -140,7 +137,7 @@ CREATE TABLE IF NOT EXISTS `profesor` (
 --
 
 INSERT INTO `profesor` (`NOMBRE`, `RFC`, `TEL`, `DIRECCION`, `CLAVE`, `EMAIL`, `PASSWORD`) VALUES
-('2', '3', '4', '5', '1', '6', '7');
+('2', '3', '4', '5', '3', '6', '7');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

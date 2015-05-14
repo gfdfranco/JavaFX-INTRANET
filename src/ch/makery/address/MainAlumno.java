@@ -102,31 +102,30 @@ public class MainAlumno extends Application {
     @FXML
     public void fillTable(){
     	DataBaseSQL db = new DataBaseSQL();
-    	List<HashMap<String, String>> data1;
-		data1 = db.GetAll("GRUPO", "MATRICULA_ALUM", matricula);
+		List<HashMap<String, String>> data1;
+		data1 = db.getAll("CALIFICACIONES", "MATRICULA_ALUM", matricula);
+		
 		for(int i = 0; i < data1.size(); i++){
-			HashMap<String, String> data2;
+			
 			DataAlumn dtA = new DataAlumn();
 			
-			data2 = db.fetchArray("CALIFICACIONES", "ID_GPO", data1.get(i).get("ID"));
-			
 			dtA.clave.set(data1.get(i).get("CLAVE_MATERIA"));
-			dtA.p1.set(data2.get("CAL1"));
-			dtA.p2.set(data2.get("CAL2"));
-			dtA.p3.set(data2.get("CAL3"));
+			dtA.p1.set(data1.get(i).get("CAL1"));
+			dtA.p2.set(data1.get(i).get("CAL2"));
+			dtA.p3.set(data1.get(i).get("CAL3"));
 			
-			float aux1 = (Float.parseFloat(data2.get("CAL1")) + Float.parseFloat(data2.get("CAL2")) + Float.parseFloat(data2.get("CAL3")));
+			float aux1 = (Float.parseFloat(data1.get(i).get("CAL1")) + Float.parseFloat(data1.get(i).get("CAL2")) + Float.parseFloat(data1.get(i).get("CAL3")));
 			aux1 = aux1 / 3 * 0.6F;
 			
 			dtA.tP.set(String.valueOf(aux1));
-			dtA.fin.set(data2.get("FINAL"));
+			dtA.fin.set(data1.get(i).get("FINAL"));
 			
-			float aux2 = Float.parseFloat(data2.get("FINAL")) * 0.4F;
+			float aux2 = Float.parseFloat(data1.get(i).get("FINAL")) * 0.4F;
 			
 			dtA.tFin.set(String.valueOf(aux2));
 			dtA.total.set(String.valueOf(aux1 + aux2));
-			dtA.extra.set(data2.get("EXTRA"));
-			dtA.inas.set(data2.get("INASISTENCIAS"));
+			dtA.extra.set(data1.get(i).get("EXTRA"));
+			dtA.inas.set(data1.get(i).get("INASISTENCIAS"));
 			
 			materias.add(dtA);
 		}
