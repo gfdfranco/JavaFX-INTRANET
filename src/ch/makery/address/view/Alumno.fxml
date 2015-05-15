@@ -68,18 +68,6 @@
                         <Label font="$x1" layoutX="35.0" layoutY="12.0" prefHeight="48.0" prefWidth="201.0" text="Promedio General:" textFill="WHITE" />
                       </children>
                     </AnchorPane>
-                    <Button layoutX="842.0" layoutY="11.0" mnemonicParsing="false" onAction="#initTable" prefHeight="48.0" prefWidth="273.0" text="GENERAR CALIFICACIONES" textFill="BLACK">
-                      <effect>
-                        <Lighting>
-                          <bumpInput>
-                            <Shadow />
-                          </bumpInput>
-                          <light>
-                            <javafx.scene.effect.Light.Distant color="#bfbfbf" />
-                          </light>
-                        </Lighting>
-                      </effect>
-                    </Button>
                     <TableView fx:id="tableMaterias" layoutX="0.0" layoutY="72.0" prefHeight="293.0" prefWidth="1152.0">
                       <columns>
                         <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="150.0" text="ClAVE_MATERIA" fx:id="claveM" />
@@ -95,6 +83,25 @@
                       </columns>
                     </TableView>
                     <TextField disable="true" layoutX="273.0" layoutY="11.0" opacity="1.0" prefHeight="48.0" prefWidth="394.0" />
+                    <Button layoutX="732.0" layoutY="11.0" minHeight="41.0" minWidth="67.0" mnemonicParsing="false" onAction="#initTable" prefHeight="50.0" prefWidth="280.0" text="Generar calificaciones" textFill="BLACK">
+                      <effect>
+                        <Lighting diffuseConstant="1.9047619047619047" specularConstant="0.28412698412698423" specularExponent="16.825396825396826" surfaceScale="6.023809523809524">
+                          <bumpInput>
+                            <Shadow />
+                          </bumpInput>
+                          <light>
+                            <javafx.scene.effect.Light.Distant color="#00ff29" />
+                          </light>
+                        </Lighting>
+                      </effect>
+                      <graphic>
+                        <ImageView id="ic_loop_black_48dp.png" fitHeight="41.0" fitWidth="56.0">
+                          <image>
+                            <Image url="@../../../../../images/ic_loop_black_48dp.png" preserveRatio="true" smooth="true" />
+                          </image>
+                        </ImageView>
+                      </graphic>
+                    </Button>
                   </children>
                 </AnchorPane>
               </children>
@@ -108,7 +115,7 @@
         <Image url="@../../../../../images/UPSLP-logo.jpg" preserveRatio="true" smooth="true" />
       </image>
     </ImageView>
-    <Button font="$x6" layoutX="36.0" layoutY="612.0" mnemonicParsing="false" prefHeight="47.999900000002526" prefWidth="151.0" text="Salir" textFill="BLACK">
+    <Button font="$x6" layoutX="59.0" layoutY="587.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="199.0" text="Salir" textFill="BLACK">
       <effect>
         <Lighting diffuseConstant="2.0" specularConstant="0.5063492063492063" surfaceScale="6.738095238095239">
           <bumpInput>
@@ -119,6 +126,13 @@
           </light>
         </Lighting>
       </effect>
+      <graphic>
+        <ImageView id="ic_highlight_remove_black_48dp.png">
+          <image>
+            <Image url="@../../../../../images/ic_highlight_remove_black_48dp.png" preserveRatio="true" smooth="true" />
+          </image>
+        </ImageView>
+      </graphic>
     </Button>
   </children>
 </AnchorPane>

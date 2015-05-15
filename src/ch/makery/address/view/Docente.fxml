@@ -97,7 +97,25 @@
                         <TextField id="apellidoTF" fx:id="txtparcial2" layoutX="99.0" layoutY="153.0" prefHeight="26.0" prefWidth="208.0" />
                         <TextField id="edadTF" fx:id="txtparcial3" layoutX="99.0" layoutY="200.0" prefHeight="26.0" prefWidth="208.0" />
                         <TextField id="telefonoTF" fx:id="txtextra" layoutX="99.0" layoutY="293.0" prefHeight="26.0" prefWidth="208.0" />
-                        <Button id="modificarBT" font="$x2" layoutX="52.0" layoutY="431.0" mnemonicParsing="false" onAction="#modificar" prefHeight="49.0" prefWidth="244.0" text="Modificar" />
+                        <Button id="modificarBT" font="$x2" layoutX="92.0" layoutY="406.0" mnemonicParsing="false" onAction="#modificar" prefHeight="57.0" prefWidth="208.0" text="Modificar">
+                          <effect>
+                            <Lighting>
+                              <bumpInput>
+                                <Shadow />
+                              </bumpInput>
+                              <light>
+                                <javafx.scene.effect.Light.Distant color="#52ff00" />
+                              </light>
+                            </Lighting>
+                          </effect>
+                          <graphic>
+                            <ImageView id="ic_create_black_48dp.png" fitHeight="50.0" fitWidth="56.0">
+                              <image>
+                                <Image url="@../../../../../images/ic_create_black_48dp.png" preserveRatio="true" smooth="true" />
+                              </image>
+                            </ImageView>
+                          </graphic>
+                        </Button>
                         <Label font="$x2" layoutX="41.0" layoutY="249.0" text="Final:" />
                         <TextField id="edadTF" fx:id="txtparcialFinal" layoutX="99.0" layoutY="249.0" prefHeight="26.0" prefWidth="208.0" />
                         <Label font="$x2" layoutX="35.0" layoutY="345.0" text="Faltas:" />
@@ -109,23 +127,26 @@
                     </AnchorPane>
                   </items>
                 </SplitPane>
-                <Label font="$x1" layoutX="173.0" layoutY="8.0" minHeight="34.0" prefHeight="34.0" prefWidth="142.0" text="Clave Grupo:" />
+                <Label font="$x1" layoutX="173.0" layoutY="8.0" minHeight="34.0" prefHeight="34.0" prefWidth="142.0" text="Clave Grupo:" textFill="WHITE" />
                 <TextField layoutX="331.0" layoutY="8.0" prefHeight="41.0" prefWidth="270.0" />
-                <Button layoutX="645.0" layoutY="6.0" mnemonicParsing="false" onAction="#agregarDatos" prefHeight="41.0" prefWidth="253.0" text="Generar Alumnos del grupo" textFill="BLACK">
+                <Button layoutX="624.0" layoutY="2.0" minHeight="41.0" minWidth="67.0" mnemonicParsing="false" onAction="#agregarDatos" prefHeight="49.000099999997474" prefWidth="72.00009999999747" text="" textFill="BLACK">
                   <effect>
                     <Lighting diffuseConstant="1.9047619047619047" specularConstant="0.28412698412698423" specularExponent="16.825396825396826" surfaceScale="6.023809523809524">
                       <bumpInput>
                         <Shadow />
                       </bumpInput>
                       <light>
-                        <javafx.scene.effect.Light.Distant>
-                          <color>
-                            <Color blue="0.000" green="0.478" red="1.000" fx:id="x3" />
-                          </color>
-                        </javafx.scene.effect.Light.Distant>
+                        <javafx.scene.effect.Light.Distant color="#00ff29" />
                       </light>
                     </Lighting>
                   </effect>
+                  <graphic>
+                    <ImageView id="ic_loop_black_48dp.png" fitHeight="41.0" fitWidth="56.0">
+                      <image>
+                        <Image url="@../../../../../images/ic_loop_black_48dp.png" preserveRatio="true" smooth="true" />
+                      </image>
+                    </ImageView>
+                  </graphic>
                 </Button>
               </children>
             </AnchorPane>
@@ -138,21 +159,24 @@
         <Image url="@../../../../../images/UPSLP-logo.jpg" preserveRatio="true" smooth="true" />
       </image>
     </ImageView>
-    <Button font="$x6" layoutX="67.0" layoutY="773.0" mnemonicParsing="false" prefHeight="47.999900000002526" prefWidth="151.0" text="Salir" textFill="BLACK">
+    <Button font="$x6" layoutX="66.0" layoutY="739.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="199.0" text="Salir" textFill="BLACK">
       <effect>
         <Lighting diffuseConstant="2.0" specularConstant="0.5063492063492063" surfaceScale="6.738095238095239">
           <bumpInput>
             <Shadow />
           </bumpInput>
           <light>
-            <javafx.scene.effect.Light.Distant>
-              <color>
-                <Color blue="0.200" green="0.200" red="1.000" fx:id="x4" />
-              </color>
-            </javafx.scene.effect.Light.Distant>
+            <javafx.scene.effect.Light.Distant color="#ff3333" />
           </light>
         </Lighting>
       </effect>
+      <graphic>
+        <ImageView id="ic_highlight_remove_black_48dp.png">
+          <image>
+            <Image url="@../../../../../images/ic_highlight_remove_black_48dp.png" preserveRatio="true" smooth="true" />
+          </image>
+        </ImageView>
+      </graphic>
     </Button>
   </children>
 </AnchorPane>
