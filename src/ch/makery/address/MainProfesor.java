@@ -7,6 +7,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import javax.swing.JOptionPane;
+
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
@@ -56,6 +58,13 @@ public class MainProfesor extends Application implements Initializable {
     ObservableList<Calificaciones> calificaciones;
    
     private int posicionCalificacionEnTabla;
+    
+    @FXML TextField bnomP;
+	@FXML TextField brfcP;
+	@FXML TextField btelP;
+	@FXML TextField bdirP;
+	@FXML TextField bclaveP;
+	@FXML TextField bemailP;
     
     public MainProfesor()
     {
@@ -111,6 +120,25 @@ public class MainProfesor extends Application implements Initializable {
             e.printStackTrace();
         }
     }
+    
+    public void searchProf(){
+    	DataBaseSQL	db = new DataBaseSQL();
+		HashMap<String, String> data;
+		
+		data = db.fetchArray("PROFESOR", "CLAVE", claveProfesor);
+		
+		if(data == null){
+			error("El profesor no existe");
+			return;
+		}
+		
+		bnomP.setText(data.get("NOMBRE"));
+		brfcP.setText(data.get("RFC"));
+		bdirP.setText(data.get("DIRECCION"));
+		btelP.setText(data.get("TEL"));
+		bemailP.setText(data.get("EMAIL"));    		
+    }
+    
     private final ListChangeListener<Calificaciones> selectorTablaCalificaciones =
             new ListChangeListener<Calificaciones>() {
                 @Override
@@ -209,6 +237,10 @@ public class MainProfesor extends Application implements Initializable {
         faltas.setCellValueFactory(new PropertyValueFactory<Calificaciones, String>("faltas"));
         calificaciones = FXCollections.observableArrayList();
         tablaCalificaciones.setItems(calificaciones);
+    }
+    
+    public void error(String txt){
+    	JOptionPane.showMessageDialog(null, txt);
     }
     
     public Stage getSegundoStage() {
