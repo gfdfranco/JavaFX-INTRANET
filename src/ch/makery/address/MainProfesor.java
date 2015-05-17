@@ -65,6 +65,8 @@ public class MainProfesor extends Application implements Initializable {
 	@FXML TextField bdirP;
 	@FXML TextField bclaveP;
 	@FXML TextField bemailP;
+	
+	@FXML TextField claveMat;
     
     public MainProfesor()
     {
@@ -202,7 +204,7 @@ public class MainProfesor extends Application implements Initializable {
 	    tablaClientesSel.addListener(selectorTablaCalificaciones);
 	    
 	    List<HashMap<String, String>> data;
-    	data = db.getAll("CALIFICACIONES", "CLAVE_MATERIA","2");
+    	data = db.getAll("CALIFICACIONES", "CLAVE_MATERIA", claveMat.getText());
     	
     	for(int i = 0; i < data.size(); i++){
 	    	Calificaciones p1 = new Calificaciones();
