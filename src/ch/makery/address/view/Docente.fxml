@@ -159,7 +159,7 @@
         <Image url="@../../../../../images/UPSLP-logo.jpg" preserveRatio="true" smooth="true" />
       </image>
     </ImageView>
-    <Button font="$x6" layoutX="66.0" layoutY="739.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="199.0" text="Salir" textFill="BLACK">
+    <Button fx:id="closeButton" font="$x6" layoutX="66.0" layoutY="739.0" mnemonicParsing="false" onAction="#salir" prefHeight="85.0" prefWidth="199.0" text="Salir" textFill="BLACK">
       <effect>
         <Lighting diffuseConstant="2.0" specularConstant="0.5063492063492063" surfaceScale="6.738095238095239">
           <bumpInput>

@@ -2,7 +2,9 @@ package ch.makery.address;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
+
 import javax.swing.JOptionPane;
+
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -99,7 +101,14 @@ public class MainAdministrador extends Application implements Bordes {
     private Stage primaryStage;
     private BorderPane rootLayout;
     private String carrera;
-    
+    private String claveProfesor, passProfesor;
+    public MainAdministrador(){
+    	
+    }
+  public MainAdministrador(String clave, String pass){
+	  claveProfesor=clave;
+  	   passProfesor=pass;
+    }
     @Override
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;

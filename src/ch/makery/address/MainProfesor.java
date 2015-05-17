@@ -17,6 +17,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -27,9 +28,10 @@ import javafx.stage.Stage;
 
 public class MainProfesor extends Application implements Initializable {
 
-    private Stage primaryStage;
+	
+    private Stage segundoStage;
     private BorderPane rootLayout;
-    private String claveProfesor = "3";
+    private String claveProfesor, passProfesor;
     private String nombreAlumno;
     // Declaramos la tabla y las columnas
     
@@ -41,7 +43,7 @@ public class MainProfesor extends Application implements Initializable {
     @FXML private TextField txtfaltas;
     @FXML private TextField txtmatricula;
     @FXML private TextField txtnombreAlumno;
-    
+    @FXML private  Button closeButton;
     @FXML private TableView<Calificaciones> tablaCalificaciones;
     @FXML private TableColumn alumno;
     @FXML private TableColumn matricula;
@@ -55,9 +57,18 @@ public class MainProfesor extends Application implements Initializable {
    
     private int posicionCalificacionEnTabla;
     
-    public void start(Stage primaryStage) {
-        this.primaryStage = primaryStage;
-        this.primaryStage.setTitle("Intranet UPSLP");
+    public MainProfesor()
+    {
+    	
+    }
+    public MainProfesor(String clave, String pass)
+    {
+    	claveProfesor=clave;
+    	passProfesor=pass;
+    }
+    public void start(Stage segundoStage) {
+        this.segundoStage = segundoStage;
+        this.segundoStage.setTitle("Intranet UPSLP");
 
         initRootLayout();
 
@@ -75,11 +86,12 @@ public class MainProfesor extends Application implements Initializable {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(MainProfesor.class.getResource("view/ProfesorBorde.fxml"));
             rootLayout = (BorderPane) loader.load();
-
+            System.out.println(claveProfesor); 
+            System.out.println(passProfesor); 
             // Show the scene containing the root layout.
             Scene scene = new Scene(rootLayout);
-            primaryStage.setScene(scene);
-            primaryStage.show();
+            segundoStage.setScene(scene);
+            segundoStage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -179,6 +191,12 @@ public class MainProfesor extends Application implements Initializable {
 	        calificaciones.add(p1);
     	}
     }
+   
+   public void salir()
+   {
+	   Stage stage = (Stage) closeButton.getScene().getWindow();
+	   stage.close();
+   }
     
     private void inicializarTablaCalificaciones() {
         alumno.setCellValueFactory(new PropertyValueFactory<Calificaciones, String>("alumno"));
@@ -193,8 +211,8 @@ public class MainProfesor extends Application implements Initializable {
         tablaCalificaciones.setItems(calificaciones);
     }
     
-    public Stage getPrimaryStage() {
-        return primaryStage;
+    public Stage getSegundoStage() {
+        return segundoStage;
     }
     
     public String getClaveProfesor()

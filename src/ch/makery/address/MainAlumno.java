@@ -53,7 +53,15 @@ public class MainAlumno extends Application {
     @FXML private TableColumn extra;
     @FXML private TableColumn inas;
     ObservableList<DataAlumn> materias;
-
+    private String claveProfesor, passProfesor;
+    
+    public MainAlumno(){
+    	
+    }
+    public MainAlumno(String clave, String pass){
+    	claveProfesor=clave;
+   	   passProfesor=pass;
+    }
     @Override
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;

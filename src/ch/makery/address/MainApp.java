@@ -1,9 +1,14 @@
 //UNIVERSIDAD POLITÉCNICA DE SAN LUIS POTOSÍ
+//
+
+
 package ch.makery.address;
 
 import java.io.IOException;
 
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,13 +25,13 @@ public class MainApp extends Application {
     private BorderPane rootLayout;
     @SuppressWarnings("unused")
 	private MainAlumno alumno;
-    
+    private String claveUsuario, passUsuario;
     @FXML private TextField clave;
     @FXML private TextField pass;
     @FXML private RadioButton radioAlumno;
     @FXML private RadioButton radioProfesor;
     @FXML private RadioButton radioAdministrador;
-
+   
     @Override
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
@@ -81,7 +86,9 @@ public class MainApp extends Application {
     private void handleButtonAction(ActionEvent event) {
     	if(radioAlumno.isSelected())
     	{
-    		Application app2 = new MainAlumno(); 
+    		claveUsuario=clave.getText();
+    		passUsuario=pass.getText();
+    		Application app2 = new MainAlumno(claveUsuario,passUsuario); 
             Stage anotherStage = new Stage();
             try {
             	app2.start(anotherStage);
@@ -92,12 +99,17 @@ public class MainApp extends Application {
     	}
     	if(radioProfesor.isSelected())
     	{
-    		String var=clave.getText();
-    		Application app2 = new MainProfesor(); 
-    		((MainProfesor) app2).setClaveProfesor(var);
-            Stage anotherStage = new Stage();
+    		
+    		claveUsuario=clave.getText();
+    		passUsuario=pass.getText();
+    		Application app2 = new MainProfesor(claveUsuario,passUsuario); 
+    		Stage anotherStage = new Stage();
+           
             try {
+            	
             	app2.start(anotherStage);
+          
+            
             } catch (Exception e) {
   			// TODO Auto-generated catch block
   			e.printStackTrace();
@@ -105,7 +117,9 @@ public class MainApp extends Application {
     	}
     	if(radioAdministrador.isSelected())
     	{
-    		Application app2 = new MainAdministrador(); 
+    		claveUsuario=clave.getText();
+    		passUsuario=pass.getText();
+    		Application app2 = new MainAdministrador(claveUsuario,passUsuario); 
             Stage anotherStage = new Stage();
             try {
             	app2.start(anotherStage);
@@ -117,7 +131,7 @@ public class MainApp extends Application {
     	
         
     }
-    
+        
     public Stage getPrimaryStage() {
         return primaryStage;
     }
