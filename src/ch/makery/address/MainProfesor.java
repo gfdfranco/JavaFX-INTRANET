@@ -33,7 +33,7 @@ public class MainProfesor extends Application implements Initializable {
 	
     private Stage segundoStage;
     private BorderPane rootLayout;
-    private String claveProfesor, passProfesor;
+    private String claveProfesor;
     private String nombreAlumno;
     // Declaramos la tabla y las columnas
     
@@ -65,18 +65,16 @@ public class MainProfesor extends Application implements Initializable {
 	@FXML TextField bdirP;
 	@FXML TextField bclaveP;
 	@FXML TextField bemailP;
-	
 	@FXML TextField claveMat;
     
-    public MainProfesor()
-    {
+    public MainProfesor(){
     	
     }
-    public MainProfesor(String clave, String pass)
-    {
-    	claveProfesor=clave;
-    	passProfesor=pass;
+    
+    public MainProfesor(String clave){
+    	claveProfesor = clave;
     }
+    
     public void start(Stage segundoStage) {
         this.segundoStage = segundoStage;
         this.segundoStage.setTitle("Intranet UPSLP");
@@ -97,8 +95,7 @@ public class MainProfesor extends Application implements Initializable {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(MainProfesor.class.getResource("view/ProfesorBorde.fxml"));
             rootLayout = (BorderPane) loader.load();
-            System.out.println(claveProfesor); 
-            System.out.println(passProfesor); 
+ 
             // Show the scene containing the root layout.
             Scene scene = new Scene(rootLayout);
             segundoStage.setScene(scene);

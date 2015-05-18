@@ -30,14 +30,13 @@ public class MainAlumno extends Application {
     private Stage primaryStage;
     private BorderPane rootLayout;
     
-    private String matricula = "2";
+    private String matricula;
     
     /* Datos Alumno */
 	@FXML TextField nomA;
 	@FXML TextField matA;
 	@FXML TextField telA;
 	@FXML TextField dirA;
-	@FXML ComboBox<String> carreraA;
 	@FXML TextField mailA;
 	
 	/* Tabla */
@@ -53,14 +52,12 @@ public class MainAlumno extends Application {
     @FXML private TableColumn extra;
     @FXML private TableColumn inas;
     ObservableList<DataAlumn> materias;
-    private String claveProfesor, passProfesor;
     
     public MainAlumno(){
     	
     }
-    public MainAlumno(String clave, String pass){
-    	claveProfesor=clave;
-   	   passProfesor=pass;
+    public MainAlumno(String clave){
+    	matricula = clave;
     }
     @Override
     public void start(Stage primaryStage) {
@@ -69,6 +66,7 @@ public class MainAlumno extends Application {
 
         initRootLayout();
         showPersonOverview();
+        showData();
         
     }
 

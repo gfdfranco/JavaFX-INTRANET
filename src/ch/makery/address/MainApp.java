@@ -31,7 +31,6 @@ public class MainApp extends Application {
 
     private Stage primaryStage;//Escenario que se usa
     private BorderPane rootLayout;//Objeto vista del layOut
-    
     //Atributos necesarios de tipo String
     private String claveUsuario, passUsuario;
     
@@ -103,66 +102,84 @@ public class MainApp extends Application {
     private void handleButtonAction(ActionEvent event) {
     	//Base de datos......
     	DataBaseSQL	db = new DataBaseSQL();
+    	HashMap<String, String> dataS;
 		String data;
 		
 			
     	//Si es seleccionado el alumno en radio button...............
-    	if(radioAlumno.isSelected())
-    	{
+    	if(radioAlumno.isSelected()){
     		//Se guardan en variables lo ingresado en los textfield
-    		claveUsuario=clave.getText();
-    		passUsuario=pass.getText();
-    		
-    		
-    		    //Con polimorfismo se adapta a la forma de la clase hijo, del usuario que es
-    			Application app2 = new MainAlumno(claveUsuario,passUsuario); 
-    			//Inicia esenario nuevo
-                Stage anotherStage = new Stage();
-               //Por si hay excepciones se pone try and catch
-                try {
-                	app2.start(anotherStage);//Se inicia la aplicacion
-                } catch (Exception e) {
-      			// TODO Auto-generated catch block
-      			e.printStackTrace();//IMPRIME ERROR
-                }
-    		
+    		claveUsuario = clave.getText();
+    		passUsuario = pass.getText();
+    		System.out.println("-" + passUsuario);
+    		if((dataS = db.fetchArray("alumno", "MATRICULA", claveUsuario)) != null)
+	    		if(dataS.get("PASSWORD").equals(passUsuario)){
+	    		    //Con polimorfismo se adapta a la forma de la clase hijo, del usuario que es
+	    			Application app2 = new MainAlumno(claveUsuario); 
+	    			//Inicia esenario nuevo
+	                Stage anotherStage = new Stage();
+	               //Por si hay excepciones se pone try and catch
+	                try {
+	                	app2.start(anotherStage);//Se inicia la aplicacion
+	                } catch (Exception e) {
+	      			// TODO Auto-generated catch block
+	      			e.printStackTrace();//IMPRIME ERROR
+	                }
+	    		}else{
+					JOptionPane.showMessageDialog(null, "Contraseña no valida");
+					System.out.println(dataS.get("PASSWORD"));
+	    		}
+			else
+				JOptionPane.showMessageDialog(null, "Usuario no valido");
     		
     	}
     	//Si es seleccionado el profesor en radio button...............
-    	if(radioProfesor.isSelected())
-    	{
+    	if(radioProfesor.isSelected()){
     		//Se guardan en variables lo ingresado en los textfield
-    		claveUsuario=clave.getText();
-    		passUsuario=pass.getText();
-    		//Se manda en el constructor la clave y contraseña
-    		Application app2 = new MainProfesor(claveUsuario,passUsuario); 
-    		//Inicia esenario nuevo
-            Stage anotherStage = new Stage();
-           //Por si hay excepciones se pone try and catch
-            try {
-            	app2.start(anotherStage);//Se inicia la aplicacion
-            } catch (Exception e) {
-  			// TODO Auto-generated catch block
-  			e.printStackTrace();//IMPRIME ERROR
-            }
+    		claveUsuario = clave.getText();
+    		passUsuario = pass.getText();
+    		
+    		if((dataS = db.fetchArray("profesor", "CLAVE", claveUsuario)) != null)
+	    		if(dataS.get("PASSWORD").equals(passUsuario)){
+		    		//Se manda en el constructor la clave y contraseña
+		    		Application app2 = new MainProfesor(claveUsuario); 
+		    		//Inicia esenario nuevo
+		            Stage anotherStage = new Stage();
+		           //Por si hay excepciones se pone try and catch
+		            try {
+		            	app2.start(anotherStage);//Se inicia la aplicacion
+		            } catch (Exception e) {
+		  			// TODO Auto-generated catch block
+		  			e.printStackTrace();//IMPRIME ERROR
+		            }
+	    		}else
+					JOptionPane.showMessageDialog(null, "Contraseña no valida");
+			else
+				JOptionPane.showMessageDialog(null, "Usuario no valido");
     	}
     	//Si es seleccionado el administrador en radio button...............
-    	if(radioAdministrador.isSelected())
-    	{
+    	if(radioAdministrador.isSelected()){
     		//Se guardan en variables lo ingresado en los textfield
-    		claveUsuario=clave.getText();
-    		passUsuario=pass.getText();
-    		//Se manda en el constructor la clave y contraseña
-    		Application app2 = new MainAdministrador(claveUsuario,passUsuario); 
-    		//Inicia esenario nuevo
-            Stage anotherStage = new Stage();
-           //Por si hay excepciones se pone try and catch
-            try {
-            	app2.start(anotherStage);//Se inicia la aplicacion
-            } catch (Exception e) {
-  			// TODO Auto-generated catch block
-  			e.printStackTrace();//IMPRIME ERROR
-            }
+    		claveUsuario = clave.getText();
+    		passUsuario = pass.getText();
+    		
+    		if((dataS = db.fetchArray("administrador", "CLAVE", claveUsuario)) != null)
+	    		if(dataS.get("PASSWORD").equals(passUsuario)){
+		    		//Se manda en el constructor la clave y contraseña
+		    		Application app2 = new MainAdministrador(claveUsuario); 
+		    		//Inicia esenario nuevo
+		            Stage anotherStage = new Stage();
+		           //Por si hay excepciones se pone try and catch
+		            try {
+		            	app2.start(anotherStage);//Se inicia la aplicacion
+		            } catch (Exception e) {
+		  			// TODO Auto-generated catch block
+		  			e.printStackTrace();//IMPRIME ERROR
+		            }
+	    		}else
+	    			JOptionPane.showMessageDialog(null, "Contraseña no valida");
+    		else
+    			JOptionPane.showMessageDialog(null, "Usuario no valido");
     	}
     	
         

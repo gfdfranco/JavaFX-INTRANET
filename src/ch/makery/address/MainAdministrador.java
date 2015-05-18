@@ -112,14 +112,16 @@ public class MainAdministrador extends Application implements Bordes {
     private Stage primaryStage;
     private BorderPane rootLayout;
     private String carrera;
-    private String claveProfesor, passProfesor;
+    private String claveAdmin;
+    
     public MainAdministrador(){
     	
     }
-  public MainAdministrador(String clave, String pass){
-	  claveProfesor=clave;
-  	   passProfesor=pass;
+    
+    public MainAdministrador(String clave){
+	  claveAdmin = clave;
     }
+    
     @Override
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
