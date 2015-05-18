@@ -21,13 +21,14 @@ public class DataBaseSQL implements Connection {
     PreparedStatement pstmt;
 
     public DataBaseSQL(){
+    	// Datos necesarios para la conexion con la base de datos
         this.driver = "com.mysql.jdbc.Driver";
         this.pass = "";
         this.user = "root";
         this.server = "jdbc:mysql://localhost/intranet";
             try{
                 Class.forName(driver);
-                connection = DriverManager.getConnection(server,user,pass);
+                connection = DriverManager.getConnection(server,user,pass); //Creamos la conexion
                 System.out.println("Conexion realizada con exito");
             }catch(ClassNotFoundException | SQLException e){
                 System.out.println(e.getMessage());
@@ -43,11 +44,11 @@ public class DataBaseSQL implements Connection {
     //Metodo que ejecuta cualquier query, retorna booleano si se pudo realizar
     public boolean free(String q){
         try {
-            Statement query = (Statement) connection.createStatement();
+            Statement query = (Statement) connection.createStatement(); //Variable que ejecuta querys
             System.out.println("free: " + q);
-            query.executeUpdate(q);
+            query.executeUpdate(q); //Ejecutamos el query
             System.out.println("Exito");
-            query.close();
+            query.close(); //Cerramos la conexion
             return true;
         } catch (SQLException e) {
             System.out.println("FAIL");
@@ -63,27 +64,27 @@ public class DataBaseSQL implements Connection {
             //Si la tabla es profesor, alumno o administrador, la contraseña la ingresamos tal cual
             if(tabla.equals("profesor") || tabla.equals("alumno") || tabla.equals("administrador")){
             	int i = 1;
-            	q1 = "insert into " + tabla + " values(";
+            	q1 = "insert into " + tabla + " values("; //Vamos creando el query
                 
-            	for(String txt : values){
+            	for(String txt : values){ //Agregamos los valores
                     if(i < values.length)
-                    	q1 += "'" + txt.toUpperCase() + "', ";
+                    	q1 += "'" + txt.toUpperCase() + "', "; //Pasamos todo a mayuscula
                     else
-                    	q1 += "'" + txt + "', ";
+                    	q1 += "'" + txt + "', "; //SI es password lo mandamos tal cual
                     i++;
                 }
             }else{
 	            q1 = "insert into " + tabla + " values(";
 	            
 	            for(String txt : values)
-	                q1 += "'" + txt.toUpperCase() + "', ";
+	                q1 += "'" + txt.toUpperCase() + "', "; //Agregamos los valores
             }
             
-            q1 = q1.substring(0, q1.length()-2);
-            q1 += ")";
+            q1 = q1.substring(0, q1.length()-2); //Eliminamos la coma de mas
+            q1 += ")"; 
             
             System.out.println("insert: " + q1);
-            query.executeUpdate(q1);
+            query.executeUpdate(q1); //Ejecutamos el query
             System.out.println("Exito");
             query.close();
         } catch (SQLException e) {
@@ -100,25 +101,25 @@ public class DataBaseSQL implements Connection {
         
         try{
             Statement query = (Statement) connection.createStatement();
-            String comando = "SELECT * FROM " + table + " WHERE " + delimiter + " = " + index;
+            String comando = "SELECT * FROM " + table + " WHERE " + delimiter + " = " + index; //Creamos el query
             System.out.println("fetchArray: " + comando);
-            ResultSet rs = query.executeQuery(comando);
+            ResultSet rs = query.executeQuery(comando); //Ejecutamos el query
             
-            if( !rs.next() ){
-                System.out.println("VACIO");
+            if( !rs.next() ){ 
+                System.out.println("VACIO"); //Si no hay datos retornamos null
                 return null;
             }
             ResultSetMetaData rsmd = rs.getMetaData();
             rs.first();
             String valor, key;
  
-            int cant = rsmd.getColumnCount();
+            int cant = rsmd.getColumnCount(); //Obtenemos todas las columnas del resultado
             
-            for(int i = 1; i <= cant; i++){
-                key = rsmd.getColumnName(i);
-                valor = rs.getString(key);
+            for(int i = 1; i <= cant; i++){ //Por cada una de las columnas
+                key = rsmd.getColumnName(i); // Obtenemos la columna
+                valor = rs.getString(key); //Obtenemos el valor
                 //System.out.println(key + "-->" + valor);
-                mapa.put(key, valor);
+                mapa.put(key, valor); //Almacenamos los valores en el mapa
             }  
             
         }catch(Exception e){
@@ -136,9 +137,9 @@ public class DataBaseSQL implements Connection {
         
         try{
             Statement query = (Statement) connection.createStatement();
-            String comando = "SELECT * FROM " + table + " WHERE "+ delimiter + " = " + index;
+            String comando = "SELECT * FROM " + table + " WHERE "+ delimiter + " = " + index; //Creamos el query
             System.out.println("GetAll: " + comando);
-            ResultSet rs = query.executeQuery(comando);
+            ResultSet rs = query.executeQuery(comando); //Ejecutamos el query
             
             if( !rs.next() ){
                 System.out.println("VACIO");
@@ -149,17 +150,17 @@ public class DataBaseSQL implements Connection {
             rs.first();
             String valor, key;
  
-            int cant = rsmd.getColumnCount();
+            int cant = rsmd.getColumnCount(); //Obtenemos el numero de columnas
             do{
-	            mapa = new HashMap<String, String>();
-            	for(int i = 1; i <= cant; i++){
-	                key = rsmd.getColumnName(i);
-	                valor = rs.getString(key);
-	                System.out.println(key + "-->" + valor);
-	                mapa.put(key, valor);
+	            mapa = new HashMap<String, String>(); //Creamos un nuevo mapa
+            	for(int i = 1; i <= cant; i++){ //Por cada una de las columnas
+	                key = rsmd.getColumnName(i); //Almacenamos la columna
+	                valor = rs.getString(key); //Almacenamos el valor
+	                //System.out.println(key + "-->" + valor);
+	                mapa.put(key, valor); //Guardamos los valores en el mapa
 	            }
-            	Lista.add(mapa);
-            }while(rs.next());
+            	Lista.add(mapa); //Almacenamos el registro completo (el mapa) en la lista
+            }while(rs.next()); //Mientras haya registros 
             return Lista;
         }catch(Exception e){
             System.out.print("Error " + e);
