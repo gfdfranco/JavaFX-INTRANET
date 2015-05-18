@@ -38,6 +38,7 @@ public class MainAlumno extends Application {
 	@FXML TextField telA;
 	@FXML TextField dirA;
 	@FXML TextField mailA;
+	@FXML TextField carreraA;
 	
 	/* Tabla */
 	@FXML private TableView<DataAlumn> tableMaterias;
@@ -84,7 +85,8 @@ public class MainAlumno extends Application {
 		telA.setText(data.get("TELEFONO"));
 		dirA.setText(data.get("DIRECCION"));
 		mailA.setText(data.get("EMAIL"));
-		//carreraA.setText(data.get("CARRERA"));
+		matA.setText(data.get("MATRICULA"));
+		carreraA.setText(data.get("CARRERA"));
     }
     
     public void initTable(){
