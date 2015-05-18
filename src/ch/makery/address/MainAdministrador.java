@@ -21,6 +21,17 @@ import javafx.stage.Stage;
 public class MainAdministrador extends Application implements Bordes {
     
 	//CONTROLADOR DE FXML.................................................
+	//DATOS INSCRIBIR ALUMNO
+	@FXML TextField matriculaIA;
+	@FXML TextField materiaIA;
+	
+	//Activar Parcilas
+	@FXML RadioButton parcial1;
+	@FXML RadioButton parcial2;
+	@FXML RadioButton parcial3;
+	@FXML RadioButton parcialFinal;
+	@FXML RadioButton extra;
+	
 	/* Datos Profesor */
 	@FXML TextField nomP;
 	@FXML TextField rfcP;
