@@ -161,9 +161,8 @@ public class MainProfesor extends Application implements Initializable {
         private void ponerCalificacionSeleccionada() {
             final Calificaciones cal = getTablaCalificacionSeleccionada();
             posicionCalificacionEnTabla = calificaciones.indexOf(cal);
-
+            
             if (cal != null) {
-
                 // Pongo los textFields con los datos correspondientes
             	txtnombreAlumno.setText(cal.getAlumno());
             	txtmatricula.setText(cal.getMatricula());
@@ -173,12 +172,10 @@ public class MainProfesor extends Application implements Initializable {
                 txtparcialFinal.setText(cal.getParcialFinal());
                 txtextra.setText(cal.getExtra());
                 txtfaltas.setText(cal.getFaltas());
-                
-
             }
         }
+        
         @FXML private void modificar(ActionEvent event) {
-        	 
             Calificaciones calificacion = new Calificaciones();
             calificacion.alumno.set(txtnombreAlumno.getText());
             calificacion.matricula.set(txtmatricula.getText());
@@ -189,35 +186,54 @@ public class MainProfesor extends Application implements Initializable {
             calificacion.extra.set(txtextra.getText());
             calificacion.faltas.set(txtfaltas.getText());
             calificaciones.set(posicionCalificacionEnTabla, calificacion);
-            
         }
-   public void agregarDatos() {
-	   DataBaseSQL db = new DataBaseSQL();
-	    // Inicializamos la tabla
-	    this.inicializarTablaCalificaciones();
-	
-	    // Seleccionar las tuplas de la tabla de las personas
-	    final ObservableList<Calificaciones> tablaClientesSel = tablaCalificaciones.getSelectionModel().getSelectedItems();
-	    tablaClientesSel.addListener(selectorTablaCalificaciones);
-	    
-	    List<HashMap<String, String>> data;
-    	data = db.getAll("CALIFICACIONES", "CLAVE_MATERIA", claveMat.getText());
-    	
-    	for(int i = 0; i < data.size(); i++){
-	    	Calificaciones p1 = new Calificaciones();
+        
+	   public void agregarDatos() {
+		   DataBaseSQL db = new DataBaseSQL();
+   			HashMap<String, String> aux;
+   			aux = db.fetchArray("parcial_activo", "id", "1");
+   			txtparcial1.setDisable(true);
+   			txtparcial2.setDisable(true);
+   			txtparcial3.setDisable(true);
+   			txtparcialFinal.setDisable(true);
+   			txtextra.setDisable(true);
+   			
+   			if(aux.get("activo").equals("1"))
+   				txtparcial1.setDisable(false);
+   			if(aux.get("activo").equals("2"))
+   				txtparcial2.setDisable(false);
+   			if(aux.get("activo").equals("3"))
+   				txtparcial3.setDisable(false);
+   			if(aux.get("activo").equals("final"))
+   				txtparcialFinal.setDisable(false);
+   			if(aux.get("activo").equals("extra"))
+   				txtextra.setDisable(false);
+   			
+   			// Inicializamos la tabla
+		    this.inicializarTablaCalificaciones();
+		
+		    // Seleccionar las tuplas de la tabla de las personas
+		    final ObservableList<Calificaciones> tablaClientesSel = tablaCalificaciones.getSelectionModel().getSelectedItems();
+		    tablaClientesSel.addListener(selectorTablaCalificaciones);
 		    
-		    p1.alumno.set("Nombre Alumno");
-	        p1.matricula.set(data.get(i).get("MATRICULA_ALUM") );
-	        p1.parcial1.set(data.get(i).get("CAL1"));
-	        p1.parcial2.set(data.get(i).get("CAL2"));
-	        p1.parcial3.set(data.get(i).get("CAL3"));
-	        p1.parcialFinal.set(data.get(i).get("FINAL"));
-	        p1.extra.set(data.get(i).get("EXTRA"));
-	        p1.faltas.set(data.get(i).get("INASISTENCIAS"));
-	        
-	        calificaciones.add(p1);
-    	}
-    }
+		    List<HashMap<String, String>> data;
+	    	data = db.getAll("CALIFICACIONES", "CLAVE_MATERIA", claveMat.getText());
+	    	
+	    	for(int i = 0; i < data.size(); i++){
+		    	Calificaciones p1 = new Calificaciones();
+			    
+			    p1.alumno.set("Nombre Alumno");
+		        p1.matricula.set(data.get(i).get("MATRICULA_ALUM") );
+		        p1.parcial1.set(data.get(i).get("CAL1"));
+		        p1.parcial2.set(data.get(i).get("CAL2"));
+		        p1.parcial3.set(data.get(i).get("CAL3"));
+		        p1.parcialFinal.set(data.get(i).get("FINAL"));
+		        p1.extra.set(data.get(i).get("EXTRA"));
+		        p1.faltas.set(data.get(i).get("INASISTENCIAS"));
+		        
+		        calificaciones.add(p1);
+	    	}
+	    }
    
    public void salir()
    {

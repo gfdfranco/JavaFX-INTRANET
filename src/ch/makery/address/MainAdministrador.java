@@ -109,6 +109,8 @@ public class MainAdministrador extends Application implements Bordes {
 	@FXML TextField bhoraM;
 	@FXML TextField bcarreraM;
 	
+
+	
     private Stage primaryStage;
     private BorderPane rootLayout;
     private String carrera;
@@ -441,6 +443,28 @@ public class MainAdministrador extends Application implements Bordes {
 		baulaM.setText(data.get("AULA"));
 		bhoraM.setText(data.get("HORA"));
 		bcarreraM.setText(data.get("CARRERA"));
+    }
+    
+    public void setActivePartial(){
+    	String selected = "1";
+    	DataBaseSQL	db = new DataBaseSQL();
+    	
+    	if(parcial1.isSelected())
+    		selected = "1";
+    	if(parcial2.isSelected())
+    		selected = "2";
+    	if(parcial3.isSelected())
+    		selected = "3";
+    	if(parcialFinal.isSelected())
+    		selected = "final";
+    	if(extra.isSelected())
+    		selected = "extra";
+    	
+    	db.free("Update parcial_activo set activo = " + selected + " where id = 1");	
+    }
+    
+    public void addAlumGroup(){
+    	
     }
        
     public void error(String txt){
