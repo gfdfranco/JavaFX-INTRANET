@@ -40,7 +40,7 @@ public class DataBaseSQL implements Connection {
         String[] a = {"a", "b"};
         db.insert("sadasd", a);
     }
-
+    //Metodo que ejecuta cualquier query, retorna booleano si se pudo realizar
     public boolean free(String q){
         try {
             Statement query = (Statement) connection.createStatement();
@@ -55,11 +55,12 @@ public class DataBaseSQL implements Connection {
         }
     }
     
+    //Metodo que inserta valores en una tabla, NOTA: TODO se inserta en mayusculas
     public boolean insert(String tabla, String[] values){
         try {
             Statement query = (Statement) connection.createStatement();
             String q1;
-            
+            //Si la tabla es profesor, alumno o administrador, la contraseña la ingresamos tal cual
             if(tabla.equals("profesor") || tabla.equals("alumno") || tabla.equals("administrador")){
             	int i = 1;
             	q1 = "insert into " + tabla + " values(";
@@ -91,29 +92,11 @@ public class DataBaseSQL implements Connection {
         }
         return true;
     }
-       
-    public int selectID(String tabla){
-        int numberRow = 0;
-
-        try{
-
-            Statement query = (Statement) connection.createStatement();
-            ResultSet rs;
-            String q1;
-            q1 = "select count(*) from " + tabla;
-            System.out.println("-" + q1 + "-");
-            rs = query.executeQuery(q1);
-            while(rs.next()){
-                numberRow = rs.getInt("count(*)");
-            }
-        }catch (Exception ex){
-            System.out.println(ex.getMessage());
-        }
-        return numberRow;
-    }
     
+    //Metodo para obtener un registro de la base de datos
     public HashMap<String, String>fetchArray(String table, String delimiter, String index){
-        HashMap<String, String> mapa = new HashMap<String, String>();
+        //Todo lo almacenamos en un mapa
+    	HashMap<String, String> mapa = new HashMap<String, String>();
         
         try{
             Statement query = (Statement) connection.createStatement();
@@ -145,9 +128,10 @@ public class DataBaseSQL implements Connection {
         return mapa;
     }
     
+    //Metodo para obtener varios registros de una tabla
     public List<HashMap<String, String>> getAll(String table, String  delimiter, String index){
-        List<HashMap<String,String>> Lista = new ArrayList<HashMap<String, String>>();
-        
+        //Todo lo almacenamos en una lista de mapas
+    	List<HashMap<String,String>> Lista = new ArrayList<HashMap<String, String>>();
     	HashMap<String, String> mapa = new HashMap<String, String>();
         
         try{
@@ -183,68 +167,7 @@ public class DataBaseSQL implements Connection {
         }
         
     }
-    
-    public int getIndexOf(String table, String column, String value){
-        try{
-            Statement query = (Statement) connection.createStatement();
-            String comando = "SELECT ID FROM " + table + " WHERE " + column + " = '" + value + "'";
-
-            ResultSet rs = query.executeQuery(comando);
-            rs.beforeFirst();
-            String cadena;
-            int indice;
-            
-            if( rs.next() ){
-                cadena = rs.getString(1);
-                indice = Integer.valueOf(cadena);
-                return indice;
-            }
-            else
-                return 0;
-        }catch(Exception e){
-            System.out.println(e);
-            return 0;
-        }
-    }
-    
-    public String getValueOf(String table, String column, int index){
-        try{
-            Statement query = (Statement) connection.createStatement();
-            String comando = "SELECT " + column + " FROM " + table + " WHERE ID = " + String.valueOf(index);
-            System.out.println("getValueOf: " + comando);
-            ResultSet rs = query.executeQuery(comando);
-            rs.first();
-            String cadena = rs.getString(1);
-            return cadena;
-        }catch(Exception e){
-            System.out.println(e);
-            return null;
-        }     
-    }
-    
-    public List<String[]> getProductos(String  idV){
-        List<String[]> data = new ArrayList<String[]>();
-        try{
-            Statement query = (Statement) connection.createStatement();
-            ResultSet rs;
-            String q1;
-            q1 = "select * from desc_venta where id_venta = " + idV ;
-            System.out.println("getProductos: " + q1);
-            rs = query.executeQuery(q1);
-            while(rs.next()){
-                String[] a = new String[2];
-                a[0] = rs.getString("ID_PRODUCTO");
-                a[1] = rs.getString("CANTIDAD");
-                data.add(a);
-            }
-            return data;
-        }catch (Exception ex){
-            System.out.println(ex.getMessage());
-            return null;
-        }
-    }
         
-    
     public Connection getConnection(){
         return connection;
     }
