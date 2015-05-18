@@ -60,13 +60,27 @@ public class DataBaseSQL implements Connection {
             Statement query = (Statement) connection.createStatement();
             String q1;
             
-            q1 = "insert into " + tabla + " values(";
-            
-            for(String txt : values)
-                q1 += "'" + txt.toUpperCase() + "', ";
+            if(tabla.equals("profesor") || tabla.equals("alumno") || tabla.equals("administrador")){
+            	int i = 1;
+            	q1 = "insert into " + tabla + " values(";
+                
+            	for(String txt : values){
+                    if(i < values.length)
+                    	q1 += "'" + txt.toUpperCase() + "', ";
+                    else
+                    	q1 += "'" + txt + "', ";
+                    i++;
+                }
+            }else{
+	            q1 = "insert into " + tabla + " values(";
+	            
+	            for(String txt : values)
+	                q1 += "'" + txt.toUpperCase() + "', ";
+            }
             
             q1 = q1.substring(0, q1.length()-2);
             q1 += ")";
+            
             System.out.println("insert: " + q1);
             query.executeUpdate(q1);
             System.out.println("Exito");
