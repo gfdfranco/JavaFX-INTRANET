@@ -159,11 +159,23 @@ public class MainAdministrador extends Application implements Bordes {
     	DataBaseSQL	db = new DataBaseSQL();
     	String[] data = new String[7];
 		data[0] = nomP.getText();
+		if(!Validaciones.isName(data[0], 50, "nombre"))
+			return;
 		data[1] = rfcP.getText();
+		if(!Validaciones.isExactSize(data[1], 10, "RFC"))
+			return;
     	data[2] = telP.getText();
+		if(!Validaciones.isPhone(data[2]))
+			return;
     	data[3] = dirP.getText();
+    	if(!Validaciones.isCorrectSize(data[3], 50, "Direccion"))
+    		return;
     	data[4] = usuarioP.getText();
+    	if(!Validaciones.isPositiveInt(data[4], "Clave", 4))
+    		return;
     	data[5] = emailP.getText();
+    	if(!Validaciones.isMail(data[5], 30))
+    		return;
     	
     	
     	if(passP.getText().equals(pass2P.getText()))
@@ -173,11 +185,14 @@ public class MainAdministrador extends Application implements Bordes {
     		return;
     	}
     	
-    	for(String a : data)
+    	if(!Validaciones.isPass(data[6], 25))
+    		return;
+    	
+    	/*for(String a : data)
     		if(a.equals("")){
     			error("Ingresa todos los datos");
     			return;
-    		}
+    		}*/
     	
 		if(db.insert("profesor", data))
     		error("Profesor agregado con Exito!");
@@ -190,9 +205,19 @@ public class MainAdministrador extends Application implements Bordes {
     	DataBaseSQL	db = new DataBaseSQL();
     	
     	data[0] = nomA.getText();
+    	if(!Validaciones.isName(data[0], 50, "Nombre"))
+			return;
     	data[1] = matA.getText();
+    	if(!Validaciones.isPositiveInt(data[1], "Matricula", 6))
+    		return;
+    	if(!Validaciones.isExactSize(data[1], 6, "Matricula"))
+    		return;
     	data[2] = telA.getText();
+    	if(!Validaciones.isPhone(data[2]))
+    		return;
     	data[3] = dirA.getText();
+    	if(!Validaciones.isCorrectSize(data[3], 50, "Direccion"))
+    		return;
     	
     	if(rITI_A.isSelected())
     		data[4] = "1";
@@ -206,7 +231,13 @@ public class MainAdministrador extends Application implements Bordes {
     		data[4] = "5";
     	if(rLMKT_A.isSelected())
     		data[4] = "6";
+    	
+    	if(!Validaciones.isExactSize(data[4], 1, "Carrera"))
+    		return;
+    	
     	data[5] = mailA.getText();
+    	if(!Validaciones.isMail(data[5], 30))
+    		return;
     	
     	if(passA.getText().equals(pass2A.getText())){
     		data[6] = passA.getText();
@@ -215,13 +246,16 @@ public class MainAdministrador extends Application implements Bordes {
     		return;
     	}
     	
-    	for(String a : data)
+    	if(!Validaciones.isPass(data[6], 25))
+    		return;
+    	
+    	/*for(String a : data)
     		if(a.equals("")){
     			error("Ingresa todos los datos");
     			return;
-    		}
+    		}*/
     	
-    	if(db.insert("ALUMNO", data)){
+    	if(db.insert("alumno", data)){
     		error("Alumno agregada con Exito!");
     	}else
     		error("Error al ingresar al Alumno");
@@ -232,11 +266,22 @@ public class MainAdministrador extends Application implements Bordes {
     	DataBaseSQL	db = new DataBaseSQL();
     	
     	data[0] = nomM.getText();
+    	if(!Validaciones.isCorrectSize(data[0], 25, "Materia"))
+    		return;
     	data[1] = claveM.getText();
+    	if(!Validaciones.isPositiveInt(data[1], "Clave", 4))
+    		return;
     	data[2] = profM.getText();
+    	if(!Validaciones.isPositiveInt(data[2], "Clave Profesor", 4))
+    		return;
     	data[3] = aulaM.getText();
+    	if(!Validaciones.isCorrectSize(data[3], 3, "Aula"))
+    		return;
     	data[4] = horaM.getText();
-    	
+    	if(data[4].equals("")){
+    		error("Error, ingresa un valor para hora");
+    		return;
+    	}
     	if(rITI_M.isSelected())
     		data[5] = "1";
     	if(rITEM_M.isSelected())
@@ -250,13 +295,16 @@ public class MainAdministrador extends Application implements Bordes {
     	if(rLMKT_M.isSelected())
     		data[5] = "6";
     	
-    	for(String a : data)
+    	if(!Validaciones.isExactSize(data[5], 1, "Carrera"))
+    		return;
+    	
+    	/*for(String a : data)
     		if(a.equals("")){
     			error("Ingresa todos los datos");
     			return;
-    		}
+    		}*/
     	
-    	if(db.insert("MATERIA", data))
+    	if(db.insert("materia", data))
     		error("Materia agregada con Exito!");
     	else
     		error("Error al ingresar la materia");
@@ -267,10 +315,17 @@ public class MainAdministrador extends Application implements Bordes {
     	DataBaseSQL	db = new DataBaseSQL();
     	
     	data[0] = nomAdm.getText();
+    	if(!Validaciones.isName(data[0], 50, "Nombre"))
+    		return;
     	data[1] = userAdm.getText();
+    	if(!Validaciones.isPositiveInt(data[1], "Clave", 4))
+    		return;
     	data[2] = mailAdm.getText();
+    	if(!Validaciones.isMail(data[2], 30))
+    		return;
     	data[3] = telAdm.getText();
-    	
+    	if(!Validaciones.isPass(data[3], 25))
+    		return;
     	if(passAdm.getText().equals(pass2Adm.getText())){
     		data[4] = passAdm.getText();
     	}else{
@@ -278,13 +333,16 @@ public class MainAdministrador extends Application implements Bordes {
     		return;
     	}
     	
-    	for(String a : data)
+    	if(!Validaciones.isPass(data[4], 25))
+    		return;
+    	
+    	/*for(String a : data)
     		if(a.equals("")){
     			error("Ingresa todos los datos");
     			return;
-    		}
+    		}*/
     	
-    	if(db.insert("ADMINISTRADOR", data))
+    	if(db.insert("administrador", data))
     		error("Admin eliminado con exito");
 		else
 			error("Error al eliminar el Admin");
