@@ -45,14 +45,14 @@
                         <Label font="$x1" layoutX="161.0" layoutY="272.0" prefHeight="48.0" prefWidth="60.0" text="RFC:" textFill="WHITE" />
                         <Label font="$x1" layoutX="119.0" layoutY="150.0" prefHeight="48.0" prefWidth="116.0" text="Teléfono:" textFill="WHITE" />
                         <Label font="$x1" layoutX="113.0" layoutY="214.0" prefHeight="48.0" prefWidth="108.0" text="Dirección:" textFill="WHITE" />
-                        <TextField id="rfcProfesor" disable="true" layoutX="236.0" layoutY="272.0" opacity="1.0" prefHeight="48.0" prefWidth="826.0" />
-                        <TextField id="telProfesor" disable="true" layoutX="235.0" layoutY="150.0" opacity="1.0" prefHeight="48.0" prefWidth="293.0" />
-                        <TextField id="emailProfesor" disable="true" layoutX="236.0" layoutY="211.0" opacity="1.0" prefHeight="48.0" prefWidth="826.0" />
-                        <TextField id="nomProfesor" disable="true" layoutX="235.0" layoutY="84.0" opacity="1.0" prefHeight="48.0" prefWidth="827.0" />
-                        <TextField id="usuarioProfesor" disable="true" layoutX="235.0" layoutY="13.0" opacity="1.0" prefHeight="48.0" prefWidth="288.0" />
+                        <TextField id="rfcProfesor" fx:id="brfcP" disable="true" layoutX="236.0" layoutY="272.0" opacity="1.0" prefHeight="48.0" prefWidth="826.0" />
+                        <TextField id="telProfesor" fx:id="btelP" disable="true" layoutX="235.0" layoutY="150.0" opacity="1.0" prefHeight="48.0" prefWidth="293.0" />
+                        <TextField id="emailProfesor" fx:id="bdirP" disable="true" layoutX="236.0" layoutY="211.0" opacity="1.0" prefHeight="48.0" prefWidth="826.0" />
+                        <TextField id="nomProfesor" fx:id="bnomP" disable="true" layoutX="235.0" layoutY="84.0" opacity="1.0" prefHeight="48.0" prefWidth="827.0" />
+                        <TextField id="usuarioProfesor" fx:id="bclaveP" disable="true" layoutX="235.0" layoutY="13.0" opacity="1.0" prefHeight="48.0" prefWidth="288.0" />
                         <Label font="$x1" layoutX="23.0" layoutY="13.0" prefHeight="48.0" prefWidth="212.0" text="Clave del profesor:" textFill="WHITE" />
                         <Label font="$x1" layoutX="544.0" layoutY="150.0" prefHeight="48.0" prefWidth="79.0" text="Email:" textFill="WHITE" />
-                        <TextField id="emailProfesor" disable="true" layoutX="623.0" layoutY="150.0" opacity="1.0" prefHeight="48.0" prefWidth="439.0" />
+                        <TextField id="emailProfesor" fx:id="bemailP" disable="true" layoutX="623.0" layoutY="150.0" opacity="1.0" prefHeight="48.0" prefWidth="439.0" />
                       </children>
                     </AnchorPane>
                   </children>
