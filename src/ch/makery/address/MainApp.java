@@ -116,6 +116,7 @@ public class MainApp extends Application {
 	    		if(dataS.get("PASSWORD").equals(passUsuario)){
 	    		    //Con polimorfismo se adapta a la forma de la clase hijo, del usuario que es
 	    			Application app2 = new MainAlumno(claveUsuario); 
+	    			
 	    			//Inicia esenario nuevo
 	                Stage anotherStage = new Stage();
 	               //Por si hay excepciones se pone try and catch

@@ -3,8 +3,10 @@
 package ch.makery.address;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.List;
+import java.util.ResourceBundle;
 
 import javafx.application.Application;
 import javafx.beans.property.SimpleStringProperty;
@@ -13,6 +15,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
@@ -25,12 +28,12 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
-public class MainAlumno extends Application {
+public class MainAlumno extends Application implements Initializable {
 
     private Stage primaryStage;
     private BorderPane rootLayout;
     
-    private String matricula;
+    private static String matricula;
     
     /* Datos Alumno */
 	@FXML TextField nomA;
@@ -59,6 +62,7 @@ public class MainAlumno extends Application {
     }
     public MainAlumno(String clave){
     	matricula = clave;
+    	
     }
     @Override
     public void start(Stage primaryStage) {
@@ -67,7 +71,8 @@ public class MainAlumno extends Application {
 
         initRootLayout();
         showPersonOverview();
-        showData();
+        
+       
         
     }
 
@@ -81,12 +86,15 @@ public class MainAlumno extends Application {
 		
 		data = db.fetchArray("ALUMNO", "MATRICULA", matricula);
 		
+		
 		nomA.setText(data.get("NOMBRE"));
 		telA.setText(data.get("TELEFONO"));
 		dirA.setText(data.get("DIRECCION"));
 		mailA.setText(data.get("EMAIL"));
 		matA.setText(data.get("MATRICULA"));
 		carreraA.setText(data.get("CARRERA"));
+    	
+    
     }
     
     public void initTable(){
@@ -149,7 +157,9 @@ public class MainAlumno extends Application {
             // Show the scene containing the root layout.
             Scene scene = new Scene(rootLayout);
             primaryStage.setScene(scene);
+          
             primaryStage.show();
+          
            
         } catch (IOException e) {
             e.printStackTrace();
@@ -170,13 +180,27 @@ public class MainAlumno extends Application {
         }
     }
 
-    
+    public void salir()
+    {
+    	 
+    }
     public Stage getPrimaryStage() {
         return primaryStage;
     }
-
+    public static void wait(int t)
+    {
+    	try{
+    		Thread.sleep(t);
+    	}catch(Exception e){}
+    }
     public static void main(String[] args) {
         launch(args);
+     
         
     }
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		  showData();  
+		
+	}
 }

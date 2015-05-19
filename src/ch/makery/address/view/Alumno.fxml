@@ -42,14 +42,14 @@
                     <Label font="$x1" layoutX="144.0" layoutY="272.0" prefHeight="48.0" prefWidth="76.0" text="Email:" textFill="WHITE" />
                     <Label font="$x1" layoutX="119.0" layoutY="150.0" prefHeight="48.0" prefWidth="116.0" text="Teléfono:" textFill="WHITE" />
                     <Label font="$x1" layoutX="115.0" layoutY="211.0" prefHeight="48.0" prefWidth="104.0" text="Dirección:" textFill="WHITE" />
-                    <TextField id="rfcProfesor" disable="true" layoutX="235.0" layoutY="272.0" opacity="1.0" prefHeight="48.000099999997474" prefWidth="825.9998779296875" />
-                    <TextField id="telProfesor" disable="true" layoutX="235.0" layoutY="150.0" opacity="1.0" prefHeight="48.0" prefWidth="293.0" text="" />
-                    <TextField id="emailProfesor" disable="true" layoutX="236.0" layoutY="211.0" opacity="1.0" prefHeight="48.0" prefWidth="826.0" />
-                    <TextField id="nomProfesor" disable="true" layoutX="235.0" layoutY="84.0" opacity="1.0" prefHeight="48.0" prefWidth="827.0" />
-                    <TextField id="usuarioProfesor" disable="true" layoutX="235.0" layoutY="14.0" opacity="1.0" prefHeight="48.0" prefWidth="360.0" />
+                    <TextField id="rfcProfesor" fx:id="mailA" disable="true" layoutX="235.0" layoutY="272.0" opacity="1.0" prefHeight="48.000099999997474" prefWidth="825.9998779296875" />
+                    <TextField id="telProfesor" fx:id="telA" disable="true" layoutX="235.0" layoutY="150.0" opacity="1.0" prefHeight="48.0" prefWidth="293.0" text="" />
+                    <TextField id="emailProfesor" fx:id="dirA" disable="true" layoutX="236.0" layoutY="211.0" opacity="1.0" prefHeight="48.0" prefWidth="826.0" />
+                    <TextField id="nomProfesor" fx:id="nomA" disable="true" layoutX="235.0" layoutY="84.0" opacity="1.0" prefHeight="48.0" prefWidth="827.0" />
+                    <TextField id="usuarioProfesor" fx:id="matA" disable="true" layoutX="235.0" layoutY="14.0" opacity="1.0" prefHeight="48.0" prefWidth="360.0" />
                     <Label font="$x1" layoutX="104.0" layoutY="16.0" prefHeight="48.0" prefWidth="116.0" text="Matrícula:" textFill="WHITE" />
                     <Label font="$x1" layoutX="558.0" layoutY="150.0" prefHeight="48.0" prefWidth="104.0" text="Carrera:" textFill="#dfdfdf" />
-                    <TextField id="emailProfesor" disable="true" layoutX="683.0" layoutY="150.0" opacity="1.0" prefHeight="48.0" prefWidth="379.0" />
+                    <TextField id="emailProfesor" fx:id="carreraA" disable="true" layoutX="683.0" layoutY="150.0" opacity="1.0" prefHeight="48.0" prefWidth="379.0" />
                   </children>
                 </AnchorPane>
               </children>
@@ -115,7 +115,7 @@
         <Image url="@../../../../../images/UPSLP-logo.jpg" preserveRatio="true" smooth="true" />
       </image>
     </ImageView>
-    <Button font="$x6" layoutX="59.0" layoutY="587.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="199.0" text="Salir" textFill="BLACK">
+    <Button font="$x6" layoutX="59.0" layoutY="587.0" mnemonicParsing="false" onAction="#salir" prefHeight="85.0" prefWidth="199.0" text="Salir" textFill="BLACK">
       <effect>
         <Lighting diffuseConstant="2.0" specularConstant="0.5063492063492063" surfaceScale="6.738095238095239">
           <bumpInput>
