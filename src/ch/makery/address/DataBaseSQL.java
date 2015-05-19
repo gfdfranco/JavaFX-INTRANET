@@ -76,8 +76,12 @@ public class DataBaseSQL implements Connection {
             }else{
 	            q1 = "insert into " + tabla + " values(";
 	            
-	            for(String txt : values)
-	                q1 += "'" + txt.toUpperCase() + "', "; //Agregamos los valores
+	            for(String txt : values){
+	                if(txt.equals("default") || txt.equals("NULL")){
+	                	q1 += txt + ", ";
+	                }else
+	                	q1 += "'" + txt.toUpperCase() + "', "; //Agregamos los valores
+	            }
             }
             
             q1 = q1.substring(0, q1.length()-2); //Eliminamos la coma de mas

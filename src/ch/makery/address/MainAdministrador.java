@@ -456,15 +456,25 @@ public class MainAdministrador extends Application implements Bordes {
     	if(parcial3.isSelected())
     		selected = "3";
     	if(parcialFinal.isSelected())
-    		selected = "final";
+    		selected = "4";
     	if(extra.isSelected())
-    		selected = "extra";
+    		selected = "5";
     	
-    	db.free("Update parcial_activo set activo = " + selected + " where id = 1");	
+    	if(db.free("Update parcial_activo set activo = " + selected + " where id = 1"))
+    		error("Alumno inscrito con exito");
+    	else
+    		error("Error, Alumno no inscrito");
     }
     
     public void addAlumGroup(){
-    	
+    	DataBaseSQL	db = new DataBaseSQL();
+    	String data[] = new String[8];
+    	data[0] = materiaIA.getText();
+    	data[1] = matriculaIA.getText();
+    	for(int i = 2; i < 7; i++)
+    		data[i] = "NULL";
+    	data[7] = "default";
+    	db.insert("calificaciones", data);
     }
        
     public void error(String txt){

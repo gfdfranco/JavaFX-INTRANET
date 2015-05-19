@@ -121,6 +121,7 @@ public class MainApp extends Application {
 	               //Por si hay excepciones se pone try and catch
 	                try {
 	                	app2.start(anotherStage);//Se inicia la aplicacion
+	                	//primaryStage.close();
 	                } catch (Exception e) {
 	      			// TODO Auto-generated catch block
 	      			e.printStackTrace();//IMPRIME ERROR
@@ -148,6 +149,7 @@ public class MainApp extends Application {
 		           //Por si hay excepciones se pone try and catch
 		            try {
 		            	app2.start(anotherStage);//Se inicia la aplicacion
+		            	//primaryStage.close();
 		            } catch (Exception e) {
 		  			// TODO Auto-generated catch block
 		  			e.printStackTrace();//IMPRIME ERROR
@@ -169,9 +171,11 @@ public class MainApp extends Application {
 		    		Application app2 = new MainAdministrador(claveUsuario); 
 		    		//Inicia esenario nuevo
 		            Stage anotherStage = new Stage();
+		            //primaryStage.close();
 		           //Por si hay excepciones se pone try and catch
 		            try {
 		            	app2.start(anotherStage);//Se inicia la aplicacion
+		            	
 		            } catch (Exception e) {
 		  			// TODO Auto-generated catch block
 		  			e.printStackTrace();//IMPRIME ERROR
