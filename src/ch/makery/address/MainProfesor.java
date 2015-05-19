@@ -33,7 +33,7 @@ public class MainProfesor extends Application implements Initializable {
 	
 	private Stage segundoStage;
 	private BorderPane rootLayout;
-	private String claveProfesor;
+	private static  String claveProfesor;
 	private String nombreAlumno;
     // Declaramos la tabla y las columnas
 
