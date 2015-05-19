@@ -575,14 +575,18 @@
                         <TextField id="usuarioProfesor" fx:id="materiaIA" layoutX="265.0" layoutY="30.0" prefHeight="48.0" prefWidth="554.0" promptText="Ingrese clave de materia a la que se va inscribir el alumno" />
                         <Label font="$x1" layoutX="57.0" layoutY="31.0" prefHeight="48.0" prefWidth="189.0" text="Clave de materia:" textFill="WHITE" />
                         <Label disable="false" font="$x14" layoutX="34.0" layoutY="126.0" prefHeight="48.0" prefWidth="219.0" text="Matrícula de Alumno:" textFill="WHITE" />
-                        <Button font="$x2" layoutX="714.0" layoutY="231.0" minHeight="64.0" mnemonicParsing="false" onAction="#searchMat" prefHeight="93.0" prefWidth="362.0" text="Inscribir Alumno a Materia">
+                        <Button font="$x2" layoutX="714.0" layoutY="231.0" minHeight="64.0" mnemonicParsing="false" onAction="#addAlumGroup" prefHeight="93.0" prefWidth="362.0" text="Inscribir Alumno a Materia">
                           <effect>
                             <Lighting>
                               <bumpInput>
                                 <Shadow />
                               </bumpInput>
                               <light>
-                                <javafx.scene.effect.Light.Distant color="#00cc52" />
+                                <javafx.scene.effect.Light.Distant>
+                                  <color>
+                                    <Color blue="0.322" green="0.800" red="0.000" fx:id="x11" />
+                                  </color>
+                                </javafx.scene.effect.Light.Distant>
                               </light>
                             </Lighting>
                           </effect>
@@ -612,14 +616,14 @@
                     <AnchorPane id="AnchorPane" layoutX="22.0" layoutY="0.0" prefHeight="366.0" prefWidth="1116.0">
                       <children>
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="BLACK" height="368.0" layoutX="-30.0" layoutY="-2.0" stroke="BLACK" strokeType="INSIDE" width="1160.0" />
-                        <Button font="$x2" layoutX="657.0" layoutY="244.0" minHeight="64.0" mnemonicParsing="false" onAction="#searchMat" prefHeight="93.0" prefWidth="362.0" text="Aplicar cambios">
+                        <Button font="$x2" layoutX="657.0" layoutY="244.0" minHeight="64.0" mnemonicParsing="false" onAction="#setActivePartial" prefHeight="93.0" prefWidth="362.0" text="Aplicar cambios">
                           <effect>
                             <Lighting>
                               <bumpInput>
                                 <Shadow />
                               </bumpInput>
                               <light>
-                                <javafx.scene.effect.Light.Distant color="#00cc52" />
+                                <javafx.scene.effect.Light.Distant color="$x11" />
                               </light>
                             </Lighting>
                           </effect>
@@ -642,7 +646,7 @@
                           </graphic>
                         </Button>
                         <Label disable="false" font="$x14" layoutX="14.0" layoutY="29.0" prefHeight="48.0" prefWidth="809.0" text="Seleccionar parcial activo para que los profesores puedan registrar evaluaciones:" textFill="WHITE" />
-                        <RadioButton fx:id="parcial1" font="$x14" layoutX="58.0" layoutY="86.0" mnemonicParsing="false" selected="false" text="Primer Parcial" textFill="WHITE">
+                        <RadioButton fx:id="parcial1" font="$x14" layoutX="58.0" layoutY="86.0" mnemonicParsing="false" selected="true" text="Primer Parcial" textFill="WHITE">
                           <toggleGroup>
                             <ToggleGroup fx:id="parcialesActivos" />
                           </toggleGroup>
