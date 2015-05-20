@@ -574,9 +574,9 @@ public class MainAdministrador extends Application implements Bordes {
     		}*/
     	
     	if(db.insert("administrador", data))
-    		error("Admin eliminado con exito");
+    		error("Admin agregado con exito");
 		else
-			error("Error al eliminar el Admin");
+			error("Error al ingresar el Admin");
     }
     
     public void deleteProfe(){
@@ -677,9 +677,9 @@ public class MainAdministrador extends Application implements Bordes {
     		selected = "5";
     	
     	if(db.free("Update parcial_activo set activo = " + selected + " where id = 1"))
-    		error("Alumno inscrito con exito");
+    		error("Parcial activado con exito");
     	else
-    		error("Error, Alumno no inscrito");
+    		error("Error, Parcial no activado");
     }
     
     public void addAlumGroup(){
@@ -690,7 +690,10 @@ public class MainAdministrador extends Application implements Bordes {
     	for(int i = 2; i < 7; i++)
     		data[i] = "NULL";
     	data[7] = "default";
-    	db.insert("calificaciones", data);
+    	if(db.insert("calificaciones", data))
+    		error("Alumno inscrito al grupo correctamente");
+    	else
+    		error("Alumno no inscrito al grupo");
     }
        
     public void error(String txt){
