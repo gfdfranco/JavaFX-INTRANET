@@ -330,7 +330,7 @@ public class MainProfesor extends Application implements Initializable {
     		error("Datos modificados con exito!");
     }
     
-    private void initTableMaterias() {
+    public void initTableMaterias() {
     	nombreM.setCellValueFactory(new PropertyValueFactory<MateriasProfe, String>("nombre"));
     	claveM.setCellValueFactory(new PropertyValueFactory<MateriasProfe, String>("clave"));
     	horaM.setCellValueFactory(new PropertyValueFactory<MateriasProfe, String>("hora"));
