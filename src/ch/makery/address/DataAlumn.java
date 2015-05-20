@@ -3,7 +3,8 @@ package ch.makery.address;
 import javafx.beans.property.SimpleStringProperty;
 
 public class DataAlumn{
-	public SimpleStringProperty clave = new SimpleStringProperty();
+	public SimpleStringProperty nombrem = new SimpleStringProperty();
+	public SimpleStringProperty clavem = new SimpleStringProperty();
 	public SimpleStringProperty p1 = new SimpleStringProperty();
 	public SimpleStringProperty p2 = new SimpleStringProperty();
 	public SimpleStringProperty p3 = new SimpleStringProperty();
@@ -18,8 +19,11 @@ public class DataAlumn{
 		
 	}
 	
-	public String getClave(){
-		return clave.get();
+	public String getNombrem(){
+		return nombrem.get();
+	}
+	public String getClavem(){
+		return clavem.get();
 	}
 	public String getP1(){
 		return p1.get();

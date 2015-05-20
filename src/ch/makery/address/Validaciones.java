@@ -128,6 +128,18 @@ private final static Scanner entrada = new Scanner( System.in );
             return false;
         }
     }
+    
+    public static boolean isGrade(String grade){
+    	if(grade == null  || grade.equals(""))
+    		return true;
+    	Float aux = Float.parseFloat(grade);
+    	if(aux >= 0 && aux <= 10)
+    		return true;
+    	else{
+    		JOptionPane.showMessageDialog(null, "La calificacion debe ir de 0 a 10");
+    		return false;
+    	}
+    }
 
 }
 
