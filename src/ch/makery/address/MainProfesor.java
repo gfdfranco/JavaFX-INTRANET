@@ -35,6 +35,7 @@ public class MainProfesor extends Application implements Initializable {
 	private BorderPane rootLayout;
 	private static  String claveProfesor;
 	private String nombreAlumno;
+	private String claveMateria;
     // Declaramos la tabla y las columnas
 
 	@FXML private TextField txtparcial1;
@@ -194,7 +195,7 @@ public class MainProfesor extends Application implements Initializable {
     		error("Error, materia no encontrada");
     		return;
     	}
-    			
+    	claveMateria = claveMat.getText();
     	aux = db.fetchArray("parcial_activo", "id", "1");
     	txtparcial1.setDisable(true);
     	txtparcial2.setDisable(true);
@@ -257,6 +258,30 @@ public class MainProfesor extends Application implements Initializable {
     	faltas.setCellValueFactory(new PropertyValueFactory<Calificaciones, String>("faltas"));
     	calificaciones = FXCollections.observableArrayList();
     	tablaCalificaciones.setItems(calificaciones);
+    }
+    
+    public void sendData(){
+    	DataBaseSQL db = new DataBaseSQL();
+    	int cant = tablaCalificaciones.getItems().size();
+    	for(int i = 0; i < cant; i++){
+    		Calificaciones cal = tablaCalificaciones.getItems().get(i);
+    		String[] cals = new String[7];
+    		cals[0] = cal.getMatricula();
+    		cals[1] = cal.getParcial1();
+    		cals[2] = cal.getParcial2();
+    		cals[3] = cal.getParcial3();
+    		cals[4] = cal.getParcialFinal();
+    		cals[5] = cal.getExtra();
+    		cals[6] = cal.getFaltas();
+    		/*for(String x : cals)
+    			if(x.equals(""))
+    				x = "default";*/
+    		String q = "UPDATE calificaciones set CAL1 = " + cals[1] + ", CAL2 = " + cals[2];
+    		q += ", CAL3 = " + cals[3] + ", FINAL = " + cals[4] + ", EXTRA = " + cals[5];
+    		q += ", INASISTENCIAS = " + cals[6] + " WHERE MATRICULA_ALUM = " + cals[0];
+    		q += " AND CLAVE_MAT = " + claveMateria;
+    		db.free(q);
+    	}
     }
     
     public void error(String txt){
