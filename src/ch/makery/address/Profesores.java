@@ -23,7 +23,7 @@ public class Profesores {
 	public String getTdireccionP(){
 		return tdireccionP.get();
 	}
-	public String getclaveP(){
+	public String getTclaveP(){
 		return tclaveP.get();
 	}
 	public String getTemailP(){

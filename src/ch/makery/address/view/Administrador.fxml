@@ -652,7 +652,7 @@
                                         <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="173.0" text="Carrera" fx:id="tcarreraM" />
                                       </columns>
                                     </TableView>
-                                    <Button layoutX="813.0" layoutY="266.0" minHeight="45.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="303.0" text="Mostar todas las materias">
+                                    <Button layoutX="813.0" layoutY="266.0" minHeight="45.0" mnemonicParsing="false" onAction="#initTableMaterias" prefHeight="45.0" prefWidth="303.0" text="Mostar todas las materias">
                                       <effect>
                                         <Lighting>
                                           <bumpInput>
@@ -689,7 +689,7 @@
                                         <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="253.0" text="Nombre del Alumno" fx:id="tnombreAlumnoG" />
                                       </columns>
                                     </TableView>
-                                    <Button layoutX="817.0" layoutY="266.0" minHeight="45.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="285.0" text="Mostar todos los grupos">
+                                    <Button layoutX="817.0" layoutY="266.0" minHeight="45.0" mnemonicParsing="false" onAction="#initTableGrupos" prefHeight="45.0" prefWidth="285.0" text="Mostar todos los grupos">
                                       <effect>
                                         <Lighting>
                                           <bumpInput>

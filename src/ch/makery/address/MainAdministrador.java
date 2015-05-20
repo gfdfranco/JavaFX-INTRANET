@@ -297,7 +297,7 @@ public class MainAdministrador extends Application implements Bordes {
     public void fillTableMaterias(){
     	DataBaseSQL db = new DataBaseSQL();
 		List<HashMap<String, String>> data1;
-		data1 = db.getAll("ALUMNO");
+		data1 = db.getAll("MATERIA");
 		
 		for(int i = 0; i < data1.size(); i++){
 			
