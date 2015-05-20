@@ -2,10 +2,13 @@ package ch.makery.address;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 
 import javax.swing.JOptionPane;
 
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,7 +17,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -109,6 +115,13 @@ public class MainAdministrador extends Application implements Bordes {
 	@FXML TextField bhoraM;
 	@FXML TextField bcarreraM;
 	
+	/* Tabla ADMINISTRADORES*/
+	@FXML private TableView<Administradores> tablaAdministradores;
+    @FXML private TableColumn nombre;
+    @FXML private TableColumn clave;
+    @FXML private TableColumn email;
+    @FXML private TableColumn telefono;
+    ObservableList<Administradores> administradores;
 
 	
     private Stage primaryStage;
@@ -168,6 +181,34 @@ public class MainAdministrador extends Application implements Bordes {
     public void cambiarCarrera()
     {
     	
+    }
+    public void initTable(){
+	    nombre.setCellValueFactory(new PropertyValueFactory<Administradores, String>("nombre"));
+	    clave.setCellValueFactory(new PropertyValueFactory<Administradores, String>("clave"));
+	    email.setCellValueFactory(new PropertyValueFactory<Administradores, String>("email"));
+	    telefono.setCellValueFactory(new PropertyValueFactory<Administradores, String>("telefono"));
+	    administradores = FXCollections.observableArrayList();
+	    tablaAdministradores.setItems(administradores);
+	    
+	    fillTable();
+    }
+    @FXML
+    public void fillTable(){
+    	DataBaseSQL db = new DataBaseSQL();
+		List<HashMap<String, String>> data1;
+		data1 = db.getAll("ADMINISTRADOR");
+		
+		for(int i = 0; i < data1.size(); i++){
+			
+			Administradores dtA = new Administradores();
+			
+			dtA.nombre.set(data1.get(i).get("NOMBRE"));
+			dtA.clave.set(data1.get(i).get("CLAVE"));
+			dtA.email.set(data1.get(i).get("EMAIL"));
+			dtA.telefono.set(data1.get(i).get("TEL"));
+						
+			administradores.add(dtA);
+		}
     }
     public void sendPrfsr(){
     	
