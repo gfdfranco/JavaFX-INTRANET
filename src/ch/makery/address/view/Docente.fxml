@@ -187,19 +187,19 @@
                   <items>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="497.0" prefWidth="769.0">
                       <children>
-                        <TableView id="tablaPersonas" layoutX="0.0" layoutY="0.0" prefHeight="498.0" prefWidth="1164.0">
+                        <TableView id="tablaPersonas" fx:id="tablaMaterias" layoutX="0.0" layoutY="0.0" prefHeight="498.0" prefWidth="1164.0">
                           <columns>
-                            <TableColumn editable="false" maxWidth="5000.0" minWidth="10.0" prefWidth="387.0" text="nombreMateria" />
-                            <TableColumn editable="false" maxWidth="5000.0" minWidth="10.0" prefWidth="254.0" text="claveMateria" />
-                            <TableColumn editable="false" maxWidth="5000.0" minWidth="10.0" prefWidth="251.0" text="Hora" />
-                            <TableColumn editable="false" maxWidth="5000.0" minWidth="10.0" prefWidth="270.0" text="Aula" />
+                            <TableColumn editable="false" maxWidth="5000.0" minWidth="10.0" prefWidth="387.0" text="nombreMateria" fx:id="nombreM" />
+                            <TableColumn editable="false" maxWidth="5000.0" minWidth="10.0" prefWidth="254.0" text="claveMateria" fx:id="claveM" />
+                            <TableColumn editable="false" maxWidth="5000.0" minWidth="10.0" prefWidth="251.0" text="Hora" fx:id="horaM" />
+                            <TableColumn editable="false" maxWidth="5000.0" minWidth="10.0" prefWidth="270.0" text="Aula" fx:id="aulaM" />
                           </columns>
                         </TableView>
                       </children>
                     </AnchorPane>
                   </items>
                 </SplitPane>
-                <Button layoutX="393.0" layoutY="2.0" minHeight="41.0" minWidth="67.0" mnemonicParsing="false" onAction="#agregarDatos" prefHeight="50.0" prefWidth="359.0" text="Ver materias que se imparten" textFill="BLACK">
+                <Button layoutX="393.0" layoutY="2.0" minHeight="41.0" minWidth="67.0" mnemonicParsing="false" onAction="#initTableMaterias" prefHeight="50.0" prefWidth="359.0" text="Ver materias que se imparten" textFill="BLACK">
                   <effect>
                     <Lighting diffuseConstant="1.9047619047619047" specularConstant="0.28412698412698423" specularExponent="16.825396825396826" surfaceScale="6.023809523809524">
                       <bumpInput>
