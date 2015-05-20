@@ -343,6 +343,10 @@ public class MainProfesor extends Application implements Initializable {
     private void addMaterias(){
     	DataBaseSQL db = new DataBaseSQL();
     	List<HashMap<String,String>> data = db.getAll("materia", "CLAVE_PROFESOR", claveProfesor);
+    	if(data == null){
+    		error("No hay datos");
+    		return;
+    	}
     	for(int i = 0; i < data.size(); i++){
     		MateriasProfe mat = new MateriasProfe();
     		
