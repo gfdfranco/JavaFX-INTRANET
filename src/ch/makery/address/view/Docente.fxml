@@ -97,19 +97,23 @@
                         <TextField id="apellidoTF" fx:id="txtparcial2" layoutX="99.0" layoutY="153.0" prefHeight="26.0" prefWidth="208.0" />
                         <TextField id="edadTF" fx:id="txtparcial3" layoutX="99.0" layoutY="200.0" prefHeight="26.0" prefWidth="208.0" />
                         <TextField id="telefonoTF" fx:id="txtextra" layoutX="99.0" layoutY="293.0" prefHeight="26.0" prefWidth="208.0" />
-                        <Button id="modificarBT" font="$x2" layoutX="92.0" layoutY="406.0" mnemonicParsing="false" onAction="#modificar" prefHeight="57.0" prefWidth="208.0" text="Modificar">
+                        <Button id="modificarBT" font="$x2" layoutX="15.0" layoutY="404.0" minHeight="50.0" mnemonicParsing="false" onAction="#modificar" prefHeight="50.0" prefWidth="142.0" text="Modificar">
                           <effect>
                             <Lighting>
                               <bumpInput>
                                 <Shadow />
                               </bumpInput>
                               <light>
-                                <javafx.scene.effect.Light.Distant color="#52ff00" />
+                                <javafx.scene.effect.Light.Distant>
+                                  <color>
+                                    <Color blue="0.000" green="1.000" red="0.322" fx:id="x3" />
+                                  </color>
+                                </javafx.scene.effect.Light.Distant>
                               </light>
                             </Lighting>
                           </effect>
                           <graphic>
-                            <ImageView id="ic_create_black_48dp.png" fitHeight="50.0" fitWidth="56.0">
+                            <ImageView id="ic_create_black_48dp.png" fitHeight="42.999977111816406" fitWidth="40.000099999997474">
                               <image>
                                 <Image url="@../../../../../images/ic_create_black_48dp.png" preserveRatio="true" smooth="true" />
                               </image>
@@ -123,6 +127,25 @@
                         <Label font="$x2" layoutX="13.0" layoutY="3.0" text="Datos Alumnos:" />
                         <TextField id="nombreTF" fx:id="txtnombreAlumno" disable="true" layoutX="15.0" layoutY="29.0" prefHeight="26.0" prefWidth="239.0" promptText="Nombre Alumno" />
                         <TextField id="nombreTF" fx:id="txtmatricula" disable="true" layoutX="15.0" layoutY="64.0" prefHeight="26.0" prefWidth="239.0" promptText="Matrícula Alumno" />
+                        <Button id="modificarBT" font="$x2" layoutX="177.0" layoutY="404.0" minHeight="50.0" mnemonicParsing="false" onAction="#sendData" prefHeight="50.0" prefWidth="142.0" text="Guardar">
+                          <effect>
+                            <Lighting>
+                              <bumpInput>
+                                <Shadow />
+                              </bumpInput>
+                              <light>
+                                <javafx.scene.effect.Light.Distant color="$x3" />
+                              </light>
+                            </Lighting>
+                          </effect>
+                          <graphic>
+                            <ImageView id="ic_cloud_download_black_48dp.png" fitHeight="57.0" fitWidth="47.0">
+                              <image>
+                                <Image url="@../../../../../images/ic_cloud_download_black_48dp.png" preserveRatio="true" smooth="true" />
+                              </image>
+                            </ImageView>
+                          </graphic>
+                        </Button>
                       </children>
                     </AnchorPane>
                   </items>

@@ -122,6 +122,16 @@ public class MainAdministrador extends Application implements Bordes {
     @FXML private TableColumn email;
     @FXML private TableColumn telefono;
     ObservableList<Administradores> administradores;
+    
+	/* Tabla Alumnos*/
+	@FXML private TableView<Alumnos> tablaAlumnos;
+    @FXML private TableColumn tnombreA;
+    @FXML private TableColumn tmatriculaA;
+    @FXML private TableColumn ttelefonoA;
+    @FXML private TableColumn tdireccionA;
+    @FXML private TableColumn tcarreraA;
+    @FXML private TableColumn temailA;
+    ObservableList<Administradores> alumnos;
 
 	
     private Stage primaryStage;
@@ -209,6 +219,18 @@ public class MainAdministrador extends Application implements Bordes {
 						
 			administradores.add(dtA);
 		}
+    }
+    public void initTableAlumnos(){
+    	tnombreA.setCellValueFactory(new PropertyValueFactory<Alumnos, String>("tnombreA"));
+    	tmatriculaA.setCellValueFactory(new PropertyValueFactory<Alumnos, String>("tmatriculaA"));
+    	ttelefonoA.setCellValueFactory(new PropertyValueFactory<Alumnos, String>("ttelefonoA"));
+    	tdireccionA.setCellValueFactory(new PropertyValueFactory<Alumnos, String>("tcarreraA"));
+    	tcarreraA.setCellValueFactory(new PropertyValueFactory<Alumnos, String>("temailA"));
+    	temailA.setCellValueFactory(new PropertyValueFactory<Alumnos, String>("telefono"));
+	    alumnos = FXCollections.observableArrayList();
+	    tablaAlumnos.setItems(alumnos);
+	    
+	    fillTable();
     }
     public void sendPrfsr(){
     	
