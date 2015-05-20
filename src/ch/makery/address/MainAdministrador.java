@@ -359,8 +359,30 @@ public class MainAdministrador extends Application implements Bordes {
     }
     @FXML
     public void fillTableGrupos(){
-    	//CODIGO AQUI AGUS
+    	DataBaseSQL	db = new DataBaseSQL();
+    	String claveMateria = "5";
+    	
+    	List<HashMap<String, String>> data1 = db.getAll("calificaciones", "CLAVE_MATERIA", claveMateria);
+    	if(data1 == null){
+    		error("No hay alumnos inscritos");
+    		return;
+    	}
+    	for(int i = 0; i < data1.size(); i++){
+    		Grupos grupo = new Grupos();
+    		HashMap<String, String> data2 = db.fetchArray("materia", "CLAVE", claveMateria);
+    		HashMap<String, String> data3 = db.fetchArray("alumno", "MATRICULA", data1.get(i).get("MATRICULA_ALUM"));
+	    	
+    		grupo.tclaveMateriaG.set(claveMateria);
+	    	grupo.tnombreMateriaG.set(data2.get("NOMBRE"));
+	    	grupo.tclaveProfesorG.set(data2.get("CLAVE_PROFESOR"));
+	    	grupo.tmatriculaG.set(data1.get(i).get("MATRICULA_ALUM"));
+	    	grupo.tnombreAlumnoG.set(data3.get("NOMBRE"));
+	    	
+	    	grupos.add(grupo);
+    	}
+    	
     }
+    
     public void sendPrfsr(){
     	
     	DataBaseSQL	db = new DataBaseSQL();
