@@ -24,7 +24,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-public class MainAdministrador extends Application implements Bordes {
+public class MainAdministrador extends Application  {
     
 	//CONTROLADOR DE FXML.................................................
 	//DATOS INSCRIBIR ALUMNO
@@ -705,27 +705,5 @@ public class MainAdministrador extends Application implements Bordes {
         
     }
   
-    //METODOS DE INTERFACE BORDES...............
     
-	@Override
-	public void help() {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void credits() {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void userGuide() {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void developerGuide() {
-		// TODO Auto-generated method stub
-		
-	}
-	//.................................................
 }

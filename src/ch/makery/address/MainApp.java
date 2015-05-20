@@ -122,7 +122,8 @@ public class MainApp extends Application {
 	               //Por si hay excepciones se pone try and catch
 	                try {
 	                	app2.start(anotherStage);//Se inicia la aplicacion
-	                	//primaryStage.close();
+	                	Stage stage = (Stage) radioAlumno.getScene().getWindow();
+	                	stage.close();
 	                } catch (Exception e) {
 	      			// TODO Auto-generated catch block
 	      			e.printStackTrace();//IMPRIME ERROR
@@ -150,7 +151,8 @@ public class MainApp extends Application {
 		           //Por si hay excepciones se pone try and catch
 		            try {
 		            	app2.start(anotherStage);//Se inicia la aplicacion
-		            	//primaryStage.close();
+		            	Stage stage = (Stage) radioAlumno.getScene().getWindow();
+	                	stage.close();
 		            } catch (Exception e) {
 		  			// TODO Auto-generated catch block
 		  			e.printStackTrace();//IMPRIME ERROR
@@ -176,7 +178,8 @@ public class MainApp extends Application {
 		           //Por si hay excepciones se pone try and catch
 		            try {
 		            	app2.start(anotherStage);//Se inicia la aplicacion
-		            	
+		            	Stage stage = (Stage) radioAlumno.getScene().getWindow();
+	                	stage.close();
 		            } catch (Exception e) {
 		  			// TODO Auto-generated catch block
 		  			e.printStackTrace();//IMPRIME ERROR

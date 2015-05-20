@@ -260,9 +260,9 @@ public class MainProfesor extends Application implements Initializable {
 
     public void salir()
     {
-    	bdirP.setText("asda");
-    	//Stage stage = (Stage) closeButton.getScene().getWindow();
-    	//stage.close();
+    	
+    	Stage stage = (Stage) closeButton.getScene().getWindow();
+    	stage.close();
     }
     
     private void inicializarTablaCalificaciones() {

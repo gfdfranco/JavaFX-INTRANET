@@ -111,7 +111,7 @@
         <Image url="@../../../../../images/UPSLP-logo.jpg" preserveRatio="true" smooth="true" />
       </image>
     </ImageView>
-    <Button font="$x6" layoutX="59.0" layoutY="587.0" mnemonicParsing="false" onAction="#salir" prefHeight="85.0" prefWidth="199.0" text="Salir" textFill="BLACK">
+    <Button fx:id="botonCerrar" font="$x6" layoutX="59.0" layoutY="587.0" mnemonicParsing="false" onAction="#salir" prefHeight="85.0" prefWidth="199.0" text="Salir" textFill="BLACK">
       <effect>
         <Lighting diffuseConstant="2.0" specularConstant="0.5063492063492063" surfaceScale="6.738095238095239">
           <bumpInput>
@@ -126,6 +126,25 @@
         <ImageView id="ic_highlight_remove_black_48dp.png">
           <image>
             <Image url="@../../../../../images/ic_highlight_remove_black_48dp.png" preserveRatio="true" smooth="true" />
+          </image>
+        </ImageView>
+      </graphic>
+    </Button>
+    <Button id="botonCerrar" font="$x6" layoutX="288.0" layoutY="587.0" mnemonicParsing="false" onAction="#manualUsuario" prefHeight="85.0" prefWidth="459.0" text="Ver manual de alumno" textFill="BLACK">
+      <effect>
+        <Lighting diffuseConstant="2.0" specularConstant="0.5063492063492063" surfaceScale="6.738095238095239">
+          <bumpInput>
+            <Shadow />
+          </bumpInput>
+          <light>
+            <javafx.scene.effect.Light.Distant color="#3385ff" />
+          </light>
+        </Lighting>
+      </effect>
+      <graphic>
+        <ImageView id="ic_assignment_black_48dp.png">
+          <image>
+            <Image url="@../../../../../images/ic_assignment_black_48dp.png" preserveRatio="true" smooth="true" />
           </image>
         </ImageView>
       </graphic>

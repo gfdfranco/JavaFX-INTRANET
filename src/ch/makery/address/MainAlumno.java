@@ -7,7 +7,9 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.List;
 import java.util.ResourceBundle;
-
+import java.awt.Desktop;
+import java.io.File;
+import java.io.IOException;
 import javafx.application.Application;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -18,6 +20,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableColumn.CellDataFeatures;
@@ -34,7 +37,7 @@ public class MainAlumno extends Application implements Initializable {
     private BorderPane rootLayout;
     
     private static String matricula;
-    
+    @FXML Button botonCerrar;
     /* Datos Alumno */
 	@FXML TextField nomA;
 	@FXML TextField matA;
@@ -195,7 +198,20 @@ public class MainAlumno extends Application implements Initializable {
 
     public void salir()
     {
-    	 
+    	
+    	Stage stage = (Stage) botonCerrar.getScene().getWindow();
+    	stage.close();
+    }
+    public void manualUsuario()
+    {
+    	if (Desktop.isDesktopSupported()) {
+            try {
+                File myFile = new File("Manual.pdf");
+                Desktop.getDesktop().open(myFile);
+            } catch (IOException ex) {
+                // no application registered for PDFs
+            }
+    	}   
     }
     public Stage getPrimaryStage() {
         return primaryStage;
