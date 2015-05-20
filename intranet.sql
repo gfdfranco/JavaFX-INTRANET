@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-05-2015 a las 05:08:08
+-- Tiempo de generación: 20-05-2015 a las 06:47:25
 -- Versión del servidor: 5.6.24
 -- Versión de PHP: 5.6.8
 
@@ -30,9 +30,16 @@ CREATE TABLE IF NOT EXISTS `administrador` (
   `NOMBRE` varchar(50) NOT NULL,
   `CLAVE` int(4) NOT NULL,
   `EMAIL` varchar(30) NOT NULL,
-  `TEL` int(10) NOT NULL,
+  `TEL` varchar(10) NOT NULL,
   `PASSWORD` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `administrador`
+--
+
+INSERT INTO `administrador` (`NOMBRE`, `CLAVE`, `EMAIL`, `TEL`, `PASSWORD`) VALUES
+('JOSE RAMON TOLENTINO', 1, 'TOLENTINO@HOTMAIL.COM', '4441023658', 'tole123');
 
 -- --------------------------------------------------------
 
@@ -55,6 +62,7 @@ CREATE TABLE IF NOT EXISTS `alumno` (
 --
 
 INSERT INTO `alumno` (`NOMBRE`, `MATRICULA`, `TEL`, `DIRECCION`, `CARRERA`, `EMAIL`, `PASSWORD`) VALUES
+('OSCAR EMMANUEL YANEZ HERNANDEZ', 130034, '85201456', 'DIRECCION DE OSCAR #76', 'ITI', 'OSCAR@HOTMAIL.COM', 'oscar123'),
 ('MIGUEL ANGEL SILVA MARTINEZ', 130454, '4445210236', 'DIRECCION DE MIKE #23', 'ITI', 'MIKE@HOTMAIL.COM', 'mike123');
 
 -- --------------------------------------------------------
@@ -79,7 +87,9 @@ CREATE TABLE IF NOT EXISTS `calificaciones` (
 --
 
 INSERT INTO `calificaciones` (`CLAVE_MATERIA`, `MATRICULA_ALUM`, `CAL1`, `CAL2`, `CAL3`, `FINAL`, `EXTRA`, `INASISTENCIAS`) VALUES
-(5, 130454, NULL, NULL, NULL, NULL, 10, 2);
+(1, 130034, 8, NULL, NULL, NULL, NULL, 1),
+(1, 130454, 5, NULL, NULL, NULL, NULL, 3),
+(5, 130454, NULL, NULL, NULL, NULL, NULL, 2);
 
 -- --------------------------------------------------------
 
@@ -101,6 +111,7 @@ CREATE TABLE IF NOT EXISTS `materia` (
 --
 
 INSERT INTO `materia` (`NOMBRE`, `CLAVE`, `CLAVE_PROFESOR`, `AULA`, `HORA`, `CARRERA`) VALUES
+('CIRCUITOS', 1, 9, '53', '13:00-14:00', 'ITI'),
 ('MATEMATICAS 4', 5, 32, '12', '08:00-09:00', 'ITI');
 
 -- --------------------------------------------------------
@@ -119,7 +130,7 @@ CREATE TABLE IF NOT EXISTS `parcial_activo` (
 --
 
 INSERT INTO `parcial_activo` (`activo`, `id`) VALUES
-('extra', 1);
+('1', 1);
 
 -- --------------------------------------------------------
 
@@ -130,7 +141,7 @@ INSERT INTO `parcial_activo` (`activo`, `id`) VALUES
 CREATE TABLE IF NOT EXISTS `profesor` (
   `NOMBRE` varchar(50) NOT NULL,
   `RFC` varchar(10) NOT NULL,
-  `TEL` int(10) NOT NULL,
+  `TEL` varchar(10) NOT NULL,
   `DIRECCION` varchar(50) NOT NULL,
   `CLAVE` int(4) NOT NULL,
   `EMAIL` varchar(30) NOT NULL,
@@ -142,7 +153,8 @@ CREATE TABLE IF NOT EXISTS `profesor` (
 --
 
 INSERT INTO `profesor` (`NOMBRE`, `RFC`, `TEL`, `DIRECCION`, `CLAVE`, `EMAIL`, `PASSWORD`) VALUES
-('GERARDO FRANCO DELGADO', 'RFCGERAS85', 85410265, 'DIRECCION DE GERARDO #12', 32, 'GERARDO@HOTMAIL.COM', 'geras123');
+('AGUSTIN IRVIN GARCIA PEREZ', 'RFCAGUS123', '4448521025', 'DIRECCION DE AGUSTIN #12', 9, 'AGUS@HOTMAIL.COM', 'agus123'),
+('GERARDO FRANCO DELGADO', 'RFCGERAS85', '85410265', 'DIRECCION DE GERARDO #12', 32, 'GERARDO@HOTMAIL.COM', 'geras123');
 
 --
 -- Índices para tablas volcadas
@@ -164,7 +176,7 @@ ALTER TABLE `alumno`
 -- Indices de la tabla `calificaciones`
 --
 ALTER TABLE `calificaciones`
-  ADD UNIQUE KEY `calKey` (`CLAVE_MATERIA`,`MATRICULA_ALUM`);
+  ADD UNIQUE KEY `calKey` (`CLAVE_MATERIA`,`MATRICULA_ALUM`), ADD KEY `MATRICULA_ALUM` (`MATRICULA_ALUM`);
 
 --
 -- Indices de la tabla `materia`
@@ -181,6 +193,13 @@ ALTER TABLE `profesor`
 --
 -- Restricciones para tablas volcadas
 --
+
+--
+-- Filtros para la tabla `calificaciones`
+--
+ALTER TABLE `calificaciones`
+ADD CONSTRAINT `calificaciones_ibfk_1` FOREIGN KEY (`CLAVE_MATERIA`) REFERENCES `materia` (`CLAVE`),
+ADD CONSTRAINT `calificaciones_ibfk_2` FOREIGN KEY (`MATRICULA_ALUM`) REFERENCES `alumno` (`MATRICULA`);
 
 --
 -- Filtros para la tabla `materia`
