@@ -31,13 +31,19 @@ import javafx.stage.Stage;
 public class MainProfesor extends Application implements Initializable {
 
 	
-	private Stage segundoStage;
+	private Stage primaryStage;
 	private BorderPane rootLayout;
 	private static  String claveProfesor;
 	private String nombreAlumno;
 	private String claveMateria;
     // Declaramos la tabla y las columnas
-
+	@FXML private TextField bnomP;
+	@FXML private TextField brfcP;
+	@FXML private TextField btelP;
+	@FXML private TextField bdirP;
+	@FXML private TextField bclaveP;
+	@FXML private TextField bemailP;
+	@FXML private TextField claveMat;
 	@FXML private TextField txtparcial1;
 	@FXML private TextField txtparcial2;
 	@FXML private TextField txtparcial3;
@@ -68,13 +74,7 @@ public class MainProfesor extends Application implements Initializable {
 	    	}
     };
 
-	@FXML TextField bnomP;
-	@FXML TextField brfcP;
-	@FXML TextField btelP;
-	@FXML TextField bdirP;
-	@FXML TextField bclaveP;
-	@FXML TextField bemailP;
-	@FXML TextField claveMat;
+
 
 	public MainProfesor(){
 
@@ -84,9 +84,9 @@ public class MainProfesor extends Application implements Initializable {
 		claveProfesor = clave;
 	}
 
-	public void start(Stage segundoStage) {
-		this.segundoStage = segundoStage;
-		this.segundoStage.setTitle("Intranet UPSLP");
+	public void start(Stage primaryStage) {
+		this.primaryStage = primaryStage;
+		this.primaryStage.setTitle("Intranet UPSLP");
 
 		initRootLayout();
 
@@ -98,47 +98,49 @@ public class MainProfesor extends Application implements Initializable {
      * Initializes the root layout.
      */
 
-    public void initRootLayout() {
-    	try {
-            // Load root layout from fxml file.
-    		FXMLLoader loader = new FXMLLoader();
-    		loader.setLocation(MainProfesor.class.getResource("view/ProfesorBorde.fxml"));
-    		rootLayout = (BorderPane) loader.load();
+	  public void initRootLayout() {
+	        try {
+	            // Load root layout from fxml file.
+	            FXMLLoader loader = new FXMLLoader();
+	            loader.setLocation(MainAlumno.class.getResource("view/ProfesorBorde.fxml"));
+	            rootLayout = (BorderPane) loader.load();
 
-            // Show the scene containing the root layout.
-    		Scene scene = new Scene(rootLayout);
-    		segundoStage.setScene(scene);
-    		segundoStage.show();
-    	} catch (IOException e) {
-    		e.printStackTrace();
-    	}
-    }
+	            // Show the scene containing the root layout.
+	            Scene scene = new Scene(rootLayout);
+	            primaryStage.setScene(scene);
+	          
+	            primaryStage.show();
+	          
+	           
+	        } catch (IOException e) {
+	            e.printStackTrace();
+	        }
+	    }
+	   
+	    public void showPersonOverview() {
+	        try {
+	            // Load person overview.
+	            FXMLLoader loader = new FXMLLoader();
+	            loader.setLocation(MainAlumno.class.getResource("view/Docente.fxml"));
+	            AnchorPane personOverview = (AnchorPane) loader.load();
 
-
-    public void showPersonOverview() {
-    	try {
-            // Load person overview.
-    		FXMLLoader loader = new FXMLLoader();
-    		loader.setLocation(MainProfesor.class.getResource("view/Docente.fxml"));
-    		AnchorPane personOverview = (AnchorPane) loader.load();
-
-            // Set person overview into the center of root layout.
-    		rootLayout.setCenter(personOverview);
-    	} catch (IOException e) {
-    		e.printStackTrace();
-    	}
-    }
+	            // Set person overview into the center of root layout.
+	            rootLayout.setCenter(personOverview);
+	        } catch (IOException e) {
+	            e.printStackTrace();
+	        }
+	    }
     
-    public void searchProf(){
+    public void buscarDatos(){
     	DataBaseSQL	db = new DataBaseSQL();
     	HashMap<String, String> data;
     	data = db.fetchArray("PROFESOR", "CLAVE", claveProfesor);
 
-    	bnomP.setText(data.get("NOMBRE"));
+    
     	brfcP.setText(data.get("RFC"));
     	bdirP.setText(data.get("DIRECCION"));
     	btelP.setText(data.get("TEL"));
-    	bemailP.setText(data.get("EMAIL"));    		
+    	bemailP.setText(data.get("EMAIL"));   
     }
     
     public Calificaciones getTablaCalificacionSeleccionada() {
@@ -243,8 +245,9 @@ public class MainProfesor extends Application implements Initializable {
 
     public void salir()
     {
-    	Stage stage = (Stage) closeButton.getScene().getWindow();
-    	stage.close();
+    	bdirP.setText("asda");
+    	//Stage stage = (Stage) closeButton.getScene().getWindow();
+    	//stage.close();
     }
     
     private void inicializarTablaCalificaciones() {
@@ -288,8 +291,8 @@ public class MainProfesor extends Application implements Initializable {
     	JOptionPane.showMessageDialog(null, txt);
     }
     
-    public Stage getSegundoStage() {
-    	return segundoStage;
+    public Stage getPrimaryStage() {
+    	return primaryStage;
     }
     
     public String getClaveProfesor()
@@ -301,16 +304,17 @@ public class MainProfesor extends Application implements Initializable {
     	aux=claveProfesor;
     }
 
+  
     public static void main(String[] args) {
     	launch(args);
 
     }
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
-    	searchProf();
-    }
+		buscarDatos();
+	}
 
 
 }
