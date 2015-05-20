@@ -708,7 +708,7 @@ public class MainAdministrador extends Application  {
     {
     	if (Desktop.isDesktopSupported()) {
             try {
-                File myFile = new File("Manual.pdf");
+            	File myFile = new File("src\\files\\usuarioAdministrador.pdf");
                 Desktop.getDesktop().open(myFile);
             } catch (IOException ex) {
                 // no application registered for PDFs
