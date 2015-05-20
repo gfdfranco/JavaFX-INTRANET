@@ -708,6 +708,7 @@
                                         </ImageView>
                                       </graphic>
                                     </Button>
+                                    <TextField fx:id="claveMG" layoutX="518.0" layoutY="266.0" prefHeight="44.0" prefWidth="284.0" promptText="Ingresa clave de materia" />
                                   </children>
                                 </AnchorPane>
                               </content>
