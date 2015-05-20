@@ -172,6 +172,45 @@ public class DataBaseSQL implements Connection {
         }
         
     }
+    
+    public List<HashMap<String, String>> getAll(String table){
+        //Todo lo almacenamos en una lista de mapas
+    	List<HashMap<String,String>> Lista = new ArrayList<HashMap<String, String>>();
+    	HashMap<String, String> mapa = new HashMap<String, String>();
+        
+        try{
+            Statement query = (Statement) connection.createStatement();
+            String comando = "SELECT * FROM " + table; //Creamos el query
+            System.out.println("GetAll complete: " + comando);
+            ResultSet rs = query.executeQuery(comando); //Ejecutamos el query
+            
+            if( !rs.next() ){
+                System.out.println("VACIO");
+                return null;
+            }
+            
+            ResultSetMetaData rsmd = rs.getMetaData();
+            rs.first();
+            String valor, key;
+ 
+            int cant = rsmd.getColumnCount(); //Obtenemos el numero de columnas
+            do{
+	            mapa = new HashMap<String, String>(); //Creamos un nuevo mapa
+            	for(int i = 1; i <= cant; i++){ //Por cada una de las columnas
+	                key = rsmd.getColumnName(i); //Almacenamos la columna
+	                valor = rs.getString(key); //Almacenamos el valor
+	                //System.out.println(key + "-->" + valor);
+	                mapa.put(key, valor); //Guardamos los valores en el mapa
+	            }
+            	Lista.add(mapa); //Almacenamos el registro completo (el mapa) en la lista
+            }while(rs.next()); //Mientras haya registros 
+            return Lista;
+        }catch(Exception e){
+            System.out.print("Error " + e);
+            return null;
+        }
+        
+    }
         
     public Connection getConnection(){
         return connection;
