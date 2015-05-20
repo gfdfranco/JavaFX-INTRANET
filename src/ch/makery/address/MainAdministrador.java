@@ -154,13 +154,15 @@ public class MainAdministrador extends Application implements Bordes {
     ObservableList<Profesores> profesores;
     
     /* Tabla Grupos*/
-   	   @FXML private TableView<Grupos> tablagrupos;
-       @FXML private TableColumn tclaveMateriaG;
-       @FXML private TableColumn tnombreMateriaG;
-       @FXML private TableColumn tclaveProfesorG;
-       @FXML private TableColumn tmatriculaG;
-       @FXML private TableColumn tnombreAlumnoG;
-       ObservableList<Grupos> grupos;
+   @FXML private TableView<Grupos> tablagrupos;
+   @FXML private TableColumn tclaveMateriaG;
+   @FXML private TableColumn tnombreMateriaG;
+   @FXML private TableColumn tclaveProfesorG;
+   @FXML private TableColumn tmatriculaG;
+   @FXML private TableColumn tnombreAlumnoG;
+   ObservableList<Grupos> grupos;
+   
+   @FXML TextField claveMG;
 
 	
     private Stage primaryStage;
@@ -360,7 +362,7 @@ public class MainAdministrador extends Application implements Bordes {
     @FXML
     public void fillTableGrupos(){
     	DataBaseSQL	db = new DataBaseSQL();
-    	String claveMateria = "5";
+    	String claveMateria = claveMG.getText();
     	
     	List<HashMap<String, String>> data1 = db.getAll("calificaciones", "CLAVE_MATERIA", claveMateria);
     	if(data1 == null){
