@@ -1,6 +1,8 @@
 //UNIVERSIDAD POLITÉCNICA DE SAN LUIS POTOSÍ
 package ch.makery.address;
 
+import java.awt.Desktop;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
@@ -264,7 +266,17 @@ public class MainProfesor extends Application implements Initializable {
     	Stage stage = (Stage) closeButton.getScene().getWindow();
     	stage.close();
     }
-    
+    public void manualUsuario()
+    {
+    	if (Desktop.isDesktopSupported()) {
+            try {
+                File myFile = new File("Manual.pdf");
+                Desktop.getDesktop().open(myFile);
+            } catch (IOException ex) {
+                // no application registered for PDFs
+            }
+    	}   
+    }
     private void inicializarTablaCalificaciones() {
     	alumno.setCellValueFactory(new PropertyValueFactory<Calificaciones, String>("alumno"));
     	matricula.setCellValueFactory(new PropertyValueFactory<Calificaciones, String>("matricula"));

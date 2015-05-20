@@ -5,19 +5,6 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="740.0" prefWidth="1240.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="ch.makery.address.MainAdministrador">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="ch.makery.address.MainAdministrador">
   <!-- TODO Add Nodes -->
-  <top>
-    <MenuBar>
-      <menus>
-        <Menu mnemonicParsing="false" text="Ayuda">
-          <items>
-            <MenuItem mnemonicParsing="false" onAction="#userGuide" text="Manual de Usuario" />
-            <MenuItem mnemonicParsing="false" onAction="#developerGuide" text="Manual de Programador" />
-          </items>
-        </Menu>
-        <Menu mnemonicParsing="false" onAction="#credits" text="Créditos" />
-      </menus>
-    </MenuBar>
-  </top>
 </BorderPane>

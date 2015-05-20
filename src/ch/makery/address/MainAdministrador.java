@@ -1,4 +1,5 @@
 package ch.makery.address;
+import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
@@ -14,6 +15,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.RadioButton;
@@ -27,6 +29,7 @@ import javafx.stage.Stage;
 public class MainAdministrador extends Application  {
     
 	//CONTROLADOR DE FXML.................................................
+	@FXML Button botonCerrar2;
 	//DATOS INSCRIBIR ALUMNO
 	@FXML TextField matriculaIA;
 	@FXML TextField materiaIA;
@@ -694,6 +697,23 @@ public class MainAdministrador extends Application  {
     		error("Alumno inscrito al grupo correctamente");
     	else
     		error("Alumno no inscrito al grupo");
+    }
+    public void salir()
+    {
+    	
+    	Stage stage = (Stage) botonCerrar2.getScene().getWindow();
+    	stage.close();
+    }
+    public void manualUsuario()
+    {
+    	if (Desktop.isDesktopSupported()) {
+            try {
+                File myFile = new File("Manual.pdf");
+                Desktop.getDesktop().open(myFile);
+            } catch (IOException ex) {
+                // no application registered for PDFs
+            }
+    	}   
     }
        
     public void error(String txt){
