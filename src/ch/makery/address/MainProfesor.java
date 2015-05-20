@@ -55,6 +55,16 @@ public class MainProfesor extends Application implements Initializable {
 	@FXML private TextField txtmatricula;
 	@FXML private TextField txtnombreAlumno;
 	@FXML private  Button closeButton;
+	
+	/* DATOS TABLA CALIFICACIONES */
+	@FXML private TableView<MateriasProfe> tablaMaterias;
+	@FXML private TableColumn nombreM;
+	@FXML private TableColumn claveM;
+	@FXML private TableColumn horaM;
+	@FXML private TableColumn aulaM;
+	ObservableList<MateriasProfe> materias;
+	
+	/* DATOS TABLA CALIFICACIONES */
 	@FXML private TableView<Calificaciones> tablaCalificaciones;
 	@FXML private TableColumn alumno;
 	@FXML private TableColumn matricula;
@@ -65,7 +75,7 @@ public class MainProfesor extends Application implements Initializable {
 	@FXML private TableColumn extra;
 	@FXML private TableColumn faltas;
 	ObservableList<Calificaciones> calificaciones;
-
+	
 	private int posicionCalificacionEnTabla;
 	
 	private final ListChangeListener<Calificaciones> selectorTablaCalificaciones =
@@ -318,6 +328,31 @@ public class MainProfesor extends Application implements Initializable {
     	}
     	if(!aux)
     		error("Datos modificados con exito!");
+    }
+    
+    private void initTableMaterias() {
+    	nombreM.setCellValueFactory(new PropertyValueFactory<MateriasProfe, String>("nombre"));
+    	claveM.setCellValueFactory(new PropertyValueFactory<MateriasProfe, String>("clave"));
+    	horaM.setCellValueFactory(new PropertyValueFactory<MateriasProfe, String>("hora"));
+    	aulaM.setCellValueFactory(new PropertyValueFactory<MateriasProfe, String>("aula"));
+    	materias = FXCollections.observableArrayList();
+    	tablaMaterias.setItems(materias);
+    	addMaterias();
+    }
+    
+    private void addMaterias(){
+    	DataBaseSQL db = new DataBaseSQL();
+    	List<HashMap<String,String>> data = db.getAll("materia", "CLAVE_PROFESOR", claveProfesor);
+    	for(int i = 0; i < data.size(); i++){
+    		MateriasProfe mat = new MateriasProfe();
+    		
+    		mat.nombre.set(data.get(i).get("NOMBRE"));
+    		mat.clave.set(data.get(i).get("CLAVE"));
+    		mat.hora.set(data.get(i).get("HORA"));
+    		mat.aula.set(data.get(i).get("AULA"));
+    		
+    		materias.add(mat);
+    	}
     }
     
     public void error(String txt){
