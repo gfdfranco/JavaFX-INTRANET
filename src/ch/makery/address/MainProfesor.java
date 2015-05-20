@@ -293,6 +293,7 @@ public class MainProfesor extends Application implements Initializable {
     public void sendData(){
     	DataBaseSQL db = new DataBaseSQL();
     	int cant = tablaCalificaciones.getItems().size();
+    	boolean aux = false;
     	for(int i = 0; i < cant; i++){
     		Calificaciones cal = tablaCalificaciones.getItems().get(i);
     		String[] cals = new String[7];
@@ -312,8 +313,11 @@ public class MainProfesor extends Application implements Initializable {
     		q += " AND CLAVE_MATERIA = " + claveMateria;
     		if(!db.free(q)){
     			error("Error al modificar los datos");
-    		}
+    			aux = true;
+    		}    		
     	}
+    	if(!aux)
+    		error("Datos modificados con exito!");
     }
     
     public void error(String txt){
