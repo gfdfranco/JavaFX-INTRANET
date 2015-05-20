@@ -566,17 +566,17 @@
                                 <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="368.0" prefWidth="1130.0">
                                   <children>
                                     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="BLACK" height="58.0" layoutX="0.0" layoutY="260.0" stroke="BLACK" strokeType="INSIDE" width="1130.0" />
-                                    <TableView layoutX="0.0" layoutY="0.0" prefHeight="260.0" prefWidth="1130.0">
+                                    <TableView fx:id="tablaProfesores" layoutX="0.0" layoutY="0.0" prefHeight="260.0" prefWidth="1130.0">
                                       <columns>
-                                        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="291.0" text="Nombre" />
-                                        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="120.0" text="RFC" />
-                                        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="198.0" text="Telefono" />
-                                        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="233.0" text="Direccion" />
-                                        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="92.0" text="Clave" />
-                                        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="196.0" text="Email" />
+                                        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="291.0" text="Nombre" fx:id="tnombreP" />
+                                        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="120.0" text="RFC" fx:id="trfcP" />
+                                        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="198.0" text="Telefono" fx:id="ttelefonoP" />
+                                        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="233.0" text="Direccion" fx:id="tdireccionP" />
+                                        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="92.0" text="Clave" fx:id="tclaveP" />
+                                        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="196.0" text="Email" fx:id="temailP" />
                                       </columns>
                                     </TableView>
-                                    <Button layoutX="780.0" layoutY="266.0" minHeight="45.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="336.0" text="Mostar todos los profesores">
+                                    <Button layoutX="780.0" layoutY="266.0" minHeight="45.0" mnemonicParsing="false" onAction="#initTableProfesores" prefHeight="45.0" prefWidth="336.0" text="Mostar todos los profesores">
                                       <effect>
                                         <Lighting>
                                           <bumpInput>
@@ -604,17 +604,17 @@
                                 <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="368.0" prefWidth="1130.0">
                                   <children>
                                     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="BLACK" height="58.0" layoutX="0.0" layoutY="260.0" stroke="BLACK" strokeType="INSIDE" width="1130.0" />
-                                    <TableView layoutX="0.0" layoutY="0.0" prefHeight="260.0" prefWidth="1130.0">
+                                    <TableView fx:id="tablaAlumnos" layoutX="0.0" layoutY="0.0" prefHeight="260.0" prefWidth="1130.0">
                                       <columns>
-                                        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="291.0" text="Nombre" />
-                                        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="161.0" text="Matricula" />
-                                        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="158.0" text="Telefono" />
-                                        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="187.0" text="Direccion" />
-                                        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="134.0" text="Carrera" />
-                                        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="197.0" text="Email" />
+                                        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="291.0" text="Nombre" fx:id="tnombreA" />
+                                        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="161.0" text="Matricula" fx:id="tmatriculaA" />
+                                        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="158.0" text="Telefono" fx:id="ttelefonoA" />
+                                        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="187.0" text="Direccion" fx:id="tdireccionA" />
+                                        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="134.0" text="Carrera" fx:id="tcarreraA" />
+                                        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="197.0" text="Email" fx:id="temailA" />
                                       </columns>
                                     </TableView>
-                                    <Button layoutX="813.0" layoutY="266.0" minHeight="45.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="303.0" text="Mostar todas los alumnos">
+                                    <Button layoutX="813.0" layoutY="266.0" minHeight="45.0" mnemonicParsing="false" onAction="#initTableAlumnos" prefHeight="45.0" prefWidth="303.0" text="Mostar todas los alumnos">
                                       <effect>
                                         <Lighting>
                                           <bumpInput>
@@ -642,14 +642,14 @@
                                 <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="368.0" prefWidth="1130.0">
                                   <children>
                                     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="BLACK" height="58.0" layoutX="0.0" layoutY="260.0" stroke="BLACK" strokeType="INSIDE" width="1130.0" />
-                                    <TableView layoutX="0.0" layoutY="0.0" prefHeight="260.0" prefWidth="1130.0">
+                                    <TableView fx:id="tablaMaterias" layoutX="0.0" layoutY="0.0" prefHeight="260.0" prefWidth="1130.0">
                                       <columns>
-                                        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="291.0" text="Nombre" />
-                                        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="207.0" text="Clave" />
-                                        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="198.0" text="ClaveProfesor" />
-                                        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="126.0" text="Aula" />
-                                        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="134.0" text="Hora" />
-                                        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="173.0" text="Carrera" />
+                                        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="291.0" text="Nombre" fx:id="tnombreM" />
+                                        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="207.0" text="Clave" fx:id="tclaveM" />
+                                        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="198.0" text="ClaveProfesor" fx:id="tclaveProfesorM" />
+                                        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="126.0" text="Aula" fx:id="taulaM" />
+                                        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="134.0" text="Hora" fx:id="thoraM" />
+                                        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="173.0" text="Carrera" fx:id="tcarreraM" />
                                       </columns>
                                     </TableView>
                                     <Button layoutX="813.0" layoutY="266.0" minHeight="45.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="303.0" text="Mostar todas las materias">
@@ -680,11 +680,13 @@
                                 <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="368.0" prefWidth="1130.0">
                                   <children>
                                     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="BLACK" height="58.0" layoutX="0.0" layoutY="260.0" stroke="BLACK" strokeType="INSIDE" width="1130.0" />
-                                    <TableView layoutX="0.0" layoutY="0.0" prefHeight="260.0" prefWidth="1130.0">
+                                    <TableView fx:id="tablagrupos" layoutX="0.0" layoutY="0.0" prefHeight="260.0" prefWidth="1130.0">
                                       <columns>
-                                        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="476.0" text="NombreMateria" />
-                                        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="352.0" text="ClaveMateria" />
-                                        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="300.0" text="ClaveProfesor" />
+                                        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="309.0" text="NombreMateria" fx:id="tnombreMateriaG" />
+                                        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="227.0" text="ClaveMateria" fx:id="tclaveMateriaG" />
+                                        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="185.0" text="ClaveProfesor" fx:id="tclaveProfesorG" />
+                                        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="155.0" text="Matricula" fx:id="tmatriculaG" />
+                                        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="253.0" text="Nombre del Alumno" fx:id="tnombreAlumnoG" />
                                       </columns>
                                     </TableView>
                                     <Button layoutX="817.0" layoutY="266.0" minHeight="45.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="285.0" text="Mostar todos los grupos">

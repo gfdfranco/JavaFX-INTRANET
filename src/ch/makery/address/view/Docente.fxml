@@ -150,7 +150,7 @@
                     </AnchorPane>
                   </items>
                 </SplitPane>
-                <Label font="$x1" layoutX="173.0" layoutY="8.0" minHeight="34.0" prefHeight="34.0" prefWidth="142.0" text="Clave Grupo:" textFill="WHITE" />
+                <Label font="$x1" layoutX="173.0" layoutY="8.0" minHeight="34.0" prefHeight="34.0" prefWidth="142.0" text="Clave Materia:" textFill="WHITE" />
                 <TextField fx:id="claveMat" layoutX="331.0" layoutY="8.0" prefHeight="41.0" prefWidth="270.0" />
                 <Button layoutX="624.0" layoutY="2.0" minHeight="41.0" minWidth="67.0" mnemonicParsing="false" onAction="#agregarDatos" prefHeight="49.000099999997474" prefWidth="72.00009999999747" text="" textFill="BLACK">
                   <effect>

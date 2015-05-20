@@ -131,7 +131,36 @@ public class MainAdministrador extends Application implements Bordes {
     @FXML private TableColumn tdireccionA;
     @FXML private TableColumn tcarreraA;
     @FXML private TableColumn temailA;
-    ObservableList<Administradores> alumnos;
+    ObservableList<Alumnos> alumnos;
+    
+    /* Tabla Materias*/
+	@FXML private TableView<Materias> tablaMaterias;
+    @FXML private TableColumn tnombreM;
+    @FXML private TableColumn tclaveM;
+    @FXML private TableColumn tclaveProfesorM;
+    @FXML private TableColumn taulaM;
+    @FXML private TableColumn thoraM;
+    @FXML private TableColumn tcarreraM;
+    ObservableList<Materias> materias;
+    
+    /* Tabla Profesores*/
+	@FXML private TableView<Profesores> tablaProfesores;
+    @FXML private TableColumn tnombreP;
+    @FXML private TableColumn trfcP;
+    @FXML private TableColumn ttelefonoP;
+    @FXML private TableColumn tdireccionP;
+    @FXML private TableColumn tclaveP;
+    @FXML private TableColumn temailP;
+    ObservableList<Profesores> profesores;
+    
+    /* Tabla Grupos*/
+   	   @FXML private TableView<Grupos> tablagrupos;
+       @FXML private TableColumn tclaveMateriaG;
+       @FXML private TableColumn tnombreMateriaG;
+       @FXML private TableColumn tclaveProfesorG;
+       @FXML private TableColumn tmatriculaG;
+       @FXML private TableColumn tnombreAlumnoG;
+       ObservableList<Grupos> grupos;
 
 	
     private Stage primaryStage;
@@ -224,13 +253,113 @@ public class MainAdministrador extends Application implements Bordes {
     	tnombreA.setCellValueFactory(new PropertyValueFactory<Alumnos, String>("tnombreA"));
     	tmatriculaA.setCellValueFactory(new PropertyValueFactory<Alumnos, String>("tmatriculaA"));
     	ttelefonoA.setCellValueFactory(new PropertyValueFactory<Alumnos, String>("ttelefonoA"));
-    	tdireccionA.setCellValueFactory(new PropertyValueFactory<Alumnos, String>("tcarreraA"));
-    	tcarreraA.setCellValueFactory(new PropertyValueFactory<Alumnos, String>("temailA"));
-    	temailA.setCellValueFactory(new PropertyValueFactory<Alumnos, String>("telefono"));
+    	tdireccionA.setCellValueFactory(new PropertyValueFactory<Alumnos, String>("tdireccionA"));
+    	tcarreraA.setCellValueFactory(new PropertyValueFactory<Alumnos, String>("tcarreraA"));
+    	temailA.setCellValueFactory(new PropertyValueFactory<Alumnos, String>("temailA"));
 	    alumnos = FXCollections.observableArrayList();
 	    tablaAlumnos.setItems(alumnos);
 	    
-	    fillTable();
+	    fillTableAlumnos();
+    }
+    @FXML
+    public void fillTableAlumnos(){
+    	DataBaseSQL db = new DataBaseSQL();
+		List<HashMap<String, String>> data1;
+		data1 = db.getAll("ALUMNO");
+		
+		for(int i = 0; i < data1.size(); i++){
+			
+			Alumnos dtA = new Alumnos();
+			
+			dtA.tnombreA.set(data1.get(i).get("NOMBRE"));
+			dtA.tmatriculaA.set(data1.get(i).get("MATRICULA"));
+			dtA.ttelefonoA.set(data1.get(i).get("TEL"));
+			dtA.tdireccionA.set(data1.get(i).get("DIRECCION"));
+			dtA.tcarreraA.set(data1.get(i).get("CARRERA"));
+			dtA.temailA.set(data1.get(i).get("EMAIL"));
+						
+			alumnos.add(dtA);
+		}
+    }
+    public void initTableMaterias(){
+    	tnombreM.setCellValueFactory(new PropertyValueFactory<Materias, String>("tnombreM"));
+    	tclaveM.setCellValueFactory(new PropertyValueFactory<Materias, String>("tclaveM"));
+    	tclaveProfesorM.setCellValueFactory(new PropertyValueFactory<Materias, String>("tclaveProfesorM"));
+    	taulaM.setCellValueFactory(new PropertyValueFactory<Materias, String>("taulaM"));
+    	thoraM.setCellValueFactory(new PropertyValueFactory<Materias, String>("thoraM"));
+    	tcarreraM.setCellValueFactory(new PropertyValueFactory<Materias, String>("tcarreraM"));
+	    materias = FXCollections.observableArrayList();
+	    tablaMaterias.setItems(materias);
+	    
+	    fillTableMaterias();
+    }
+    @FXML
+    public void fillTableMaterias(){
+    	DataBaseSQL db = new DataBaseSQL();
+		List<HashMap<String, String>> data1;
+		data1 = db.getAll("ALUMNO");
+		
+		for(int i = 0; i < data1.size(); i++){
+			
+			Materias dtA = new Materias();
+			
+			dtA.tnombreM.set(data1.get(i).get("NOMBRE"));
+			dtA.tclaveM.set(data1.get(i).get("CLAVE"));
+			dtA.tclaveProfesorM.set(data1.get(i).get("CLAVE_PROFESOR"));
+			dtA.taulaM.set(data1.get(i).get("AULA"));
+			dtA.thoraM.set(data1.get(i).get("HORA"));
+			dtA.tcarreraM.set(data1.get(i).get("CARRERA"));
+						
+			materias.add(dtA);
+		}
+    }
+    public void initTableProfesores(){
+    	tnombreP.setCellValueFactory(new PropertyValueFactory<Profesores, String>("tnombreP"));
+    	trfcP.setCellValueFactory(new PropertyValueFactory<Profesores, String>("trfcP"));
+    	ttelefonoP.setCellValueFactory(new PropertyValueFactory<Profesores, String>("ttelefonoP"));
+    	tdireccionP.setCellValueFactory(new PropertyValueFactory<Profesores, String>("tdireccionP"));
+    	tclaveP.setCellValueFactory(new PropertyValueFactory<Profesores, String>("tclaveP"));
+    	temailP.setCellValueFactory(new PropertyValueFactory<Profesores, String>("temailP"));
+	    profesores = FXCollections.observableArrayList();
+	    tablaProfesores.setItems(profesores);
+	    
+	    fillTableProfesores();
+    }
+    @FXML
+    public void fillTableProfesores(){
+    	DataBaseSQL db = new DataBaseSQL();
+		List<HashMap<String, String>> data1;
+		data1 = db.getAll("PROFESOR");
+		
+		for(int i = 0; i < data1.size(); i++){
+			
+			Profesores dtA = new Profesores();
+			
+			dtA.tnombreP.set(data1.get(i).get("NOMBRE"));
+			dtA.trfcP.set(data1.get(i).get("RFC"));
+			dtA.ttelefonoP.set(data1.get(i).get("TEL"));
+			dtA.tdireccionP.set(data1.get(i).get("DIRECCION"));
+			dtA.tclaveP.set(data1.get(i).get("CLAVE"));
+			dtA.temailP.set(data1.get(i).get("EMAIL"));
+						
+			profesores.add(dtA);
+		}
+    }
+    
+    public void initTableGrupos(){
+    	tclaveMateriaG.setCellValueFactory(new PropertyValueFactory<Grupos, String>("tclaveMateriaG"));
+    	tnombreMateriaG.setCellValueFactory(new PropertyValueFactory<Grupos, String>("tnombreMateriaG"));
+    	tclaveProfesorG.setCellValueFactory(new PropertyValueFactory<Grupos, String>("tclaveProfesorG"));
+    	tmatriculaG.setCellValueFactory(new PropertyValueFactory<Grupos, String>("tmatriculaG"));
+    	tnombreAlumnoG.setCellValueFactory(new PropertyValueFactory<Grupos, String>("tnombreAlumnoG"));
+	    grupos = FXCollections.observableArrayList();
+	    tablagrupos.setItems(grupos);
+	    
+	    fillTableGrupos();
+    }
+    @FXML
+    public void fillTableGrupos(){
+    	//CODIGO AQUI AGUS
     }
     public void sendPrfsr(){
     	
