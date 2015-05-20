@@ -136,7 +136,8 @@ public class MainProfesor extends Application implements Initializable {
     	HashMap<String, String> data;
     	data = db.fetchArray("PROFESOR", "CLAVE", claveProfesor);
 
-    
+    	bnomP.setText(data.get("NOMBRE"));
+    	bclaveP.setText(data.get("CLAVE"));
     	brfcP.setText(data.get("RFC"));
     	bdirP.setText(data.get("DIRECCION"));
     	btelP.setText(data.get("TEL"));
@@ -175,6 +176,20 @@ public class MainProfesor extends Application implements Initializable {
     	Calificaciones calificacion = new Calificaciones();
     	calificacion.alumno.set(txtnombreAlumno.getText());
     	calificacion.matricula.set(txtmatricula.getText());
+    	
+    	if(!Validaciones.isGrade((txtparcial1.getText())))
+    		return;
+    	if(!Validaciones.isGrade((txtparcial2.getText())))
+    		return;
+    	if(!Validaciones.isGrade((txtparcial3.getText())))
+    		return;
+    	if(!Validaciones.isGrade((txtparcialFinal.getText())))
+    		return;
+    	if(!Validaciones.isGrade((txtextra.getText())))
+    		return;
+    	if(!Validaciones.isCorrectSize(txtfaltas.getText(), 2, "Inasistencias"))
+    		return;
+    	
     	calificacion.parcial1.set(txtparcial1.getText());
     	calificacion.parcial2.set(txtparcial2.getText());
     	calificacion.parcial3.set(txtparcial3.getText());
@@ -282,8 +297,10 @@ public class MainProfesor extends Application implements Initializable {
     		String q = "UPDATE calificaciones set CAL1 = " + cals[1] + ", CAL2 = " + cals[2];
     		q += ", CAL3 = " + cals[3] + ", FINAL = " + cals[4] + ", EXTRA = " + cals[5];
     		q += ", INASISTENCIAS = " + cals[6] + " WHERE MATRICULA_ALUM = " + cals[0];
-    		q += " AND CLAVE_MAT = " + claveMateria;
-    		db.free(q);
+    		q += " AND CLAVE_MATERIA = " + claveMateria;
+    		if(!db.free(q)){
+    			error("Error al modificar los datos");
+    		}
     	}
     }
     

@@ -14,7 +14,7 @@ public class Grupos {
 	public String getTclaveMateriaG(){
 		return tclaveMateriaG.get();
 	}
-	public String getclaveMateriaG(){
+	public String getTnombreMateriaG(){
 		return tnombreMateriaG.get();
 	}
 	public String getTclaveProfesorG(){
