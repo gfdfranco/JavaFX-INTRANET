@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+  <!-- TODO Add Nodes -->
+  <children>
+    <Label layoutX="14.0" layoutY="14.0" text="INTRANET-UPSLP" textFill="#606060">
+      <font>
+        <Font name="AR DESTINE" size="50.0" />
+      </font>
+    </Label>
+    <Label layoutX="22.0" layoutY="74.0" text="Bienvenido profesor" textFill="BLACK">
+      <font>
+        <Font name="AR DESTINE" size="30.0" fx:id="x6" />
+      </font>
+    </Label>
+    <TabPane layoutX="22.0" layoutY="119.0" prefHeight="352.0" prefWidth="549.9998779296875" tabClosingPolicy="UNAVAILABLE">
+      <tabs>
+        <Tab text="Ingresar Calificaciones">
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <children>
+                <AnchorPane id="AnchorPane" layoutX="42.0" layoutY="14.0" prefHeight="268.0">
+                  <children>
+                    <Label layoutX="0.0" layoutY="0.0" prefHeight="48.0" prefWidth="160.0" text="Clave Materia">
+                      <font>
+                        <Font name="AR CENA" size="30.0" fx:id="x1" />
+                      </font>
+                    </Label>
+                    <Label font="$x1" layoutX="0.0" layoutY="50.0" prefWidth="188.0" text="Matrícula Alumno" />
+                    <Label font="$x1" layoutX="0.0" layoutY="112.0" prefHeight="27.0" prefWidth="143.0" text="N° de parcial" />
+                    <Label font="$x1" layoutX="0.0" layoutY="160.0" prefHeight="41.0" prefWidth="129.0" text="Calificación" />
+                    <Button layoutX="26.0" layoutY="219.0" mnemonicParsing="false" prefHeight="47.9998779296875" prefWidth="205.0" text="Registrar Calificación">
+                      <effect>
+                        <Lighting diffuseConstant="1.9047619047619047" specularConstant="0.28412698412698423" specularExponent="16.825396825396826" surfaceScale="6.023809523809524" fx:id="x3">
+                          <bumpInput>
+                            <Shadow />
+                          </bumpInput>
+                          <light>
+                            <javafx.scene.effect.Light.Distant color="#ff7a00" />
+                          </light>
+                        </Lighting>
+                      </effect>
+                      <textFill>
+                        <Color blue="1.000" green="0.160" red="0.000" fx:id="x2" />
+                      </textFill>
+                    </Button>
+                    <TextField layoutX="215.0" layoutY="3.0" prefHeight="41.0" prefWidth="252.0" />
+                    <TextField layoutX="216.0" layoutY="54.0" prefHeight="41.0" prefWidth="251.0" />
+                    <TextField layoutX="215.0" layoutY="160.0" prefHeight="41.0" prefWidth="251.0" />
+                    <SplitMenuButton layoutX="216.0" layoutY="112.0" mnemonicParsing="false" prefWidth="221.0" text="Primer Parcial">
+                      <effect>
+                        <InnerShadow color="$x2" />
+                      </effect>
+                      <items>
+                        <MenuItem mnemonicParsing="false" text="Segundo Parcial" />
+                        <MenuItem mnemonicParsing="false" text="Tercer Parcial" />
+                        <MenuItem mnemonicParsing="false" text="Parcial Final" />
+                      </items>
+                    </SplitMenuButton>
+                    <Button effect="$x3" layoutX="261.0" layoutY="219.0" mnemonicParsing="false" prefHeight="47.9998779296875" prefWidth="205.0" text="Modificar Calificación" textFill="$x2" />
+                  </children>
+                </AnchorPane>
+              </children>
+            </AnchorPane>
+          </content>
+        </Tab>
+        <Tab text="Ingresar faltas">
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <children>
+                <AnchorPane id="AnchorPane" layoutX="42.0" layoutY="18.0" prefHeight="268.0">
+                  <children>
+                    <Label font="$x1" layoutX="0.0" layoutY="0.0" prefHeight="48.0" prefWidth="160.0" text="Clave Materia" />
+                    <Label font="$x1" layoutX="0.0" layoutY="50.0" prefWidth="188.0" text="Matrícula Alumno" />
+                    <Label font="$x1" layoutX="0.0" layoutY="112.0" prefHeight="27.0" prefWidth="143.0" text="N° de parcial" />
+                    <Label font="$x1" layoutX="0.0" layoutY="160.0" prefHeight="41.0" prefWidth="129.0" text="N° de Faltas" />
+                    <Button layoutX="26.0" layoutY="219.0" mnemonicParsing="false" prefHeight="47.9998779296875" prefWidth="205.0" text="Registrar Faltas" textFill="$x2">
+                      <effect>
+                        <Lighting diffuseConstant="1.9047619047619047" specularConstant="0.28412698412698423" specularExponent="16.825396825396826" surfaceScale="6.023809523809524" fx:id="x4">
+                          <bumpInput>
+                            <Shadow />
+                          </bumpInput>
+                          <light>
+                            <javafx.scene.effect.Light.Distant color="#ff7a00" />
+                          </light>
+                        </Lighting>
+                      </effect>
+                    </Button>
+                    <TextField layoutX="215.0" layoutY="3.0" prefHeight="41.0" prefWidth="252.0" />
+                    <TextField layoutX="216.0" layoutY="54.0" prefHeight="41.0" prefWidth="251.0" />
+                    <TextField layoutX="215.0" layoutY="160.0" prefHeight="41.0" prefWidth="251.0" />
+                    <SplitMenuButton layoutX="216.0" layoutY="112.0" mnemonicParsing="false" prefWidth="221.0" text="Primer Parcial">
+                      <effect>
+                        <InnerShadow color="$x2" />
+                      </effect>
+                      <items>
+                        <MenuItem mnemonicParsing="false" text="Segundo Parcial" />
+                        <MenuItem mnemonicParsing="false" text="Tercer Parcial" />
+                        <MenuItem mnemonicParsing="false" text="Parcial Final" />
+                      </items>
+                    </SplitMenuButton>
+                    <Button effect="$x4" layoutX="261.0" layoutY="219.0" mnemonicParsing="false" prefHeight="47.9998779296875" prefWidth="205.0" text="Modificar Faltas" textFill="$x2" />
+                  </children>
+                </AnchorPane>
+              </children>
+            </AnchorPane>
+          </content>
+        </Tab>
+        <Tab text="Ver información">
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <children>
+                <Label font="$x1" layoutX="20.0" layoutY="23.0" prefHeight="48.0" prefWidth="234.9998779296875" text="Nombre de profesor:" />
+                <Label font="$x1" layoutX="20.0" layoutY="73.0" prefHeight="48.0" prefWidth="89.0" text="RFC:" />
+                <Label font="$x1" layoutX="14.0" layoutY="175.0" prefHeight="48.0" prefWidth="143.0" text="N° Clases:" />
+                <Label font="$x1" layoutX="14.0" layoutY="223.0" prefHeight="48.0" prefWidth="191.0" text="Sueldo quincenal:" />
+                <Label font="$x1" layoutX="16.0" layoutY="125.0" prefHeight="48.0" prefWidth="170.0" text="N° de teléfono:" />
+                <Label layoutX="246.0" layoutY="31.0" prefHeight="37.0" prefWidth="75.0" text="Label">
+                  <font>
+                    <Font name="AR BLANCA" size="23.0" fx:id="x5" />
+                  </font>
+                </Label>
+                <Label font="$x5" layoutX="82.0" layoutY="79.0" prefHeight="37.0" prefWidth="75.0" text="Label" />
+                <Label font="$x5" layoutX="186.0" layoutY="131.0" prefHeight="37.0" prefWidth="75.0" text="Label" />
+                <Label font="$x5" layoutX="130.0" layoutY="182.0" prefHeight="37.0" prefWidth="75.0" text="Label" />
+                <Label font="$x5" layoutX="200.0" layoutY="230.0" prefHeight="37.0" prefWidth="75.0" text="Label" />
+              </children>
+            </AnchorPane>
+          </content>
+        </Tab>
+      </tabs>
+    </TabPane>
+    <ImageView id="UPSLP-logo.jpg" fitHeight="107.0" fitWidth="235.0" layoutX="351.0" layoutY="479.0">
+      <image>
+        <Image url="@../../../../../images/UPSLP-logo.jpg" preserveRatio="true" smooth="true" />
+      </image>
+    </ImageView>
+    <Button font="$x6" layoutX="61.0" layoutY="517.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="143.0" text="Salir" textFill="BLACK">
+      <effect>
+        <Lighting diffuseConstant="2.0" specularConstant="0.5063492063492063" surfaceScale="6.738095238095239">
+          <bumpInput>
+            <Shadow />
+          </bumpInput>
+          <light>
+            <javafx.scene.effect.Light.Distant color="#ff3333" />
+          </light>
+        </Lighting>
+      </effect>
+    </Button>
+  </children>
+</AnchorPane>
